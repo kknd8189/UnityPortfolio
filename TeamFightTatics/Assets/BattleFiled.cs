@@ -4,5 +4,4 @@ using UnityEngine;
 
 public class BattleFiled : Tile
 {
-    public int index;
 }
