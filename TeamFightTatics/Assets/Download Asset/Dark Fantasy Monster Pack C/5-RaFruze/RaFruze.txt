@@ -1,0 +1,24 @@
+              ▶ >>JJ Studio <<◀
+
+
+Monster Pack optimized for Mobile RPG implementations!
+
+Dark Fantasy Monster Pack C-5 【Ra Fruze】
+
+   Verts: 1723
+   Tris: 2205
+   Texture: 512 X 512 X 1 (4 types of texture)
+
+Animations (x15) :
+idle, run, attack, skill01_1, skill01_2, skill01_3, skill01, skill02, skill03,
+skill04, stun, pskill, hit01, hit02, die
+
+
+
+
+Thank you for your purchase!
+If you have any questions mail me at 2018studiojj@gmail.com
+
+
+▼Check out our other Assets▼
+https://assetstore.unity.com/publishers/38479

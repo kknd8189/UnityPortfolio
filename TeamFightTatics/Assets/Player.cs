@@ -13,7 +13,6 @@ public class Player : Entity
     public int currentExp;
     public int gold;
 
-
     //    레벨 필요 경험치
     //Lv.1  Lv.2	-
     //Lv.2  Lv.3	2 XP
@@ -32,20 +31,16 @@ public class Player : Entity
         level = 1;
         maxExp = 2;
         gold = 0;
-
     }
-
     private void Update()
     {
         earnGold();
         textUpdate();
         levelToExp();
     }
-
     private void earnGold()
     {
         int interest;
-
         interest = Mathf.FloorToInt(gold / 10);
         if (interest >= 5) interest = 5;
 
@@ -55,10 +50,8 @@ public class Player : Entity
             if(level != 9) currentExp += 2;
         }
     }
-
     private void textUpdate()
-    {
-        
+    {       
         if (level == 9) EXPtm.text = "MAX";
         else EXPtm.text = currentExp.ToString() + "/" + maxExp.ToString();
 
@@ -66,10 +59,8 @@ public class Player : Entity
         Goldtm.text = gold.ToString();
         Leveltm.text = "Level " + level.ToString();
     }
-
     private void levelToExp()
     {
-
         if (currentExp >= maxExp)
         {
          
@@ -99,7 +90,6 @@ public class Player : Entity
                     maxExp = 80;
                     break;
             }
-
             level += 1;
         }
     }

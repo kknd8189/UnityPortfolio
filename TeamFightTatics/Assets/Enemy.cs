@@ -5,14 +5,12 @@ using TMPro;
 
 public class Enemy : Entity
 {
-    public GameObject HP;
-    private TextMeshProUGUI HPtm;
+    public TextMeshProUGUI HPtm;
 
     private void Start()
     {
         maxHP = 100;
         currentHP = maxHP;
-        HPtm = HP.GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()

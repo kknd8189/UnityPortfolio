@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameState = GAMESTATE.StanBy;
-
         Turn = 1;
         IsOver = false;
         NextTurnTime = 0f;
