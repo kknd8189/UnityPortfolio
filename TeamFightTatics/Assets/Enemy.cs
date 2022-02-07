@@ -15,6 +15,5 @@ public class Enemy : Entity
 
     private void Update()
     {
-        HPtm.text = currentHP.ToString();
     }
 }

@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         IsOver = false;
         NextTurnTime = 0f;
         WaitingTime = 30f;
+        TurnText.text = "Turn " + Turn.ToString();
     }
 
     private void Update()
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case GAMESTATE.Battle:
                     Turn += 1;
+                    TurnText.text = "Turn " + Turn.ToString();
                     GameState = GAMESTATE.StanBy;
                     break;
             }
@@ -73,7 +75,6 @@ public class GameManager : MonoBehaviour
             NextTurnTime = 0;
         }
 
-        TurnText.text = "Turn " + Turn.ToString();
-        RestTimeText.text = "RestTime " + ((int)(WaitingTime - NextTurnTime)).ToString();
+        RestTimeText.text = ((int)(WaitingTime - NextTurnTime)).ToString();
     }
 }
