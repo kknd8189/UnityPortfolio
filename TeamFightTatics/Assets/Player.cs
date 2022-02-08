@@ -30,7 +30,7 @@ public class Player : Entity
         currentExp = 0;
         level = 1;
         maxExp = 2;
-        gold = 0;
+        gold = 2;
         Goldtm.text = gold.ToString();
         Leveltm.text = "Level " + level.ToString();
         EXPtm.text = currentExp.ToString() + "/" + maxExp.ToString();
@@ -54,15 +54,17 @@ public class Player : Entity
 
         }
     }
-
+    public void MinusGold()
+    {
+        gold -= 2;
+        Goldtm.text = gold.ToString();
+    }
     private void levelToExp()
     {
         if (currentExp >= maxExp)
         {
-         
             currentExp =  currentExp - maxExp;
             Leveltm.text = "Level " + level.ToString();
-
             switch (level)
             {
                 case 1:
@@ -90,8 +92,11 @@ public class Player : Entity
 
             level += 1;
 
+            EXPtm.text = currentExp.ToString() + "/" + maxExp.ToString();
+
         }
     }
+
     public void BuyExp()
     {
         if(gold >= 4 && level <= 8) 
@@ -99,10 +104,12 @@ public class Player : Entity
             currentExp += 4;
             gold -= 4;
             Goldtm.text = gold.ToString();
+      
+            EXPtm.text = currentExp.ToString() + "/" + maxExp.ToString();
+
+            Leveltm.text = "Level " + level.ToString();
 
             if (level == 9) EXPtm.text = "MAX";
-            else EXPtm.text = currentExp.ToString() + "/" + maxExp.ToString();
-            Leveltm.text = "Level " + level.ToString();
         }
     }
 }

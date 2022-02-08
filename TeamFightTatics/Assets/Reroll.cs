@@ -2,19 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum characterName
-{
-
-}
 public class Reroll : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
-        
+        RerollFunction();
     }
 
-    void Update()
+    public void RerollFunction()
     {
-        
+        for (int i = 0; i < 5; i++)
+        {
+        }
     }
 }
