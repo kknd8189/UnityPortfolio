@@ -16,10 +16,10 @@ MonoBehaviour:
   SynergyNum: 0
   CharacterPrefab: {fileID: 0}
   CardPrefab: {fileID: 3116885294589100871, guid: cbe1812fe49424645a20d124a56f30be, type: 3}
-  MaxHP: 0
-  Power: 0
-  AttackRange: 0
-  AttackDelay: 0
-  MaxMP: 0
-  DefaultMP: 0
-  Cost: 0
+  MaxHP: 40
+  Power: 10
+  AttackRange: 5
+  AttackDelay: 5
+  MaxMP: 20
+  DefaultMP: 10
+  Cost: 1

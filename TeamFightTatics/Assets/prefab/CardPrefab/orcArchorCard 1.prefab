@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 269622252889167143}
   - component: {fileID: 1021079613482296710}
   - component: {fileID: 5579986670682810932}
+  - component: {fileID: 6478446056877510014}
   m_Layer: 5
   m_Name: orcArchorCard 1
   m_TagString: Untagged
@@ -212,3 +213,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6478446056877510014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116885294589100871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b30de82ba7008145b2e4790baa5cf2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

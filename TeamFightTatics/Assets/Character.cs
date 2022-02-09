@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Character : Entity , IAttack , ISkill
 {
-    protected int MP;
+    public int CharacterNum;
+    public int maxMP;
+    public int defaultMP;
+    public int attackRange;
+    public int power;
+    public int attackDelay;
+    public int cost;
 
     public virtual void Attack() { }
     public virtual void Skill() { }
-
 }

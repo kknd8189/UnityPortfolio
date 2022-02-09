@@ -30,7 +30,7 @@ public class Player : Entity
         currentExp = 0;
         level = 1;
         maxExp = 2;
-        gold = 2;
+        gold = 10;
         Goldtm.text = gold.ToString();
         Leveltm.text = "Level " + level.ToString();
         EXPtm.text = currentExp.ToString() + "/" + maxExp.ToString();
@@ -38,7 +38,7 @@ public class Player : Entity
     private void Update()
     {
         earnGold();
-        levelToExp();
+        expForLevelup();
     }
     private void earnGold()
     {
@@ -54,12 +54,12 @@ public class Player : Entity
 
         }
     }
-    public void MinusGold()
+    public void DeductGold()
     {
         gold -= 2;
         Goldtm.text = gold.ToString();
     }
-    private void levelToExp()
+    private void expForLevelup()
     {
         if (currentExp >= maxExp)
         {
@@ -96,7 +96,6 @@ public class Player : Entity
 
         }
     }
-
     public void BuyExp()
     {
         if(gold >= 4 && level <= 8) 

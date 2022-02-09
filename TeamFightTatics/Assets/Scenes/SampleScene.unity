@@ -797,9 +797,9 @@ MonoBehaviour:
   CharacterDataList:
   - {fileID: 11400000, guid: aa1f4f498476c724793e185120b8135e, type: 2}
   - {fileID: 11400000, guid: 039f86d77b8595040b5c019a11ab01d8, type: 2}
+  OnPanelList: []
   cardPanel: {fileID: 629717111}
   playerObject: {fileID: 1849421010}
-  player: {fileID: 1849421010}
 --- !u!4 &355609425
 Transform:
   m_ObjectHideFlags: 0
@@ -2858,7 +2858,7 @@ MonoBehaviour:
   level: 0
   maxExp: 0
   currentExp: 0
-  gold: 2
+  gold: 0
 --- !u!135 &1849421012
 SphereCollider:
   m_ObjectHideFlags: 0

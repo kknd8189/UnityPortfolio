@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
                     Turn += 1;
                     TurnText.text = "Turn " + Turn.ToString();
                     GameState = GAMESTATE.StanBy;
+                    PoolManager.Instance.freeReroll();
                     break;
             }
 

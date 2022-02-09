@@ -19,28 +19,39 @@ public class PoolManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+
+
     }
     #endregion
 
     [SerializeField]
     private List<CharacterSciptableObject> CharacterDataList;
 
-
+    [SerializeField]
     private List<GameObject> OnPanelList = new List<GameObject>();
 
-    private Queue<GameObject> orcArchorCardQueue = new Queue<GameObject>();
-    private Queue<GameObject> skeletonArchorCardQueue = new Queue<GameObject>();
+    public Queue<GameObject>[] CardQueue = new Queue<GameObject>[2];
+    public Queue<GameObject>[] CharacterQueue = new Queue<GameObject>[2];
 
     public Transform cardPanel;
 
     public GameObject playerObject;
-    public Player player;
 
+    private Player player;
 
     private void Start()
     {
-        init(20);
+
+        for (int i = 0; i < CardQueue.Length; ++i)
+        {
+            CardQueue[i] = new Queue<GameObject>();
+            CharacterQueue[i] = new Queue<GameObject>(); 
+        }
+
+        init(10);
+
         player = playerObject.GetComponent<Player>();
+
         freeReroll();
     }
 
@@ -48,65 +59,38 @@ public class PoolManager : MonoBehaviour
     {
         for (int i = 0; i < Amount; i++)
         {
-            GameObject cardPrefab = Instantiate(CharacterDataList[0].CardPrefab, transform);
-            cardPrefab.SetActive(false);
-            orcArchorCardQueue.Enqueue(cardPrefab);
-        }
-
-        for (int i = 0; i < Amount; i++)
-        {
-            GameObject cardPrefab = Instantiate(CharacterDataList[1].CardPrefab, transform);
-            cardPrefab.SetActive(false);
-            skeletonArchorCardQueue.Enqueue(cardPrefab);
-        }
-    }
-
-    public void Reroll()
-    {
-        if (player.gold >= 2)
-        {
-            eraseCard();
-
-            player.MinusGold();
-
-            for (int i = 0; i < 5; i++)
+            for (int j = 0; j < CharacterDataList.Count; j++)
             {
-                int rand = Random.Range(0, CharacterDataList.Count);
-
-                switch (rand)
-                {
-                    case 0:
-                        setCard(orcArchorCardQueue.Dequeue());
-                        break;
-
-                    case 1:
-                        setCard(skeletonArchorCardQueue.Dequeue());
-                        break;
-                }
-
+                setCardStatus(j);
             }
         }
     }
-    public void freeReroll()
+
+    private void RerollHelper()
     {
         eraseCard();
 
         for (int i = 0; i < 5; i++)
         {
-            int rand = Random.Range(0, CharacterDataList.Count);
-
-            switch (rand)
-            {
-                case 0:
-                    setCard(orcArchorCardQueue.Dequeue());
-                    break;
-
-                case 1:
-                    setCard(skeletonArchorCardQueue.Dequeue());
-                    break;
-            }
+            int randomIndex = Random.Range(0, CharacterDataList.Count);
+            GameObject randomCard = CardQueue[randomIndex].Dequeue();
+            setCard(randomCard);
         }
     }
+    public void Reroll()
+    {
+        if (player.gold >= 2)
+        {
+            RerollHelper();
+            player.DeductGold();
+        }
+    }
+
+    public void freeReroll()
+    {
+        RerollHelper();
+    }
+
 
     private void setCard(GameObject card)
     {
@@ -118,10 +102,37 @@ public class PoolManager : MonoBehaviour
     private void eraseCard()
     {
         for (int i = 0; i < OnPanelList.Count; i++)
-        {
-            OnPanelList[i].SetActive(false);
+        {       
             OnPanelList[i].transform.SetParent(transform);
+            CardQueue[OnPanelList[i].GetComponent<Character>().CharacterNum].Enqueue(OnPanelList[i]);
+            OnPanelList[i].SetActive(false);   
         }
+
+        OnPanelList.Clear();
+    }
+
+    private void setCardStatus(int CharacterListIndex)
+    {
+        GameObject cardPrefab = Instantiate(CharacterDataList[CharacterListIndex].CardPrefab, transform);
+        Character character = cardPrefab.GetComponent<Character>();
+        character.CharacterNum = CharacterDataList[CharacterListIndex].CharacterNum;
+        cardPrefab.SetActive(false);
+        CardQueue[CharacterListIndex].Enqueue(cardPrefab);
+    }
+
+    private void setCharacterStatus(int CharacterListIndex)
+    {
+        GameObject characterPrefab = Instantiate(CharacterDataList[CharacterListIndex].CardPrefab, transform);
+        Character character = characterPrefab.GetComponent<Character>();
+        character.CharacterNum = CharacterDataList[CharacterListIndex].CharacterNum;
+        character.maxHP = CharacterDataList[CharacterListIndex].MaxHP;
+        character.currentHP = character.maxHP;
+        character.maxMP = CharacterDataList[CharacterListIndex].MaxMP;
+        character.defaultMP = CharacterDataList[CharacterListIndex].DefaultMP;
+        character.attackRange = CharacterDataList[CharacterListIndex].AttackRange;
+        character.attackDelay = CharacterDataList[CharacterListIndex].AttackDelay;
+        characterPrefab.SetActive(false);
+        CharacterQueue[CharacterListIndex].Enqueue(characterPrefab);
     }
 }
 
