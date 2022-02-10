@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public enum GAMESTATE
 {
@@ -23,19 +24,16 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
     }
     #endregion
 
+    public UnityEvent<int> OnTimeChanged = new UnityEvent<int>();
     public int Turn;
     public bool IsOver;
     public float NextTurnTime;
     public float WaitingTime;
     public GAMESTATE GameState;
 
-
-    public TextMeshProUGUI RestTimeText;
     public TextMeshProUGUI TurnText;
 
     private void Start()
@@ -51,6 +49,8 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         NextTurnTime += Time.deltaTime;
+
+        OnTimeChanged?.Invoke((int)NextTurnTime);
 
         if (IsOver)
         {
@@ -75,7 +75,5 @@ public class GameManager : MonoBehaviour
             IsOver = true;
             NextTurnTime = 0;
         }
-
-        RestTimeText.text = ((int)(WaitingTime - NextTurnTime)).ToString();
     }
 }

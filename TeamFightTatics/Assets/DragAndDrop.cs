@@ -18,12 +18,14 @@ public class DragAndDrop : MonoBehaviour
         Vector3 curScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z);
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenSpace) + offset;
 
+        curPosition.y = 0;
+
         transform.position = curPosition;
         FinalPosition = curPosition;
     }
 
     private void OnMouseUp()
     {
-        transform.position = FinalPosition;
+        transform.position = new Vector3(FinalPosition.x, 0, FinalPosition.z);
     }
 }

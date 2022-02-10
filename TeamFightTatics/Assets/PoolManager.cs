@@ -17,10 +17,6 @@ public class PoolManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
-
-
     }
     #endregion
 
@@ -35,13 +31,10 @@ public class PoolManager : MonoBehaviour
 
     public Transform cardPanel;
 
-    public GameObject playerObject;
-
-    private Player player;
+    public Player Player;
 
     private void Start()
     {
-
         for (int i = 0; i < CardQueue.Length; ++i)
         {
             CardQueue[i] = new Queue<GameObject>();
@@ -49,8 +42,6 @@ public class PoolManager : MonoBehaviour
         }
 
         init(10);
-
-        player = playerObject.GetComponent<Player>();
 
         freeReroll();
     }
@@ -62,6 +53,7 @@ public class PoolManager : MonoBehaviour
             for (int j = 0; j < CharacterDataList.Count; j++)
             {
                 setCardStatus(j);
+                setCharacterStatus(j);
             }
         }
     }
@@ -79,10 +71,10 @@ public class PoolManager : MonoBehaviour
     }
     public void Reroll()
     {
-        if (player.gold >= 2)
+        if (Player.Gold >= 2)
         {
             RerollHelper();
-            player.DeductGold();
+            Player.Gold -= 2;
         }
     }
 
@@ -90,7 +82,6 @@ public class PoolManager : MonoBehaviour
     {
         RerollHelper();
     }
-
 
     private void setCard(GameObject card)
     {
@@ -120,19 +111,31 @@ public class PoolManager : MonoBehaviour
         CardQueue[CharacterListIndex].Enqueue(cardPrefab);
     }
 
-    private void setCharacterStatus(int CharacterListIndex)
+    public void setCharacterStatus(int CharacterListIndex)
     {
-        GameObject characterPrefab = Instantiate(CharacterDataList[CharacterListIndex].CardPrefab, transform);
+        GameObject characterPrefab = Instantiate(CharacterDataList[CharacterListIndex].CharacterPrefab,transform);
         Character character = characterPrefab.GetComponent<Character>();
         character.CharacterNum = CharacterDataList[CharacterListIndex].CharacterNum;
-        character.maxHP = CharacterDataList[CharacterListIndex].MaxHP;
-        character.currentHP = character.maxHP;
+        character.MaxHp = CharacterDataList[CharacterListIndex].MaxHP;
+        character.CurrentHp = character.MaxHp;
         character.maxMP = CharacterDataList[CharacterListIndex].MaxMP;
         character.defaultMP = CharacterDataList[CharacterListIndex].DefaultMP;
         character.attackRange = CharacterDataList[CharacterListIndex].AttackRange;
         character.attackDelay = CharacterDataList[CharacterListIndex].AttackDelay;
+        character.cost = CharacterDataList[CharacterListIndex].Cost;
         characterPrefab.SetActive(false);
         CharacterQueue[CharacterListIndex].Enqueue(characterPrefab);
+    }
+
+    public void SummonHelper(int characterNum)
+    {
+        GameObject characterPrefab;
+        characterPrefab = CharacterQueue[characterNum].Dequeue();
+        Character character = characterPrefab.GetComponent<Character>();
+        characterPrefab.SetActive(true);
+        characterPrefab.transform.SetParent(null);
+        characterPrefab.transform.position = new Vector3(0, 0, 0);
+        Player.Gold -= character.cost;
     }
 }
 

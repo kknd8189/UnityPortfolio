@@ -5,7 +5,6 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     protected int index;
-
     public void setTileIndex(int value) { index = value; } 
 
 }

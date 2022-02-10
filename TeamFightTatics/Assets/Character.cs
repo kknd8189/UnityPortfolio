@@ -14,4 +14,8 @@ public class Character : Entity , IAttack , ISkill
 
     public virtual void Attack() { }
     public virtual void Skill() { }
+    public void Summon()
+    {
+        PoolManager.Instance.SummonHelper(CharacterNum);
+    }
 }

@@ -1,17 +1,52 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : Entity
 {
-    public TextMeshProUGUI EXPtm;
-    public TextMeshProUGUI HPtm;
-    public TextMeshProUGUI Leveltm;
-    public TextMeshProUGUI Goldtm;
+    public UnityEvent<int> OnGoldChanged = new UnityEvent<int>();
+    public UnityEvent<int> CurrentExpChanged = new UnityEvent<int>();
 
-    public int level;
-    public int maxExp;
-    public int currentExp;
-    public int gold;
+    public int Level 
+    {
+        get
+        {
+            return _level;
+        }
+
+        set
+        {
+            _level = value;
+        }
+    }
+    private int _level = 1;
+
+    public int MaxExp
+    {
+        get { return _maxExp; }
+        set { _maxExp = value; }
+    }
+    private int _maxExp = 2;
+    public int CurrentExp
+    {
+        get { return _currentExp; }
+        set
+        {
+            _currentExp = value;
+            CurrentExpChanged?.Invoke(_currentExp);
+        }
+    }
+    private int _currentExp = 0;
+    public int Gold
+    {
+        get { return _gold; }
+        set
+        {
+            _gold = value;
+            // Null이 될 일이 없다면 Null 체크 안해도 됨
+            OnGoldChanged?.Invoke(_gold);
+        }
+    }
+    private int _gold = 10;
 
     //    레벨 필요 경험치
     //Lv.1  Lv.2	-
@@ -25,90 +60,67 @@ public class Player : Entity
 
     private void Start()
     {
-        maxHP = 100;
-        currentHP = maxHP;
-        currentExp = 0;
-        level = 1;
-        maxExp = 2;
-        gold = 10;
-        Goldtm.text = gold.ToString();
-        Leveltm.text = "Level " + level.ToString();
-        EXPtm.text = currentExp.ToString() + "/" + maxExp.ToString();
+        _maxHp = 100;
+        _currentHp = _maxHp;
     }
     private void Update()
     {
         earnGold();
-        expForLevelup();
     }
     private void earnGold()
     {
         int interest;
-        interest = Mathf.FloorToInt(gold / 10);
+        interest = Mathf.FloorToInt(_gold / 10);
+
         if (interest >= 5) interest = 5;
 
         if (GameManager.Instance.IsOver && GameManager.Instance.GameState == GAMESTATE.Battle)
         {
-            gold += 4 + interest;
-            if(level != 9) currentExp += 2;
-            Goldtm.text = gold.ToString();
-
+            Gold += 4 + interest;
+            if(Level != 9) CurrentExp += 2;
         }
     }
-    public void DeductGold()
+
+    public void BuyExp()
     {
-        gold -= 2;
-        Goldtm.text = gold.ToString();
-    }
-    private void expForLevelup()
-    {
-        if (currentExp >= maxExp)
+        if(Gold >= 4 && Level <= 8) 
         {
-            currentExp =  currentExp - maxExp;
-            Leveltm.text = "Level " + level.ToString();
-            switch (level)
+            CurrentExp += 4;
+            Gold -= 4;   
+        }
+
+        if (CurrentExp >= MaxExp)
+        {
+            CurrentExp = CurrentExp - MaxExp;
+
+            Level += 1;
+
+            switch (Level)
             {
                 case 1:
-                    maxExp = 2;
+                    MaxExp = 2;
                     break;
                 case 2:
-                    maxExp = 6;
+                    MaxExp = 6;
                     break;
                 case 3:
-                    maxExp = 10;
+                    MaxExp = 10;
                     break;
                 case 4:
-                    maxExp = 20;
+                    MaxExp = 20;
                     break;
                 case 5:
-                    maxExp = 36;
+                    MaxExp = 36;
                     break;
                 case 6:
-                    maxExp = 56;
+                    MaxExp = 56;
                     break;
                 case 7:
-                    maxExp = 80;
+                    MaxExp = 80;
                     break;
             }
 
-            level += 1;
-
-            EXPtm.text = currentExp.ToString() + "/" + maxExp.ToString();
-
-        }
-    }
-    public void BuyExp()
-    {
-        if(gold >= 4 && level <= 8) 
-        {
-            currentExp += 4;
-            gold -= 4;
-            Goldtm.text = gold.ToString();
-      
-            EXPtm.text = currentExp.ToString() + "/" + maxExp.ToString();
-
-            Leveltm.text = "Level " + level.ToString();
-
-            if (level == 9) EXPtm.text = "MAX";
+            CurrentExp = CurrentExp;
         }
     }
 }

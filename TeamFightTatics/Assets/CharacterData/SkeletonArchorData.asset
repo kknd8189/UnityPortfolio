@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterNum: 1
   SynergyNum: 0
-  CharacterPrefab: {fileID: 0}
+  CharacterPrefab: {fileID: 3869442567412336123, guid: 5065df4a7fe8a61419e55e24a8b1a37a, type: 3}
   CardPrefab: {fileID: 3116885294589100871, guid: 3116df17006a4cb4a86f07dd150016d1, type: 3}
   MaxHP: 40
   Power: 10
