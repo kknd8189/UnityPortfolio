@@ -11,6 +11,7 @@ public class Character : Entity , IAttack , ISkill
     public int power;
     public int attackDelay;
     public int cost;
+    public int CardIndex;
 
     public virtual void Attack() { }
     public virtual void Skill() { }

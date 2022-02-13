@@ -776,7 +776,7 @@ GameObject:
   - component: {fileID: 355609425}
   - component: {fileID: 355609424}
   m_Layer: 0
-  m_Name: CharacterPool
+  m_Name: PoolManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

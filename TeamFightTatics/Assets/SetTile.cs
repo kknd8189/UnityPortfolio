@@ -18,14 +18,12 @@ public class SetTile : MonoBehaviour
     public List<GameObject> SummonTileList = new List<GameObject>();
     public List<GameObject> BattleTileList = new List<GameObject>();
 
-
     // Start is called before the first frame update
     void Awake()
     {
         setSummonTile();
         setBattleTile();
     }
-
     private void setSummonTile()
     {
         for (int i = 0; i < SummonTileMax; i++)
@@ -39,7 +37,6 @@ public class SetTile : MonoBehaviour
             SummonTileList.Add(gameObject);
         }
     }
-
     private void setBattleTile()
     {
         for(int i = 0; i < verticalTileMax; i++)

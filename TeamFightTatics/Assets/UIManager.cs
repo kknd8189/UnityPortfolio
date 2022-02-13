@@ -24,8 +24,7 @@ public class UIManager : MonoBehaviour
         Enemy.CurrentHpChanged.AddListener(UpdateEnemyHpText);
         GameManager.Instance.OnTimeChanged.AddListener(UpdateRestTimeText);
     }
-
-    void OnDestory()
+    private void OnDestroy()
     {
         Player.OnGoldChanged.RemoveListener(UpdateGoldText);
         Player.CurrentExpChanged.RemoveListener(UpdateExpText);

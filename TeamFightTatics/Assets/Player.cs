@@ -72,6 +72,7 @@ public class Player : Entity
         int interest;
         interest = Mathf.FloorToInt(_gold / 10);
 
+        //최대 이자는 5이다.
         if (interest >= 5) interest = 5;
 
         if (GameManager.Instance.IsOver && GameManager.Instance.GameState == GAMESTATE.Battle)
@@ -80,7 +81,6 @@ public class Player : Entity
             if(Level != 9) CurrentExp += 2;
         }
     }
-
     public void BuyExp()
     {
         if(Gold >= 4 && Level <= 8) 
