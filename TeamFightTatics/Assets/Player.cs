@@ -46,8 +46,15 @@ public class Player : Entity
             OnGoldChanged?.Invoke(_gold);
         }
     }
+    [SerializeField]
     private int _gold = 10;
 
+    private int _capacity = 2;
+    public int Capacity
+    {
+        get { return _capacity; }
+        set { _capacity = value; }
+    }
     //    레벨 필요 경험치
     //Lv.1  Lv.2	-
     //Lv.2  Lv.3	2 XP
@@ -92,7 +99,7 @@ public class Player : Entity
         if (CurrentExp >= MaxExp)
         {
             CurrentExp = CurrentExp - MaxExp;
-
+            Capacity++;
             Level += 1;
 
             switch (Level)

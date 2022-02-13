@@ -800,6 +800,8 @@ MonoBehaviour:
   OnPanelList: []
   cardPanel: {fileID: 629717111}
   Player: {fileID: 1849421011}
+  setTile: {fileID: 2062546921}
+  SummonCount: 0
 --- !u!4 &355609425
 Transform:
   m_ObjectHideFlags: 0
@@ -2830,6 +2832,7 @@ GameObject:
   - component: {fileID: 1849421013}
   - component: {fileID: 1849421012}
   - component: {fileID: 1849421011}
+  - component: {fileID: 1849421016}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2858,6 +2861,7 @@ MonoBehaviour:
   CurrentExpChanged:
     m_PersistentCalls:
       m_Calls: []
+  _gold: 10
 --- !u!135 &1849421012
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2930,12 +2934,24 @@ Transform:
   m_GameObject: {fileID: 1849421010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.023, y: -0.034, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1849421016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849421010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cddc480c0d4984ea71ce8ac6371f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1931666193
 GameObject:
   m_ObjectHideFlags: 0
@@ -3365,8 +3381,8 @@ GameObject:
   - component: {fileID: 2062546922}
   - component: {fileID: 2062546921}
   - component: {fileID: 2062546923}
-  - component: {fileID: 2062546924}
   - component: {fileID: 2062546925}
+  - component: {fileID: 2062546926}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3387,10 +3403,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   field: {fileID: 646406248}
-  summonTileObject: {fileID: 7694908890529355698, guid: ed203336539bfba4888fd47e3701f5e7, type: 3}
-  battleTileObject: {fileID: 7694908890529355698, guid: 04d528494b0e6a649a021cb959daa185, type: 3}
+  summonTileObject: {fileID: 5413013333825657617, guid: 9095acc44695bc84e9a885834521c290, type: 3}
+  battleTileObject: {fileID: 5209164422699789693, guid: 8ad75339ec48da2409b26ba943f15532, type: 3}
   oddTileMaterial: {fileID: 2100000, guid: c4d1d42a2245abd44a6c286afb45e7b7, type: 2}
   evenTileMaterial: {fileID: 2100000, guid: ddea41875fa34f044be5e63ea04313be, type: 2}
+  enemyTileMaterial: {fileID: 2100000, guid: 0aee9379cf3796c498a25a01f459036b, type: 2}
+  playerTileMaterial: {fileID: 2100000, guid: ee66574a74083304da0a0399580d6714, type: 2}
   SummonTileList: []
   BattleTileList: []
 --- !u!4 &2062546922
@@ -3429,18 +3447,6 @@ MonoBehaviour:
   WaitingTime: 0
   GameState: 0
   TurnText: {fileID: 1346838737}
---- !u!114 &2062546924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062546920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4afee0147851170408b7159324fba542, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2062546925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3461,3 +3467,15 @@ MonoBehaviour:
   Goldtm: {fileID: 1950219724}
   Enemytm: {fileID: 386656918}
   RestTimeText: {fileID: 661737807}
+--- !u!114 &2062546926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062546920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0eb42222ded32e43acdc32a41281e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

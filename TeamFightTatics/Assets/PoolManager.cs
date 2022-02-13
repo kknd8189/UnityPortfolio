@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
+    [SerializeField]
+    private List<CharacterSciptableObject> CharacterDataList;
+
+    [SerializeField]
+    private List<GameObject> OnPanelList = new List<GameObject>();
+ 
+    public Queue<GameObject>[] CardQueue = new Queue<GameObject>[2];
+    public Queue<GameObject>[] CharacterQueue = new Queue<GameObject>[2];
+
+
+    public Transform cardPanel;
+    public Player Player;
+    public SetTile setTile;
+
+    public int SummonCount = 0;
+
     #region Singleton
     public static PoolManager Instance = null;
 
@@ -17,29 +33,17 @@ public class PoolManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    #endregion
 
-    [SerializeField]
-    private List<CharacterSciptableObject> CharacterDataList;
-
-    [SerializeField]
-    private List<GameObject> OnPanelList = new List<GameObject>();
-
-    public Queue<GameObject>[] CardQueue = new Queue<GameObject>[2];
-    public Queue<GameObject>[] CharacterQueue = new Queue<GameObject>[2];
-
-    public Transform cardPanel;
-    public Player Player;
-
-    private void Start()
-    {
         for (int i = 0; i < CardQueue.Length; ++i)
         {
             CardQueue[i] = new Queue<GameObject>();
-            CharacterQueue[i] = new Queue<GameObject>(); 
+            CharacterQueue[i] = new Queue<GameObject>();
         }
+    }
+    #endregion
 
+    private void Start()
+    {
         init(10);
 
         freeReroll();
@@ -96,6 +100,11 @@ public class PoolManager : MonoBehaviour
         CardQueue[OnPanelList[index].GetComponent<Character>().CharacterNum].Enqueue(OnPanelList[index]);
         OnPanelList[index].SetActive(false);
         OnPanelList.RemoveAt(index);
+
+        for(int i = 0; i < OnPanelList.Count; i++)
+        {
+            OnPanelList[i].GetComponent<Character>().CardIndex = i; 
+        }
     }
     private void setCardStatus(int CharacterListIndex)
     {
@@ -105,7 +114,7 @@ public class PoolManager : MonoBehaviour
         cardPrefab.SetActive(false);
         CardQueue[CharacterListIndex].Enqueue(cardPrefab);
     }
-    public void setCharacterStatus(int CharacterListIndex)
+    private void setCharacterStatus(int CharacterListIndex)
     {
         GameObject characterPrefab = Instantiate(CharacterDataList[CharacterListIndex].CharacterPrefab,transform);
         Character character = characterPrefab.GetComponent<Character>();
@@ -120,18 +129,29 @@ public class PoolManager : MonoBehaviour
         characterPrefab.SetActive(false);
         CharacterQueue[CharacterListIndex].Enqueue(characterPrefab);
     }
-    public void SummonHelper(int characterNum)
+    public void SummonHelper(int characterNum, int cardIndex)
     {
-        if (Player.Gold < CharacterDataList[characterNum].Cost) return;
         GameObject characterPrefab;
         characterPrefab = CharacterQueue[characterNum].Dequeue();
+
+        if (Player.Gold < CharacterDataList[characterNum].Cost) return;
+        if (SummonCount > 9) return;
+
+        for (int i = 0; i < setTile.SummonTileList.Count; i++)
+        {
+            if(!setTile.SummonTileList[i].GetComponent<SummonField>().IsUsed)
+            {
+                characterPrefab.transform.position = setTile.SummonTileList[i].transform.position;
+                break;
+            }
+        }
+
         Character character = characterPrefab.GetComponent<Character>();    
         characterPrefab.SetActive(true);
         characterPrefab.transform.SetParent(null);
-        characterPrefab.transform.position = new Vector3(0, 0, 0);
         Player.Gold -= character.cost;
 
-        eraseCard(character.CardIndex);
+        eraseCard(cardIndex);
     }
 }
 

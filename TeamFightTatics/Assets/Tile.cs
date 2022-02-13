@@ -4,7 +4,21 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    protected int index;
-    public void setTileIndex(int value) { index = value; } 
+    [SerializeField]
+    protected int _index;
+    public int Index
+    { 
+        get { return _index; }
+        set { _index = value; }
+    }
+
+    [SerializeField]
+    protected bool _isUsed;
+
+    public bool IsUsed
+    {
+        get { return _isUsed; }
+        set { _isUsed = value; }
+    }
 
 }

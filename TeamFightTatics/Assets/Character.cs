@@ -11,12 +11,20 @@ public class Character : Entity , IAttack , ISkill
     public int power;
     public int attackDelay;
     public int cost;
-    public int CardIndex;
+    private int _cardIndex;
+
+    public bool isOnBattleField;
+
+    public int CardIndex 
+    { 
+        get { return _cardIndex; }
+        set { _cardIndex = value; }
+    }
 
     public virtual void Attack() { }
     public virtual void Skill() { }
     public void Summon()
     {
-        PoolManager.Instance.SummonHelper(CharacterNum);
+        PoolManager.Instance.SummonHelper(CharacterNum, _cardIndex);
     }
 }

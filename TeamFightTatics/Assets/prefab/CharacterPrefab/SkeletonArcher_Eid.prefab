@@ -1621,6 +1621,9 @@ GameObject:
   - component: {fileID: 3869442567412439515}
   - component: {fileID: 3869442567421703781}
   - component: {fileID: -1378686188278204049}
+  - component: {fileID: 6423077275775180758}
+  - component: {fileID: 2475882527350009004}
+  - component: {fileID: -6150694981922651627}
   m_Layer: 0
   m_Name: SkeletonArcher_Eid
   m_TagString: Untagged
@@ -1636,7 +1639,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3869442567412336123}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.64}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1656,7 +1659,7 @@ Animator:
   m_GameObject: {fileID: 3869442567412336123}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7205588290d3308459b35246b2bba54f, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2ccf38554e38148419fe51c48dbf4393, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1688,6 +1691,48 @@ MonoBehaviour:
   power: 0
   attackDelay: 0
   cost: 0
+--- !u!114 &6423077275775180758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869442567412336123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cddc480c0d4984ea71ce8ac6371f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &2475882527350009004
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869442567412336123}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 46.071575
+  m_Height: 157.95995
+  m_Direction: 1
+  m_Center: {x: 0, y: 76.47997, z: 14.907556}
+--- !u!54 &-6150694981922651627
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869442567412336123}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &3869442567412336125
 GameObject:
   m_ObjectHideFlags: 0
