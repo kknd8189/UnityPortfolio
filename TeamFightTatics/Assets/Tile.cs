@@ -12,9 +12,7 @@ public class Tile : MonoBehaviour
         set { _index = value; }
     }
 
-    [SerializeField]
     protected bool _isUsed;
-
     public bool IsUsed
     {
         get { return _isUsed; }

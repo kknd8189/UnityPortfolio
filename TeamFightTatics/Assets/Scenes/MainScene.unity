@@ -800,8 +800,8 @@ MonoBehaviour:
   OnPanelList: []
   cardPanel: {fileID: 629717111}
   Player: {fileID: 1849421011}
-  setTile: {fileID: 2062546921}
   SummonCount: 0
+  amount: 20
 --- !u!4 &355609425
 Transform:
   m_ObjectHideFlags: 0
@@ -2949,7 +2949,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1849421010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cddc480c0d4984ea71ce8ac6371f01, type: 3}
+  m_Script: {fileID: 11500000, guid: 49fd72908991923419d4c06316e05c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1931666193
@@ -3476,6 +3476,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2062546920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0eb42222ded32e43acdc32a41281e67, type: 3}
+  m_Script: {fileID: 11500000, guid: a2aa18b674c4bac4388d192ce5c42517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterDataList:
+  - {fileID: 11400000, guid: aa1f4f498476c724793e185120b8135e, type: 2}
+  - {fileID: 11400000, guid: 039f86d77b8595040b5c019a11ab01d8, type: 2}
+  StageDataList:
+  - {fileID: 11400000, guid: b62782e348e1b824cb0ec08628b53a6c, type: 2}
+  - {fileID: 11400000, guid: 51abea6941a80894f88791eca64b9eb5, type: 2}
+  - {fileID: 11400000, guid: 74b810929bb5fc34b89095667e98ae1f, type: 2}

@@ -8,6 +8,7 @@ public class SummonField : Tile
     {
         if (collision.collider.GetComponent<Character>() != null)
         {
+            collision.collider.GetComponent<Character>().isOnBattleField = false;
             PoolManager.Instance.SummonCount++;
             _isUsed = true;
         }

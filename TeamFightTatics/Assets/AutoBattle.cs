@@ -16,11 +16,10 @@ public class AutoBattle : MonoBehaviour
 
     public CharacterState characterState;
 
-    private void Start()
+    private void OnEnable()
     {
         characterState = CharacterState.Search;
         isFind = false;
-        StartCoroutine("CheckEnemy");
     }
 
      private void Update()
@@ -59,7 +58,6 @@ public class AutoBattle : MonoBehaviour
         }
 
     }
-
     IEnumerator Attack()
     { 
         Debug.Log("공격!!!");
@@ -68,17 +66,22 @@ public class AutoBattle : MonoBehaviour
 
         isDelay = false;
     }
-
-
     IEnumerator CheckEnemy()
     {
-        yield return new WaitForSeconds(0.3f);
             Debug.Log("감지!!!");
 
-            enemys = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+        if (CompareTag("PlayerCharacter")) 
+        {
+            enemys = new List<GameObject>(GameObject.FindGameObjectsWithTag("EnemyCharacter"));
             enemy = enemys[0];
+        }
+        else if(!CompareTag("PlayerCharacter"))
+        {
+            enemys = new List<GameObject>(GameObject.FindGameObjectsWithTag("PlayerCharacter"));
+            enemy = enemys[0];
+        }
 
-            float shortDis = Vector3.Distance(gameObject.transform.position, enemys[0].transform.position);
+        float shortDis = Vector3.Distance(gameObject.transform.position, enemys[0].transform.position);
 
             foreach (GameObject found in enemys)
             {
@@ -93,5 +96,7 @@ public class AutoBattle : MonoBehaviour
 
             if (!isFind) StartCoroutine("CheckEnemy");
             else StopCoroutine("CheckEnemy");
+
+        yield return new WaitForSeconds(0.3f);
     }
 }

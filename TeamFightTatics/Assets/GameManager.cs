@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public enum GAMESTATE
 {
-    StanBy, Battle
+    StandBy, Battle
 }
 
 public class GameManager : MonoBehaviour
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        GameState = GAMESTATE.StanBy;
+        GameState = GAMESTATE.StandBy;
         Turn = 1;
         IsOver = false;
         NextTurnTime = 0f;
@@ -56,13 +56,13 @@ public class GameManager : MonoBehaviour
         {
             switch (GameState)
             {
-                case GAMESTATE.StanBy:
+                case GAMESTATE.StandBy:
                     GameState = GAMESTATE.Battle;
                     break;
                 case GAMESTATE.Battle:
                     Turn += 1;
-                    TurnText.text = "Turn " + Turn.ToString();
-                    GameState = GAMESTATE.StanBy;
+                    TurnText.text = $"Turn {Turn}";
+                    GameState = GAMESTATE.StandBy;
                     PoolManager.Instance.freeReroll();
                     break;
             }

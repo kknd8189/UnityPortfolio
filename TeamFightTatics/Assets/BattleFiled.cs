@@ -4,30 +4,29 @@ using UnityEngine;
 
 public class BattleFiled : Tile
 {
-    private GameObject Player;
-    private Player playerScript;
+    private Player player;
 
     private void Awake()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = Player.GetComponent<Player>();
+        player = FindObjectOfType<Player>();
     }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.GetComponent<Character>() != null)
+        Character character = collision.collider.GetComponent<Character>();
+
+        if (character != null)
         {
-            collision.collider.GetComponent<Character>().isOnBattleField = true;
-            playerScript.Capacity--;
+            character.isOnBattleField = true;
+            player.Capacity--;
             _isUsed = true;
         }
     }
-
     private void OnCollisionExit(Collision collision)
     {
         if (collision.collider.GetComponent<Character>() != null)
         {
-            collision.collider.GetComponent<Character>().isOnBattleField = false;
-            playerScript.Capacity++;
+            player.Capacity++;
             _isUsed = false;
         }
     }

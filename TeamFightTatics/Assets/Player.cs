@@ -6,7 +6,7 @@ public class Player : Entity
     public UnityEvent<int> OnGoldChanged = new UnityEvent<int>();
     public UnityEvent<int> CurrentExpChanged = new UnityEvent<int>();
 
-    public int Level 
+    public int Level
     {
         get
         {
@@ -46,6 +46,7 @@ public class Player : Entity
             OnGoldChanged?.Invoke(_gold);
         }
     }
+
     [SerializeField]
     private int _gold = 10;
 
@@ -85,49 +86,56 @@ public class Player : Entity
         if (GameManager.Instance.IsOver && GameManager.Instance.GameState == GAMESTATE.Battle)
         {
             Gold += 4 + interest;
-            if(Level != 9) CurrentExp += 2;
+
+            if (Level <= 8)
+            {
+                CurrentExp += 2;
+                UpdateLevel();
+            }
         }
     }
     public void BuyExp()
-    {
-        if(Gold >= 4 && Level <= 8) 
         {
-            CurrentExp += 4;
-            Gold -= 4;   
-        }
-
-        if (CurrentExp >= MaxExp)
-        {
-            CurrentExp = CurrentExp - MaxExp;
-            Capacity++;
-            Level += 1;
-
-            switch (Level)
+            if (Gold >= 4 && Level <= 8)
             {
-                case 1:
-                    MaxExp = 2;
-                    break;
-                case 2:
-                    MaxExp = 6;
-                    break;
-                case 3:
-                    MaxExp = 10;
-                    break;
-                case 4:
-                    MaxExp = 20;
-                    break;
-                case 5:
-                    MaxExp = 36;
-                    break;
-                case 6:
-                    MaxExp = 56;
-                    break;
-                case 7:
-                    MaxExp = 80;
-                    break;
+                CurrentExp += 4;
+                Gold -= 4;
             }
-
-            CurrentExp = CurrentExp;
+            UpdateLevel();
         }
-    }
-}
+    private void UpdateLevel()
+        {
+            if (CurrentExp >= MaxExp)
+            {
+                CurrentExp = CurrentExp - MaxExp;
+                Capacity++;
+                Level += 1;
+
+                switch (Level)
+                {
+                    case 1:
+                        MaxExp = 2;
+                        break;
+                    case 2:
+                        MaxExp = 6;
+                        break;
+                    case 3:
+                        MaxExp = 10;
+                        break;
+                    case 4:
+                        MaxExp = 20;
+                        break;
+                    case 5:
+                        MaxExp = 36;
+                        break;
+                    case 6:
+                        MaxExp = 56;
+                        break;
+                    case 7:
+                        MaxExp = 80;
+                        break;
+                }
+                CurrentExp = CurrentExp;
+            }
+        }
+    } 

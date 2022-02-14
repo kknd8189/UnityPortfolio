@@ -7,21 +7,17 @@ public class DragAndDrop : MonoBehaviour
     private Vector3 screenSpace;
     private Vector3 offset;
     private Vector3 initialPosition;
-    private GameObject Player;
     private Player playerScript;
 
     private void Awake()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = Player.GetComponent<Player>();
+        playerScript = FindObjectOfType<Player>();
     }
     private void OnMouseDown()
     {
-       
             initialPosition = transform.position;
             screenSpace = Camera.main.WorldToScreenPoint(transform.position);
             offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z));
-        
     }
     private void OnMouseDrag()
     {
@@ -40,19 +36,27 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseUp()
     {
-        RaycastHit dectectedTile;
-        Vector3 finalPosition;
-
-        finalPosition = initialPosition;
+        RaycastHit dectectedTile;    
 
         if (Physics.Raycast(transform.position, Vector3.down, out dectectedTile, 20))
         {
             Tile tile = dectectedTile.transform.GetComponent<Tile>();
-            if (playerScript.Capacity <= 0 && dectectedTile.collider.GetComponent<BattleFiled>() != null) finalPosition = initialPosition;
-            else if(GameManager.Instance.GameState == GAMESTATE.Battle && dectectedTile.collider.GetComponent<BattleFiled>() != null) finalPosition = initialPosition;
-            else if (tile.Index < 48 && !tile.IsUsed) finalPosition = dectectedTile.transform.position;
+
+            if (dectectedTile.collider.GetComponent<BattleFiled>() != null)
+            {
+                GetComponent<Character>().DiposedIndex = dectectedTile.collider.GetComponent<BattleFiled>().Index;
+                transform.position = dectectedTile.transform.position;
+
+                if (playerScript.Capacity <= 0 || GameManager.Instance.GameState == GAMESTATE.Battle || tile.Index >= 48) transform.position = initialPosition;
+            }
+
+            else if(dectectedTile.collider.GetComponent<SummonField>() != null )
+            {
+                if (!tile.IsUsed) transform.position = dectectedTile.transform.position;
+                else if (tile.IsUsed) transform.position = initialPosition;
+            }
         }
        
-        transform.position = finalPosition;
+       
     }
 }

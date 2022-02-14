@@ -16,10 +16,10 @@ public class PoolManager : MonoBehaviour
 
     public Transform cardPanel;
     public Player Player;
-    public SetTile setTile;
 
     public int SummonCount = 0;
-
+    [SerializeField]
+    private int amount = 20;
     #region Singleton
     public static PoolManager Instance = null;
 
@@ -44,13 +44,13 @@ public class PoolManager : MonoBehaviour
 
     private void Start()
     {
-        init(10);
-
+        init(amount);
         freeReroll();
     }
-    private void init(int Amount)
+
+    private void init(int amount)
     {
-        for (int i = 0; i < Amount; i++)
+        for (int i = 0; i < amount; i++)
         {
             for (int j = 0; j < CharacterDataList.Count; j++)
             {
@@ -137,11 +137,11 @@ public class PoolManager : MonoBehaviour
         if (Player.Gold < CharacterDataList[characterNum].Cost) return;
         if (SummonCount > 9) return;
 
-        for (int i = 0; i < setTile.SummonTileList.Count; i++)
+        for (int i = 0; i < SetTile.Instance.SummonTileList.Count; i++)
         {
-            if(!setTile.SummonTileList[i].GetComponent<SummonField>().IsUsed)
+            if(!SetTile.Instance.SummonTileList[i].GetComponent<SummonField>().IsUsed)
             {
-                characterPrefab.transform.position = setTile.SummonTileList[i].transform.position;
+                characterPrefab.transform.position = SetTile.Instance.SummonTileList[i].transform.position;
                 break;
             }
         }

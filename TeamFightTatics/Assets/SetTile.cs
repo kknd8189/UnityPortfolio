@@ -20,9 +20,20 @@ public class SetTile : MonoBehaviour
     public List<GameObject> SummonTileList = new List<GameObject>();
     public List<GameObject> BattleTileList = new List<GameObject>();
 
+    public static SetTile Instance = null;
  
     private void Awake()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+
+        else if(Instance != null)
+        {
+            Destroy(this);
+        }
+
         setSummonTile();
         setBattleTile();
     }
@@ -43,15 +54,15 @@ public class SetTile : MonoBehaviour
 
     private void setBattleTile()
     {
-        for(int i = 0; i < verticalTileMax; i++)
+        for(int i = 0; i < horizonalTileMax; i++)
         {
-            for(int j = 0; j< horizonalTileMax; j++)
+            for(int j = 0; j< verticalTileMax; j++)
             {
                 GameObject gameObject;
                 gameObject = Instantiate(battleTileObject, field);
-                gameObject.GetComponent<BattleFiled>().Index = (i + j * verticalTileMax);
-                gameObject.transform.position = new Vector3( i * 10, 0, 15 + j * 10);
-                if (i + j * verticalTileMax >= 48) gameObject.GetComponent<MeshRenderer>().material = enemyTileMaterial;
+                gameObject.GetComponent<BattleFiled>().Index = (j + i * verticalTileMax);
+                gameObject.transform.position = new Vector3( j * 10, 0, 15 + i * 10);
+                if (j + i * verticalTileMax >= 48) gameObject.GetComponent<MeshRenderer>().material = enemyTileMaterial;
                 else gameObject.GetComponent<MeshRenderer>().material = playerTileMaterial;
                 BattleTileList.Add(gameObject);
             }

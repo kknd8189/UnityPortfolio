@@ -39,7 +39,8 @@ public class UIManager : MonoBehaviour
 
     public void UpdateExpText(int exp)
     {
-        EXPtm.text = $"{exp}/{Player.MaxExp}";
+        if (Player.Level >= 9) EXPtm.text = "MAX";
+        else EXPtm.text = $"{exp}/{Player.MaxExp}";
         Leveltm.text = $"Level {Player.Level}";
     }
 
