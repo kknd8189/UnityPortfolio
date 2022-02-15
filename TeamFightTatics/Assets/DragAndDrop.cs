@@ -55,8 +55,10 @@ public class DragAndDrop : MonoBehaviour
                 if (!tile.IsUsed) transform.position = dectectedTile.transform.position;
                 else if (tile.IsUsed) transform.position = initialPosition;
             }
+
         }
-       
-       
+
+        else transform.position = initialPosition;
+
     }
 }

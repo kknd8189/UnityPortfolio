@@ -68,14 +68,17 @@ public class AutoBattle : MonoBehaviour
     }
     IEnumerator CheckEnemy()
     {
-            Debug.Log("감지!!!");
+        Debug.Log("감지!!!");
 
-        if (CompareTag("PlayerCharacter")) 
+        GameObject gameObject = this.gameObject;
+
+
+        if (gameObject.tag == "PlayerCharacter") 
         {
             enemys = new List<GameObject>(GameObject.FindGameObjectsWithTag("EnemyCharacter"));
             enemy = enemys[0];
         }
-        else if(!CompareTag("PlayerCharacter"))
+        else if(gameObject.tag == "EnemyCharacter")
         {
             enemys = new List<GameObject>(GameObject.FindGameObjectsWithTag("PlayerCharacter"));
             enemy = enemys[0];
@@ -97,6 +100,6 @@ public class AutoBattle : MonoBehaviour
             if (!isFind) StartCoroutine("CheckEnemy");
             else StopCoroutine("CheckEnemy");
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1f);
     }
 }

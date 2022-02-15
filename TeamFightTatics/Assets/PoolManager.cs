@@ -137,6 +137,8 @@ public class PoolManager : MonoBehaviour
         if (Player.Gold < CharacterDataList[characterNum].Cost) return;
         if (SummonCount > 9) return;
 
+        characterPrefab.tag = "PlayerCharacter";
+
         for (int i = 0; i < SetTile.Instance.SummonTileList.Count; i++)
         {
             if(!SetTile.Instance.SummonTileList[i].GetComponent<SummonField>().IsUsed)
