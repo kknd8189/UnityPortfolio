@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetTile : MonoBehaviour
+public class TileManager : MonoBehaviour
 {
     public Transform field;
     public GameObject summonTileObject;
@@ -20,7 +20,7 @@ public class SetTile : MonoBehaviour
     public List<GameObject> SummonTileList = new List<GameObject>();
     public List<GameObject> BattleTileList = new List<GameObject>();
 
-    public static SetTile Instance = null;
+    public static TileManager Instance = null;
  
     private void Awake()
     {

@@ -5,6 +5,7 @@ public class Player : Entity
 {
     public UnityEvent<int> OnGoldChanged = new UnityEvent<int>();
     public UnityEvent<int> CurrentExpChanged = new UnityEvent<int>();
+    public UnityEvent<int> CurrentHpChanged = new UnityEvent<int>();
 
     public int Level
     {
@@ -56,6 +57,17 @@ public class Player : Entity
         get { return _capacity; }
         set { _capacity = value; }
     }
+
+    public new int CurrentHp
+    {
+        get { return _currentHp; }
+        set
+        {
+            _currentHp = value;
+            CurrentHpChanged?.Invoke(_currentHp);
+        }
+    }
+
     //    레벨 필요 경험치
     //Lv.1  Lv.2	-
     //Lv.2  Lv.3	2 XP
@@ -65,6 +77,7 @@ public class Player : Entity
     //Lv.6  Lv.7	36 XP
     //Lv.7  Lv.8	56 XP
     //Lv.8  Lv.9	80 XP
+
 
     private void Start()
     {

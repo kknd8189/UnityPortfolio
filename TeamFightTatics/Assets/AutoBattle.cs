@@ -4,32 +4,33 @@ using UnityEngine;
 
 public enum CharacterState { Search, Attack }
 
-public class AutoBattle : MonoBehaviour
+public class AutoBattle : MonoBehaviour, IAttack, ISkill
 {
-    public GameObject enemy;
-    public List<GameObject> enemys;
+    [SerializeField]
+    private GameObject enemy;
+    [SerializeField]
+    private List<GameObject> enemys;
+    [SerializeField]
+    private bool isFind;
+    [SerializeField]
+    private bool isDelay;
+    [SerializeField]
+    private CharacterState characterState;
 
-    public bool isFind;
-    public bool isDelay;
-
-    public float attackRange = 10;
-
-    public CharacterState characterState;
+    private Persona Persona;
 
     private void OnEnable()
     {
-        characterState = CharacterState.Search;
         isFind = false;
     }
-
-     private void Update()
+    private void Update()
     {
         if (enemy != null) isFind = true;
         else if (enemy == null) isFind = false;
 
         if (characterState == CharacterState.Search && isFind)
         {
-            if (attackRange >= Vector3.Distance(enemy.transform.position, gameObject.transform.position) && !isDelay)
+            if (Persona.AttackRange >= Vector3.Distance(enemy.transform.position, gameObject.transform.position) && !isDelay)
             {                
                 characterState = CharacterState.Attack;
                 isDelay = true;
@@ -40,7 +41,7 @@ public class AutoBattle : MonoBehaviour
         else if(characterState == CharacterState.Attack && isFind)
         {
 
-            if (attackRange >= Vector3.Distance(enemy.transform.position, gameObject.transform.position) && !isDelay)
+            if (Persona.AttackRange >= Vector3.Distance(enemy.transform.position, gameObject.transform.position) && !isDelay)
             {
 
                 characterState = CharacterState.Attack;
@@ -72,7 +73,6 @@ public class AutoBattle : MonoBehaviour
 
         GameObject gameObject = this.gameObject;
 
-
         if (gameObject.tag == "PlayerCharacter") 
         {
             enemys = new List<GameObject>(GameObject.FindGameObjectsWithTag("EnemyCharacter"));
@@ -101,5 +101,14 @@ public class AutoBattle : MonoBehaviour
             else StopCoroutine("CheckEnemy");
 
         yield return new WaitForSeconds(1f);
+    }
+
+    public void Attack(int Power, int attackRange,int attackDelay)
+    {
+
+    }
+    public void Skill() 
+    {
+        Persona.Skill();
     }
 }

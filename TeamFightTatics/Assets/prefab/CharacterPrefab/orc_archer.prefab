@@ -2067,10 +2067,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6885607503258414861}
   - component: {fileID: 6885607503265890515}
-  - component: {fileID: 499264369537611612}
   - component: {fileID: 3624015898072290790}
   - component: {fileID: -8490942326126608073}
   - component: {fileID: 3491944489310610817}
+  - component: {fileID: 7180266623356889057}
+  - component: {fileID: -1216174184316893725}
   m_Layer: 0
   m_Name: orc_archer
   m_TagString: Untagged
@@ -2120,28 +2121,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &499264369537611612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6885607503258514285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c1121e38bc2874e94dbe56f8159d37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentHpChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  CharacterNum: 0
-  maxMP: 0
-  defaultMP: 0
-  attackRange: 0
-  power: 0
-  attackDelay: 0
-  cost: 0
 --- !u!114 &3624015898072290790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2184,6 +2163,35 @@ CapsuleCollider:
   m_Height: 1.7390823
   m_Direction: 1
   m_Center: {x: 0, y: 0.82250214, z: 0}
+--- !u!114 &7180266623356889057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885607503258514285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf4c2363e217c74f835bdf4f473e1b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  enemys: []
+  isFind: 0
+  isDelay: 0
+  characterState: 0
+--- !u!114 &-1216174184316893725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885607503258514285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b30de82ba7008145b2e4790baa5cf2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6885607503258514287
 GameObject:
   m_ObjectHideFlags: 0

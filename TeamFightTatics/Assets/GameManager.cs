@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public UnityEvent<int> OnTimeChanged = new UnityEvent<int>();
+    public UnityEvent<int> CurrentHpChanged = new UnityEvent<int>();
+
+    public RerollManager rerollManager;
+
     public int Turn;
     public bool IsOver;
     public float NextTurnTime;
@@ -42,7 +46,7 @@ public class GameManager : MonoBehaviour
         Turn = 1;
         IsOver = false;
         NextTurnTime = 0f;
-        WaitingTime = 30f;
+        WaitingTime = 20.0f;
         TurnText.text = "Turn " + Turn.ToString();
     }
 
@@ -52,9 +56,10 @@ public class GameManager : MonoBehaviour
 
         OnTimeChanged?.Invoke((int)NextTurnTime);
 
+        //시간이 되면 게임의 상태를 변경하고 턴을 넘겨준다.
         if (IsOver)
         {
-            switch (GameState)
+            switch (GameState)  
             {
                 case GAMESTATE.StandBy:
                     GameState = GAMESTATE.Battle;
@@ -63,14 +68,14 @@ public class GameManager : MonoBehaviour
                     Turn += 1;
                     TurnText.text = $"Turn {Turn}";
                     GameState = GAMESTATE.StandBy;
-                    PoolManager.Instance.freeReroll();
+                    rerollManager.freeReroll();
                     break;
             }
 
             IsOver = false;
         }
 
-     if(NextTurnTime >= WaitingTime)
+        if (NextTurnTime >= WaitingTime)
         {
             IsOver = true;
             NextTurnTime = 0;

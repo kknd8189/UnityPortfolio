@@ -5,8 +5,6 @@ using UnityEngine;
 public class EnemyGenerater : MonoBehaviour
 {
     [SerializeField]
-    private List<CharacterSciptableObject> CharacterDataList;
-    [SerializeField]
     private List<StageScriptableObject> StageDataList;
 
     private void Update()
@@ -20,7 +18,6 @@ public class EnemyGenerater : MonoBehaviour
     {
         for (int i = 0; i < turnNumber; i++)
         {
-
         }
     }
 }

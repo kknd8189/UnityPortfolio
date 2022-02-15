@@ -36,7 +36,7 @@ public class PlayerMove : MonoBehaviour
                 return;
             }
 
-            var dir = destination - transform.position;
+            Vector3 dir = destination - transform.position;
             transform.position += dir.normalized * Time.deltaTime * Speed;
         }
     }

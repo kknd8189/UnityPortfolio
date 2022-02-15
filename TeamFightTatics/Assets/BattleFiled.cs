@@ -13,18 +13,18 @@ public class BattleFiled : Tile
 
     private void OnCollisionEnter(Collision collision)
     {
-        Character character = collision.collider.GetComponent<Character>();
+        Persona persona = collision.collider.GetComponent<Persona>();
 
-        if (character != null)
+        if (persona != null)
         {
-            character.isOnBattleField = true;
+            persona.IsOnBattleField = true;
             player.Capacity--;
             _isUsed = true;
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.collider.GetComponent<Character>() != null)
+        if (collision.collider.GetComponent<Persona>() != null)
         {
             player.Capacity++;
             _isUsed = false;
