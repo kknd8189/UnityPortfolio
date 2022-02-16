@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
 
 public class Player : Entity
 {
@@ -20,7 +22,6 @@ public class Player : Entity
         }
     }
     private int _level = 1;
-
     public int MaxExp
     {
         get { return _maxExp; }
@@ -47,17 +48,14 @@ public class Player : Entity
             OnGoldChanged?.Invoke(_gold);
         }
     }
-
     [SerializeField]
     private int _gold = 10;
-
-    private int _capacity = 2;
+    private int _capacity = 1;
     public int Capacity
     {
         get { return _capacity; }
         set { _capacity = value; }
     }
-
     public new int CurrentHp
     {
         get { return _currentHp; }
@@ -67,7 +65,6 @@ public class Player : Entity
             CurrentHpChanged?.Invoke(_currentHp);
         }
     }
-
     //    레벨 필요 경험치
     //Lv.1  Lv.2	-
     //Lv.2  Lv.3	2 XP
@@ -77,8 +74,7 @@ public class Player : Entity
     //Lv.6  Lv.7	36 XP
     //Lv.7  Lv.8	56 XP
     //Lv.8  Lv.9	80 XP
-
-
+    private int[] maxExpContainer = { 0, 2, 6, 10, 20, 36, 56, 80, 999  };
     private void Start()
     {
         _maxHp = 100;
@@ -87,36 +83,28 @@ public class Player : Entity
     private void Update()
     {
         earnGold();
+        updateLevel();
     }
     private void earnGold()
     {
-        int interest;
-        interest = Mathf.FloorToInt(_gold / 10);
-
-        //최대 이자는 5이다.
-        if (interest >= 5) interest = 5;
-
         if (GameManager.Instance.IsOver && GameManager.Instance.GameState == GAMESTATE.Battle)
         {
+            int interest = Mathf.FloorToInt(_gold / 10);
+            //최대 이자는 5이다.
+            if (interest >= 5) interest = 5;
             Gold += 4 + interest;
-
-            if (Level <= 8)
-            {
-                CurrentExp += 2;
-                UpdateLevel();
-            }
+            if (Level <= 8) { CurrentExp += 2; }
         }
     }
     public void BuyExp()
+    {
+        if (Gold >= 4 && Level <= 8)
         {
-            if (Gold >= 4 && Level <= 8)
-            {
-                CurrentExp += 4;
-                Gold -= 4;
-            }
-            UpdateLevel();
+            CurrentExp += 4;
+            Gold -= 4;
         }
-    private void UpdateLevel()
+    }
+    private void updateLevel()
         {
             if (CurrentExp >= MaxExp)
             {
@@ -124,31 +112,9 @@ public class Player : Entity
                 Capacity++;
                 Level += 1;
 
-                switch (Level)
-                {
-                    case 1:
-                        MaxExp = 2;
-                        break;
-                    case 2:
-                        MaxExp = 6;
-                        break;
-                    case 3:
-                        MaxExp = 10;
-                        break;
-                    case 4:
-                        MaxExp = 20;
-                        break;
-                    case 5:
-                        MaxExp = 36;
-                        break;
-                    case 6:
-                        MaxExp = 56;
-                        break;
-                    case 7:
-                        MaxExp = 80;
-                        break;
-                }
+                _maxExp = maxExpContainer[Level-1];
+          
                 CurrentExp = CurrentExp;
             }
         }
-    } 
+} 

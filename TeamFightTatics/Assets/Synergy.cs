@@ -4,9 +4,44 @@ using UnityEngine;
 
 public class Synergy : MonoBehaviour
 {
-    public Entity entity;
-    //0 Archor, 1 Warrior, 2 Magician,                      3 dragon, 4 Undead, 5 beast 6 human 7 elf
-    private bool[] _synergyTrigger;
+    //0 Archor, 1 Warrior, 2 Magician, 3 Orc, 4 Undead, 5 Beast, 6 Human, 7 Elf
+    private int[] SynergyCount;
+    private int[] SummonCount;
+    private bool[] isCounted;
 
-    private int[] _quantityOfSynergyCharacter;
+    public int MaxSynergyNum;
+
+    private void Awake()
+    {
+        isCounted = new bool[PoolManager.Instance.CharacterDataList.Count];
+        SummonCount = new int[PoolManager.Instance.CharacterDataList.Count];
+        SynergyCount = new int[MaxSynergyNum];
+    }
+    public void IncreaseSynergyCount(int characterNum)
+    {
+        SummonCount[characterNum]++;
+
+        if (!isCounted[characterNum])
+        {
+            for (int i = 0; i < PoolManager.Instance.CharacterDataList[characterNum].SynergyNum.Length; i++)
+            {
+                SynergyCount[PoolManager.Instance.CharacterDataList[characterNum].SynergyNum[i]]++;
+                isCounted[characterNum] = true;
+            }
+        }
+    }
+    public void DecreaseSynergyCount(int characterNum)
+    {
+        SummonCount[characterNum]--;
+
+        if (SummonCount[characterNum] <=0)
+        {
+            for (int i = 0; i < PoolManager.Instance.CharacterDataList[characterNum].SynergyNum.Length; i++)
+            {
+                SynergyCount[PoolManager.Instance.CharacterDataList[characterNum].SynergyNum[i]]--;
+            }
+
+            isCounted[characterNum] = false;
+        }
+    }
 }

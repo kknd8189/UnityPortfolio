@@ -8,11 +8,12 @@ public class CharacterSciptableObject : ScriptableObject
 {
     public int CharacterNum;
 
-    public int SynergyNum;
+    public int[] SynergyNum;
 
     public GameObject CharacterPrefab;
     public GameObject CardPrefab;
 
     //character status
-    public int MaxHP, Power, AttackRange, AttackDelay, MaxMP, DefaultMP, Cost;
+    public int MaxHP, Power, MaxMP, DefaultMP, Cost;
+    public float AttackRange, AttackDelay;
 }

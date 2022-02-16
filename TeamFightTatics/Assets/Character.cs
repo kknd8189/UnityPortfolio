@@ -10,7 +10,6 @@ public class Character : Entity
         get { return _characterNum; }
         set { _characterNum = value; }
     }
-
     private int _cost;
     public int Cost
     {
@@ -25,7 +24,6 @@ public class Character : Entity
     }
     private Player Player;
     private RerollManager RerollManager;
-
     private void Awake()
     {
         Player = FindObjectOfType<Player>();
@@ -33,11 +31,11 @@ public class Character : Entity
     }
     public void Summon()
     {
+        if (Player.Gold < PoolManager.Instance.CharacterDataList[CharacterNum].Cost) return;
+        if (PoolManager.Instance.SummonCount > 9) return;
+
             GameObject characterPrefab;
             characterPrefab = PoolManager.Instance.CharacterQueue[CharacterNum].Dequeue();
-
-            if (Player.Gold < PoolManager.Instance.CharacterDataList[CharacterNum].Cost) return;
-            if (PoolManager.Instance.SummonCount > 9) return;
 
             characterPrefab.tag = "PlayerCharacter";
 
@@ -50,11 +48,10 @@ public class Character : Entity
                 }
             }
 
-            Character character = characterPrefab.GetComponent<Character>();
             characterPrefab.SetActive(true);
             characterPrefab.transform.SetParent(null);
+            Character character = characterPrefab.GetComponent<Character>();
             Player.Gold -= character.Cost;
-
             RerollManager.eraseCard(_cardIndex);
     }
 }

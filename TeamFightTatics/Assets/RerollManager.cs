@@ -5,10 +5,8 @@ using UnityEngine;
 public class RerollManager : MonoBehaviour
 {
     public Player player;
-
     public List<GameObject> OnPanelList = new List<GameObject>();
     public Transform cardPanel;
-
     public void Start()
     {
         freeReroll();

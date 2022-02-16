@@ -11,17 +11,14 @@ public class Login : MonoBehaviour
     public TMP_InputField pwdText;
     public Button loginButton;
     public TextMeshProUGUI progressText;
-
     private void Start()
     {
         loginButton.onClick.AddListener(LoadButton);
     }
-
     void LoadButton()
     {
         StartCoroutine(LoadScene());
     }
-
     IEnumerator LoadScene()
     {
         yield return null;
@@ -34,16 +31,15 @@ public class Login : MonoBehaviour
         while (!asyncOperation.isDone)
         {
             progressText.text = $"Loading {asyncOperation.progress * 100} %";
-            yield return null;
-
-            if(asyncOperation.progress >= 0.9f)
+            if (asyncOperation.progress >= 0.8f)
             {
                 progressText.text = "다음으로 넘어가자";
-                    if(Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     asyncOperation.allowSceneActivation = true;
                 }
             }
+            yield return null;
         }
     }
 }

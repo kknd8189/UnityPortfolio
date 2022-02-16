@@ -6,7 +6,4 @@ using UnityEngine;
 
 public class StageScriptableObject : ScriptableObject
 {
-    public int[] EnemyNumber;
-    public int[] EnemyAmount;
-    public int[] respawnIndex;
 }

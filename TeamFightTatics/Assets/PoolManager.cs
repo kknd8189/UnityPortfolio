@@ -5,24 +5,18 @@ using UnityEngine;
 public class PoolManager : MonoBehaviour
 {
     public List<CharacterSciptableObject> CharacterDataList;
-
-
     public Queue<GameObject>[] CardQueue = new Queue<GameObject>[2];
     public Queue<GameObject>[] CharacterQueue = new Queue<GameObject>[2];
-
     private int _summonCount = 0;
     public int SummonCount
     {
         get { return _summonCount; }
         set { _summonCount = value; }
     }
-
     [SerializeField]
     private int amount = 20;
-
     #region Singleton
     public static PoolManager Instance = null;
-
     private void Awake()
     {
         if (Instance == null)
@@ -33,21 +27,14 @@ public class PoolManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-
-
-       
         for (int i = 0; i < CardQueue.Length; ++i)
         {
             CardQueue[i] = new Queue<GameObject>();
             CharacterQueue[i] = new Queue<GameObject>();
         }
-
         init(amount);
-
     }
     #endregion
-
     private void init(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -67,7 +54,6 @@ public class PoolManager : MonoBehaviour
         cardPrefab.SetActive(false);
         CardQueue[CharacterListIndex].Enqueue(cardPrefab);
     }
-
     private void setPersonaStatus(int CharacterListIndex)
     {
         GameObject personaObject = Instantiate(CharacterDataList[CharacterListIndex].CharacterPrefab,transform);

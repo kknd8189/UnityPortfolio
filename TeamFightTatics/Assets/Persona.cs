@@ -21,8 +21,8 @@ public class Persona : Character
         get { return _defaultMp; }
         set { _defaultMp = value; }
     }
-    private int _attackRange;
-    public int AttackRange
+    private float _attackRange;
+    public float AttackRange
     {
         get { return _attackRange; }
         set { _attackRange = value; }
@@ -39,7 +39,6 @@ public class Persona : Character
         get { return _attackDelayTime; }
         set { _attackDelayTime = value; }
     }
-
     [SerializeField]
     private int _diposedIndex;
     public int DiposedIndex
@@ -47,7 +46,6 @@ public class Persona : Character
         get { return _diposedIndex; }
         set { _diposedIndex = value; }
     }
-
     private void Update()
     {
         //return to initial state

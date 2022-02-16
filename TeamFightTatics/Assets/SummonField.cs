@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class SummonField : Tile
 {
-    private Player Player;
-    private void Awake()
-    {
-        Player = FindObjectOfType<Player>();
-    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.GetComponent<Persona>() != null)
@@ -18,7 +13,6 @@ public class SummonField : Tile
             _isUsed = true;
         }
     }
-
     private void OnCollisionExit(Collision collision)
     {
         if (collision.collider.GetComponent<Persona>() != null)

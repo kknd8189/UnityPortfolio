@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class BattleFiled : Tile
 {
-    private Player player;
-
-    private void Awake()
-    {
-        player = FindObjectOfType<Player>();
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         Persona persona = collision.collider.GetComponent<Persona>();
@@ -18,7 +11,6 @@ public class BattleFiled : Tile
         if (persona != null)
         {
             persona.IsOnBattleField = true;
-            player.Capacity--;
             _isUsed = true;
         }
     }
@@ -26,7 +18,6 @@ public class BattleFiled : Tile
     {
         if (collision.collider.GetComponent<Persona>() != null)
         {
-            player.Capacity++;
             _isUsed = false;
         }
     }

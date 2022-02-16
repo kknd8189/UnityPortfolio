@@ -31,19 +31,16 @@ public class UIManager : MonoBehaviour
         Player.CurrentHpChanged.RemoveListener(UpdateHpText);
         Enemy.CurrentHpChanged.RemoveListener(UpdateEnemyHpText);
     }
-
     public void UpdateGoldText(int gold)
     {
         Goldtm.text = $"{gold}";
     }
-
     public void UpdateExpText(int exp)
     {
         if (Player.Level >= 9) EXPtm.text = "MAX";
         else EXPtm.text = $"{exp}/{Player.MaxExp}";
         Leveltm.text = $"Level {Player.Level}";
     }
-
     public void UpdateHpText(int hp)
     {
         HPtm.text = Player.CurrentHp.ToString();
@@ -52,7 +49,6 @@ public class UIManager : MonoBehaviour
     {
         Enemytm.text = Enemy.CurrentHp.ToString();
     }
-
     public void UpdateRestTimeText(int time)
     {
         RestTimeText.text = ((int)(GameManager.Instance.WaitingTime - GameManager.Instance.NextTurnTime)).ToString();

@@ -19,7 +19,6 @@ public class Entity : MonoBehaviour
             _currentHp = value;
         }
     }
-
     public void Damaged()
     { 
     }

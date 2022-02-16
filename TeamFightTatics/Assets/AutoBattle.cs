@@ -102,7 +102,6 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
 
         yield return new WaitForSeconds(1f);
     }
-
     public void Attack(int Power, int attackRange,int attackDelay)
     {
 

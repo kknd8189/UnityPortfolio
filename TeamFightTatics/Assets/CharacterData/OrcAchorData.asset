@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: OrcAchorData
   m_EditorClassIdentifier: 
   CharacterNum: 0
-  SynergyNum: 0
+  SynergyNum: 0000000003000000
   CharacterPrefab: {fileID: 6885607503258514285, guid: dad22fe2b140ea84da04c534069ca21e, type: 3}
   CardPrefab: {fileID: 3116885294589100871, guid: cbe1812fe49424645a20d124a56f30be, type: 3}
   MaxHP: 40
   Power: 10
-  AttackRange: 5
-  AttackDelay: 5
   MaxMP: 20
   DefaultMP: 10
   Cost: 1
+  AttackRange: 5
+  AttackDelay: 5

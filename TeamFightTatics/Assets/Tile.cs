@@ -11,7 +11,6 @@ public class Tile : MonoBehaviour
         get { return _index; }
         set { _index = value; }
     }
-
     protected bool _isUsed;
     public bool IsUsed
     {

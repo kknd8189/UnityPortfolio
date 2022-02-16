@@ -7,11 +7,15 @@ public class DragAndDrop : MonoBehaviour
     private Vector3 screenSpace;
     private Vector3 offset;
     private Vector3 initialPosition;
+    private GameObject Player;
     private Player player;
+    private Synergy synergy;
 
     private void Awake()
     {
-        player = FindObjectOfType<Player>();
+        Player = GameObject.FindGameObjectWithTag("Player");
+        player = Player.GetComponent<Player>();
+        synergy = Player.GetComponent<Synergy>();
     }
     private void OnMouseDown()
     {
@@ -23,9 +27,10 @@ public class DragAndDrop : MonoBehaviour
     {
         if (GameManager.Instance.GameState == GAMESTATE.Battle && gameObject.GetComponent<Persona>().IsOnBattleField)
         {
+            transform.position = initialPosition;
             return;
         }
-
+  
         Vector3 curScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z);
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenSpace) + offset;
 
@@ -43,21 +48,59 @@ public class DragAndDrop : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out dectectedTile, 20, mask))
         {
             Tile tile = dectectedTile.transform.GetComponent<Tile>();
+            Persona persona = GetComponent<Persona>();
 
-            if (dectectedTile.collider.GetComponent<BattleFiled>() != null)
+            //필드위에 다른 캐릭터가 있으면 원래 위치로
+            if(tile.IsUsed)
             {
-                GetComponent<Persona>().DiposedIndex = dectectedTile.collider.GetComponent<BattleFiled>().Index;
+                transform.position = initialPosition;
+                return;
+            }
+
+            //BattleField위에 올릴때
+            else if (dectectedTile.collider.GetComponent<BattleFiled>() != null)
+            {
+
+                if (GameManager.Instance.GameState == GAMESTATE.Battle || tile.Index >= 48)
+                {
+                    transform.position = initialPosition;
+                    return;
+                }
+
+                //SummonField에서 BattleField위로 올릴때
+                if (!persona.IsOnBattleField)
+                {
+                    if(player.Capacity <= 0)
+                    {
+                        transform.position = initialPosition;
+                        return;
+                    }
+                    synergy.IncreaseSynergyCount(persona.CharacterNum);
+                    player.Capacity--;
+                }
+                persona.DiposedIndex = dectectedTile.collider.GetComponent<BattleFiled>().Index;
+                transform.position = dectectedTile.transform.position;
+                return;
+
+            }
+
+            //SummonField위에 올릴때
+            else if (dectectedTile.collider.GetComponent<SummonField>() != null)
+            {
                 transform.position = dectectedTile.transform.position;
 
-                if (player.Capacity <= 0 || GameManager.Instance.GameState == GAMESTATE.Battle || tile.Index >= 48) transform.position = initialPosition;
-            }
-
-            else if(dectectedTile.collider.GetComponent<SummonField>() != null )
-            {
-                if (!tile.IsUsed) transform.position = dectectedTile.transform.position;
-                else if (tile.IsUsed) transform.position = initialPosition;
+                //BattleField에서 SummonField위로 올릴때
+                if (persona.IsOnBattleField)
+                {
+                    synergy.DecreaseSynergyCount(persona.CharacterNum);
+                    player.Capacity++;
+                    return;
+                }
             }
         }
+
+        //타일위에 올리지 않을때
         else transform.position = initialPosition;
+
     }
 }
