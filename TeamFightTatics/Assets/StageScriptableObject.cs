@@ -6,4 +6,6 @@ using UnityEngine;
 
 public class StageScriptableObject : ScriptableObject
 {
+    public int[] Amount;
+    public int[] Index;
 }

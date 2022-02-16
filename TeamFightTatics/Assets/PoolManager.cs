@@ -7,11 +7,11 @@ public class PoolManager : MonoBehaviour
     public List<CharacterSciptableObject> CharacterDataList;
     public Queue<GameObject>[] CardQueue = new Queue<GameObject>[2];
     public Queue<GameObject>[] CharacterQueue = new Queue<GameObject>[2];
-    private int _summonCount = 0;
-    public int SummonCount
+    private int _onSummonFieldCount = 0;
+    public int OnSummonFieldCount
     {
-        get { return _summonCount; }
-        set { _summonCount = value; }
+        get { return _onSummonFieldCount; }
+        set { _onSummonFieldCount = value; }
     }
     [SerializeField]
     private int amount = 20;

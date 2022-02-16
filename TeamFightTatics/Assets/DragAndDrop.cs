@@ -10,8 +10,7 @@ public class DragAndDrop : MonoBehaviour
     private GameObject Player;
     private Player player;
     private Synergy synergy;
-
-    private void Awake()
+    private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         player = Player.GetComponent<Player>();
@@ -81,7 +80,6 @@ public class DragAndDrop : MonoBehaviour
                 persona.DiposedIndex = dectectedTile.collider.GetComponent<BattleFiled>().Index;
                 transform.position = dectectedTile.transform.position;
                 return;
-
             }
 
             //SummonField위에 올릴때
@@ -98,7 +96,6 @@ public class DragAndDrop : MonoBehaviour
                 }
             }
         }
-
         //타일위에 올리지 않을때
         else transform.position = initialPosition;
 

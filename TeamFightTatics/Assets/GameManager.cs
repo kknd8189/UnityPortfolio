@@ -34,8 +34,10 @@ public class GameManager : MonoBehaviour
     public float NextTurnTime;
     public float WaitingTime;
     public GAMESTATE GameState;
-
     public TextMeshProUGUI TurnText;
+
+    public EnemyGenerator enemyGenerator;
+
     private void Start()
     {
         GameState = GAMESTATE.StandBy;
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
         NextTurnTime = 0f;
         WaitingTime = 20.0f;
         TurnText.text = "Turn " + Turn.ToString();
+        enemyGenerator.EnemyGenerate(Turn);
     }
     private void Update()
     {
@@ -61,16 +64,27 @@ public class GameManager : MonoBehaviour
                 case GAMESTATE.Battle:
                     Turn += 1;
                     TurnText.text = $"Turn {Turn}";
+                    if (Turn > 20) GameOver();
                     GameState = GAMESTATE.StandBy;
                     rerollManager.freeReroll();
+                    enemyGenerator.EnemyGenerate(Turn);
                     break;
             }
             IsOver = false;
         }
+
         if (NextTurnTime >= WaitingTime)
         {
             IsOver = true;
             NextTurnTime = 0;
         }
+    }
+    public void GameOver()
+    {
+        Debug.Log("GameOver");
+    }
+    public void Win()
+    {
+        Debug.Log("YouWin");
     }
 }

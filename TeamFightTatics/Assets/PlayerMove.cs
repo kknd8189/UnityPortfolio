@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
     private bool isMove;
     private Vector3 destination;
     public float Speed = 10f;
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))

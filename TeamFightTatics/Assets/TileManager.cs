@@ -37,7 +37,6 @@ public class TileManager : MonoBehaviour
         setSummonTile();
         setBattleTile();
     }
-
     private void setSummonTile()
     {
         for (int i = 0; i < SummonTileMax; i++)
@@ -51,7 +50,6 @@ public class TileManager : MonoBehaviour
             SummonTileList.Add(gameObject);
         }
     }
-
     private void setBattleTile()
     {
         for(int i = 0; i < horizonalTileMax; i++)

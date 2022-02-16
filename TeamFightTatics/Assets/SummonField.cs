@@ -9,7 +9,7 @@ public class SummonField : Tile
         if (collision.collider.GetComponent<Persona>() != null)
         {
             collision.collider.GetComponent<Persona>().IsOnBattleField = false;
-            PoolManager.Instance.SummonCount++;
+            PoolManager.Instance.OnSummonFieldCount++;
             _isUsed = true;
         }
     }
@@ -17,7 +17,7 @@ public class SummonField : Tile
     {
         if (collision.collider.GetComponent<Persona>() != null)
         {
-            PoolManager.Instance.SummonCount--;
+            PoolManager.Instance.OnSummonFieldCount--;
             _isUsed = false;
         }
     }

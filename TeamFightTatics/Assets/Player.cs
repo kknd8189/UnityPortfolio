@@ -8,7 +8,6 @@ public class Player : Entity
     public UnityEvent<int> OnGoldChanged = new UnityEvent<int>();
     public UnityEvent<int> CurrentExpChanged = new UnityEvent<int>();
     public UnityEvent<int> CurrentHpChanged = new UnityEvent<int>();
-
     public int Level
     {
         get
@@ -63,6 +62,7 @@ public class Player : Entity
         {
             _currentHp = value;
             CurrentHpChanged?.Invoke(_currentHp);
+            if (_currentHp <= 0) GameManager.Instance.GameOver();
         }
     }
     //    레벨 필요 경험치
@@ -117,4 +117,8 @@ public class Player : Entity
                 CurrentExp = CurrentExp;
             }
         }
+    public override void Damaged(int damage)
+    {
+        CurrentHp -= damage;
+    }
 } 

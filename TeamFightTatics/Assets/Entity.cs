@@ -10,6 +10,7 @@ public class Entity : MonoBehaviour
         get { return _maxHp; }
         set { _maxHp = value; }
     }
+    [SerializeField]
     protected int _currentHp;
     public int CurrentHp
     {
@@ -19,7 +20,8 @@ public class Entity : MonoBehaviour
             _currentHp = value;
         }
     }
-    public void Damaged()
-    { 
+    public virtual void Damaged(int damage)
+    {
+        CurrentHp -= damage;
     }
 }

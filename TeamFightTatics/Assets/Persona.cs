@@ -21,6 +21,12 @@ public class Persona : Character
         get { return _defaultMp; }
         set { _defaultMp = value; }
     }
+    private int _currentMp;
+    public int CurrentMp
+    {
+        get { return _currentMp; }
+        set { _currentMp = value; }
+    }
     private float _attackRange;
     public float AttackRange
     {

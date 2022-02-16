@@ -2067,7 +2067,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6885607503258414861}
   - component: {fileID: 6885607503265890515}
-  - component: {fileID: 3624015898072290790}
   - component: {fileID: -8490942326126608073}
   - component: {fileID: 3491944489310610817}
   - component: {fileID: 7180266623356889057}
@@ -2121,18 +2120,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3624015898072290790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6885607503258514285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cddc480c0d4984ea71ce8ac6371f01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &-8490942326126608073
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2180,6 +2167,7 @@ MonoBehaviour:
   isFind: 0
   isDelay: 0
   characterState: 0
+  Persona: {fileID: -1216174184316893725}
 --- !u!114 &-1216174184316893725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2192,6 +2180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b30de82ba7008145b2e4790baa5cf2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentHp: 0
+  _diposedIndex: 0
 --- !u!1 &6885607503258514287
 GameObject:
   m_ObjectHideFlags: 0

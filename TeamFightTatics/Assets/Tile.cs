@@ -17,5 +17,4 @@ public class Tile : MonoBehaviour
         get { return _isUsed; }
         set { _isUsed = value; }
     }
-
 }

@@ -14,12 +14,16 @@ public class Enemy : Entity
         {
             _currentHp = value;
             CurrentHpChanged?.Invoke(_currentHp);
+            if (_currentHp <= 0) GameManager.Instance.Win();
         }
     }
-
     private void Start()
     {
         _maxHp = 100;
         _currentHp = _maxHp;
+    }
+    public override void Damaged(int damage)
+    {
+        CurrentHp -= damage;
     }
 }
