@@ -17,7 +17,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
     [SerializeField]
     private CharacterState characterState;
 
-    private Persona Persona;
+    public Persona Persona;
 
     private void OnEnable()
     {

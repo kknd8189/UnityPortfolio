@@ -78,7 +78,7 @@ public class PoolManager : MonoBehaviour
         persona.MaxMp = CharacterDataList[CharacterListIndex].MaxMP;
         persona.DefaultMp = CharacterDataList[CharacterListIndex].DefaultMP;
         persona.AttackRange = CharacterDataList[CharacterListIndex].AttackRange;
-        persona.AttackDelay = CharacterDataList[CharacterListIndex].AttackDelay;
+        persona.AttackDelayTime = CharacterDataList[CharacterListIndex].AttackDelay;
         persona.Cost = CharacterDataList[CharacterListIndex].Cost;
         personaObject.SetActive(false);
         CharacterQueue[CharacterListIndex].Enqueue(personaObject);

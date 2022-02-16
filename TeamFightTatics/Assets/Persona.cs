@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Persona : Character , IAttack, ISkill
+public class Persona : Character
 {
     private bool _isOnBattleField;
     public bool IsOnBattleField
@@ -33,11 +33,11 @@ public class Persona : Character , IAttack, ISkill
         get { return _power; }
         set { _power = value; }
     }
-    private int _attackDelay;
-    public int AttackDelay
+    private float _attackDelayTime;
+    public float AttackDelayTime
     {
-        get { return _attackRange; }
-        set { _attackRange = value; }
+        get { return _attackDelayTime; }
+        set { _attackDelayTime = value; }
     }
 
     [SerializeField]
@@ -59,8 +59,4 @@ public class Persona : Character , IAttack, ISkill
         }
     }
     public virtual void Skill() { }
-    public virtual void Attack(int power, int attackRange, int attackDelay)
-    {
-
-    }
 }

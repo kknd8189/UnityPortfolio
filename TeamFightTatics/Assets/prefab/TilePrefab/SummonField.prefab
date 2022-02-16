@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5219094663095028136}
   - component: {fileID: 6906097518911443718}
   - component: {fileID: -7139057200976590034}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SummonField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,4 +111,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _index: 9
-  _isUsed: 0

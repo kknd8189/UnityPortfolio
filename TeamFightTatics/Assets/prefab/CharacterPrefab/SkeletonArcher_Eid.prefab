@@ -1729,6 +1729,7 @@ MonoBehaviour:
   isFind: 0
   isDelay: 0
   characterState: 0
+  Persona: {fileID: 735513444077278902}
 --- !u!114 &735513444077278902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1741,9 +1742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90f57ac9b7ed33541a2dd78611a15cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHpChanged:
-    m_PersistentCalls:
-      m_Calls: []
   _diposedIndex: 0
 --- !u!1 &3869442567412336125
 GameObject:

@@ -18,7 +18,7 @@ public class PlayerMove : MonoBehaviour
 
             RaycastHit hit;
 
-            if(Physics.Raycast(ray, out hit, 300.0f))
+            if(Physics.Raycast(ray, out hit, 300.0f, 1<<6))
             {
                 setDestination(hit.point);
             }
@@ -40,7 +40,6 @@ public class PlayerMove : MonoBehaviour
             transform.position += dir.normalized * Time.deltaTime * Speed;
         }
     }
-
     private void setDestination(Vector3 dest)
     {
         destination = dest;

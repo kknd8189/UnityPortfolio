@@ -35,9 +35,12 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        RaycastHit dectectedTile;    
+        RaycastHit dectectedTile;
 
-        if (Physics.Raycast(transform.position, Vector3.down, out dectectedTile, 20))
+        //비트 연산자 사용 레이어 6번째
+        int mask = (1 << 6);
+
+        if (Physics.Raycast(transform.position, Vector3.down, out dectectedTile, 20, mask))
         {
             Tile tile = dectectedTile.transform.GetComponent<Tile>();
 
