@@ -21,15 +21,15 @@ public class TileManager : MonoBehaviour
     public List<GameObject> BattleTileList = new List<GameObject>();
 
     public static TileManager Instance = null;
- 
+
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
 
-        else if(Instance != null)
+        else if (Instance != null)
         {
             Destroy(this);
         }
@@ -52,14 +52,14 @@ public class TileManager : MonoBehaviour
     }
     private void setBattleTile()
     {
-        for(int i = 0; i < horizonalTileMax; i++)
+        for (int i = 0; i < horizonalTileMax; i++)
         {
-            for(int j = 0; j< verticalTileMax; j++)
+            for (int j = 0; j < verticalTileMax; j++)
             {
                 GameObject gameObject;
                 gameObject = Instantiate(battleTileObject, field);
                 gameObject.GetComponent<BattleFiled>().Index = (j + i * verticalTileMax);
-                gameObject.transform.position = new Vector3( j * 10, 0, 15 + i * 10);
+                gameObject.transform.position = new Vector3(j * 10, 0, 15 + i * 10);
                 if (j + i * verticalTileMax >= 48) gameObject.GetComponent<MeshRenderer>().material = enemyTileMaterial;
                 else gameObject.GetComponent<MeshRenderer>().material = playerTileMaterial;
                 BattleTileList.Add(gameObject);

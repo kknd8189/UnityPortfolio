@@ -18,9 +18,9 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnMouseDown()
     {
-            initialPosition = transform.position;
-            screenSpace = Camera.main.WorldToScreenPoint(transform.position);
-            offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z));
+        initialPosition = transform.position;
+        screenSpace = Camera.main.WorldToScreenPoint(transform.position);
+        offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z));
     }
     private void OnMouseDrag()
     {
@@ -29,7 +29,7 @@ public class DragAndDrop : MonoBehaviour
             transform.position = initialPosition;
             return;
         }
-  
+
         Vector3 curScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z);
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenSpace) + offset;
 
@@ -49,7 +49,7 @@ public class DragAndDrop : MonoBehaviour
             Persona persona = GetComponent<Persona>();
 
             //필드위에 다른 캐릭터가 있으면 원래 위치로
-            if(tile.IsUsed)
+            if (tile.IsUsed)
             {
                 transform.position = initialPosition;
                 return;
@@ -68,7 +68,7 @@ public class DragAndDrop : MonoBehaviour
                 //SummonField에서 BattleField위로 올릴때
                 if (!persona.IsOnBattleField)
                 {
-                    if(player.Capacity <= 0)
+                    if (player.Capacity <= 0)
                     {
                         transform.position = initialPosition;
                         return;
@@ -86,7 +86,7 @@ public class DragAndDrop : MonoBehaviour
             else if (dectectedTile.collider.GetComponent<SummonField>() != null)
             {
                 transform.position = dectectedTile.transform.position;
-
+                persona.DiposedIndex = dectectedTile.collider.GetComponent<SummonField>().Index;
                 //BattleField에서 SummonField위로 올릴때
                 if (persona.IsOnBattleField)
                 {

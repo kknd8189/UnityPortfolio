@@ -24,7 +24,6 @@ public class Character : Entity
     }
     protected Player player;
     protected Enemy enemy;
-
     private RerollManager RerollManager;
 
     private void Awake()
@@ -37,24 +36,27 @@ public class Character : Entity
     {
         if (player.Gold < PoolManager.Instance.CharacterDataList[CharacterNum].Cost) return;
         if (PoolManager.Instance.OnSummonFieldCount > 9) return;
+        GameObject characterPrefab;
+        characterPrefab = PoolManager.Instance.CharacterQueue[CharacterNum].Dequeue();
+        Persona character = characterPrefab.GetComponent<Persona>();
+        characterPrefab.tag = "PlayerCharacter";
+        characterPrefab.AddComponent<DragAndDrop>();
 
-            GameObject characterPrefab;
-            characterPrefab = PoolManager.Instance.CharacterQueue[CharacterNum].Dequeue();
-            characterPrefab.tag = "PlayerCharacter";
-            characterPrefab.AddComponent<DragAndDrop>();
-            for (int i = 0; i < TileManager.Instance.SummonTileList.Count; i++)
+        for (int i = 0; i < TileManager.Instance.SummonTileList.Count; i++)
+        {
+            if (!TileManager.Instance.SummonTileList[i].GetComponent<SummonField>().IsUsed)
             {
-                if (!TileManager.Instance.SummonTileList[i].GetComponent<SummonField>().IsUsed)
-                {
-                    characterPrefab.transform.position = TileManager.Instance.SummonTileList[i].transform.position;
-                    break;
-                }
+                characterPrefab.transform.position = TileManager.Instance.SummonTileList[i].transform.position;
+                character.DiposedIndex = i;
+                break;
             }
-            characterPrefab.SetActive(true);
-            characterPrefab.transform.SetParent(null);
-            Character character = characterPrefab.GetComponent<Character>();
-            player.PlayerCharacterList[character.CharacterNum].Add(characterPrefab);
-            player.Gold -= character.Cost;
-            RerollManager.eraseCard(_cardIndex);
+        }
+
+        characterPrefab.SetActive(true);
+        characterPrefab.transform.SetParent(null);
+        player.PlayerCharacterList[character.CharacterNum].Add(characterPrefab);
+        player.Gold -= character.Cost;
+        RerollManager.eraseCard(_cardIndex);
+        player.PromoteHelper(CharacterNum);
     }
 }

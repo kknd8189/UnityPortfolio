@@ -60,7 +60,7 @@ public class PoolManager : MonoBehaviour
     }
     private void setPersonaStatus(int CharacterListIndex)
     {
-        GameObject personaObject = Instantiate(CharacterDataList[CharacterListIndex].CharacterPrefab,transform);
+        GameObject personaObject = Instantiate(CharacterDataList[CharacterListIndex].CharacterPrefab, transform);
         Persona persona = personaObject.GetComponent<Persona>();
         persona.CharacterNum = CharacterDataList[CharacterListIndex].CharacterNum;
         persona.MaxHp = CharacterDataList[CharacterListIndex].MaxHP;
@@ -72,6 +72,13 @@ public class PoolManager : MonoBehaviour
         persona.Cost = CharacterDataList[CharacterListIndex].Cost;
         personaObject.SetActive(false);
         CharacterQueue[CharacterListIndex].Enqueue(personaObject);
+    }
+
+    public void PushCharacterQueue(int CharacterNum, GameObject personaPrefab)
+    {
+        personaPrefab.SetActive(false);
+        personaPrefab.transform.SetParent(transform);
+        CharacterQueue[CharacterNum].Enqueue(personaPrefab);
     }
 }
 

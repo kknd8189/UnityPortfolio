@@ -10,6 +10,7 @@ public class Synergy : MonoBehaviour
     private bool[] isCounted;
 
     public int MaxSynergyNum;
+    public Player player;
 
     private void Awake()
     {
@@ -34,7 +35,7 @@ public class Synergy : MonoBehaviour
     {
         SummonCount[characterNum]--;
 
-        if (SummonCount[characterNum] <=0)
+        if (SummonCount[characterNum] <= 0)
         {
             for (int i = 0; i < PoolManager.Instance.CharacterDataList[characterNum].SynergyNum.Length; i++)
             {
@@ -44,4 +45,5 @@ public class Synergy : MonoBehaviour
             isCounted[characterNum] = false;
         }
     }
+
 }

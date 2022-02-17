@@ -10,11 +10,12 @@ public class Player : Entity
     public UnityEvent<int> CurrentHpChanged = new UnityEvent<int>();
 
     public Enemy enemy;
+    public Synergy synergy;
     public List<GameObject>[] PlayerCharacterList;
 
     [SerializeField]
     private int _liveCharacterCount = 0;
-    public int LiveCharacterCount 
+    public int LiveCharacterCount
     {
         get { return _liveCharacterCount; }
         set { _liveCharacterCount = value; }
@@ -61,6 +62,7 @@ public class Player : Entity
     }
     [SerializeField]
     private int _gold = 10;
+    [SerializeField]
     private int _capacity = 1;
     public int Capacity
     {
@@ -86,7 +88,7 @@ public class Player : Entity
     //Lv.6  Lv.7	36 XP
     //Lv.7  Lv.8	56 XP
     //Lv.8  Lv.9	80 XP
-    private int[] maxExpContainer = { 0, 2, 6, 10, 20, 36, 56, 80, 999  };
+    private int[] maxExpContainer = { 0, 2, 6, 10, 20, 36, 56, 80, 999 };
     private void Start()
     {
         PlayerCharacterList = new List<GameObject>[PoolManager.Instance.CharacterDataList.Count];
@@ -119,21 +121,50 @@ public class Player : Entity
         }
     }
     private void updateLevel()
+    {
+        if (CurrentExp >= MaxExp)
         {
-            if (CurrentExp >= MaxExp)
-            {
-                CurrentExp = CurrentExp - MaxExp;
-                Capacity++;
-                Level += 1;
+            CurrentExp = CurrentExp - MaxExp;
+            Capacity++;
+            Level += 1;
 
-                _maxExp = maxExpContainer[Level-1];
-          
-                CurrentExp = CurrentExp;
-            }
+            _maxExp = maxExpContainer[Level - 1];
+
+            CurrentExp = CurrentExp;
         }
+    }
     public override void Damaged(int damage)
     {
         CurrentHp -= damage;
     }
+    public void PromoteHelper(int characterNum)
+    {
+        if (PlayerCharacterList[characterNum].Count == 3)
+        {
+            Persona persona0 = PlayerCharacterList[characterNum][0].GetComponent<Persona>();
+            PlayerCharacterList[characterNum][0].transform.localScale = PlayerCharacterList[characterNum][0].transform.localScale * 1.3f;
+            persona0.Power = persona0.Power * 2;
+            persona0.MaxHp = persona0.CurrentHp = persona0.MaxHp * 2;
 
-} 
+            Persona persona1 = PlayerCharacterList[characterNum][1].GetComponent<Persona>();
+            if (persona1.IsOnBattleField)
+            {
+                Tile Battletile = TileManager.Instance.BattleTileList[persona1.DiposedIndex].GetComponent<Tile>();
+                synergy.DecreaseSynergyCount(characterNum);
+                Capacity--;
+                Battletile.IsUsed = false;
+            }
+
+            else if (!persona1.IsOnBattleField)
+            {
+                Tile SummonTile = TileManager.Instance.SummonTileList[persona1.DiposedIndex].GetComponent<Tile>();
+                PoolManager.Instance.OnSummonFieldCount--;
+                SummonTile.IsUsed = false;
+            }
+            PoolManager.Instance.PushCharacterQueue(characterNum, PlayerCharacterList[characterNum][1]);
+            PoolManager.Instance.PushCharacterQueue(characterNum, PlayerCharacterList[characterNum][2]);
+
+            PlayerCharacterList[characterNum].Clear();
+        }
+    }
+}

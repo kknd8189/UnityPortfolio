@@ -1945,6 +1945,8 @@ MonoBehaviour:
   CurrentHpChanged:
     m_PersistentCalls:
       m_Calls: []
+  player: {fileID: 1849421011}
+  _liveEnemyCount: 0
 --- !u!114 &866813394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,6 +1962,7 @@ MonoBehaviour:
   StageDataList:
   - {fileID: 11400000, guid: 6effbffc0fd76354490f4bfad8c2b073, type: 2}
   - {fileID: 11400000, guid: 07f569b4f5b1f1b4b8f3d827930ff1db, type: 2}
+  enemy: {fileID: 866813393}
 --- !u!1 &871035545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2863,7 +2866,6 @@ GameObject:
   - component: {fileID: 1849421011}
   - component: {fileID: 1849421016}
   - component: {fileID: 1849421017}
-  - component: {fileID: 1849421018}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2893,7 +2895,11 @@ MonoBehaviour:
   CurrentHpChanged:
     m_PersistentCalls:
       m_Calls: []
+  enemy: {fileID: 866813393}
+  synergy: {fileID: 1849421016}
+  _liveCharacterCount: 0
   _gold: 10
+  _capacity: 1
 --- !u!135 &1849421012
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2985,6 +2991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxSynergyNum: 8
+  player: {fileID: 1849421011}
 --- !u!114 &1849421017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2998,18 +3005,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 50
---- !u!114 &1849421018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849421010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98608005f9157c040b0a5919126d9a08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1931666193
 GameObject:
   m_ObjectHideFlags: 0
