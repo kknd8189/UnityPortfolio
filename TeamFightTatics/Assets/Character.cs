@@ -22,22 +22,24 @@ public class Character : Entity
         get { return _cardIndex; }
         set { _cardIndex = value; }
     }
-    private Player Player;
+    protected Player player;
+    protected Enemy enemy;
+
     private RerollManager RerollManager;
 
     private void Awake()
     {
-        Player = FindObjectOfType<Player>();
+        player = FindObjectOfType<Player>();
+        enemy = FindObjectOfType<Enemy>();
         RerollManager = FindObjectOfType<RerollManager>();
     }
     public void Summon()
     {
-        if (Player.Gold < PoolManager.Instance.CharacterDataList[CharacterNum].Cost) return;
+        if (player.Gold < PoolManager.Instance.CharacterDataList[CharacterNum].Cost) return;
         if (PoolManager.Instance.OnSummonFieldCount > 9) return;
 
             GameObject characterPrefab;
             characterPrefab = PoolManager.Instance.CharacterQueue[CharacterNum].Dequeue();
-
             characterPrefab.tag = "PlayerCharacter";
             characterPrefab.AddComponent<DragAndDrop>();
             for (int i = 0; i < TileManager.Instance.SummonTileList.Count; i++)
@@ -51,7 +53,8 @@ public class Character : Entity
             characterPrefab.SetActive(true);
             characterPrefab.transform.SetParent(null);
             Character character = characterPrefab.GetComponent<Character>();
-            Player.Gold -= character.Cost;
+            player.PlayerCharacterList[character.CharacterNum].Add(characterPrefab);
+            player.Gold -= character.Cost;
             RerollManager.eraseCard(_cardIndex);
     }
 }

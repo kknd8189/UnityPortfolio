@@ -5,8 +5,8 @@ using UnityEngine;
 public class PoolManager : MonoBehaviour
 {
     public List<CharacterSciptableObject> CharacterDataList;
-    public Queue<GameObject>[] CardQueue = new Queue<GameObject>[2];
-    public Queue<GameObject>[] CharacterQueue = new Queue<GameObject>[2];
+    public Queue<GameObject>[] CardQueue;
+    public Queue<GameObject>[] CharacterQueue;
     private int _onSummonFieldCount = 0;
     public int OnSummonFieldCount
     {
@@ -27,6 +27,10 @@ public class PoolManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        CardQueue = new Queue<GameObject>[CharacterDataList.Count];
+        CharacterQueue = new Queue<GameObject>[CharacterDataList.Count];
+
         for (int i = 0; i < CardQueue.Length; ++i)
         {
             CardQueue[i] = new Queue<GameObject>();

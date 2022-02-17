@@ -8,7 +8,6 @@ public enum GAMESTATE
 {
     StandBy, Battle
 }
-
 public class GameManager : MonoBehaviour
 {
     #region Singleton

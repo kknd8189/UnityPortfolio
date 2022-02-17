@@ -8,6 +8,18 @@ public class Player : Entity
     public UnityEvent<int> OnGoldChanged = new UnityEvent<int>();
     public UnityEvent<int> CurrentExpChanged = new UnityEvent<int>();
     public UnityEvent<int> CurrentHpChanged = new UnityEvent<int>();
+
+    public Enemy enemy;
+    public List<GameObject>[] PlayerCharacterList;
+
+    [SerializeField]
+    private int _liveCharacterCount = 0;
+    public int LiveCharacterCount 
+    {
+        get { return _liveCharacterCount; }
+        set { _liveCharacterCount = value; }
+    }
+
     public int Level
     {
         get
@@ -77,6 +89,8 @@ public class Player : Entity
     private int[] maxExpContainer = { 0, 2, 6, 10, 20, 36, 56, 80, 999  };
     private void Start()
     {
+        PlayerCharacterList = new List<GameObject>[PoolManager.Instance.CharacterDataList.Count];
+        for (int i = 0; i < PlayerCharacterList.Length; ++i) { PlayerCharacterList[i] = new List<GameObject>(); }
         _maxHp = 100;
         _currentHp = _maxHp;
     }
@@ -121,4 +135,5 @@ public class Player : Entity
     {
         CurrentHp -= damage;
     }
+
 } 

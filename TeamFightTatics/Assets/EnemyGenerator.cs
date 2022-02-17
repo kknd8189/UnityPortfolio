@@ -6,6 +6,9 @@ public class EnemyGenerator : MonoBehaviour
 {
     [SerializeField]
     private List<StageScriptableObject> StageDataList;
+
+    public Enemy enemy;
+
     public void EnemyGenerate(int turn)
     {
         //j 캐릭터넘버, i 캐릭터 소환숫자, k 소환된 순서
@@ -22,6 +25,7 @@ public class EnemyGenerator : MonoBehaviour
                 characterPrefab.transform.position = TileManager.Instance.BattleTileList[StageDataList[turn - 1].Index[k]].transform.position;
                 characterPrefab.transform.rotation = new Quaternion(0, 180, 0, 0);
                 characterPrefab.GetComponent<Persona>().DiposedIndex = StageDataList[turn - 1].Index[k];
+                enemy.LiveEnemyCount++;
                 k++;
             }
         }

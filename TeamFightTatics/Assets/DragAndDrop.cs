@@ -40,7 +40,6 @@ public class DragAndDrop : MonoBehaviour
     private void OnMouseUp()
     {
         RaycastHit dectectedTile;
-
         //비트 연산자 사용 레이어 6번째
         int mask = (1 << 6);
 
@@ -76,6 +75,7 @@ public class DragAndDrop : MonoBehaviour
                     }
                     synergy.IncreaseSynergyCount(persona.CharacterNum);
                     player.Capacity--;
+                    player.LiveCharacterCount++;
                 }
                 persona.DiposedIndex = dectectedTile.collider.GetComponent<BattleFiled>().Index;
                 transform.position = dectectedTile.transform.position;
@@ -92,6 +92,7 @@ public class DragAndDrop : MonoBehaviour
                 {
                     synergy.DecreaseSynergyCount(persona.CharacterNum);
                     player.Capacity++;
+                    player.LiveCharacterCount--;
                     return;
                 }
             }

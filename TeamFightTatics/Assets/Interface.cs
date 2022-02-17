@@ -5,7 +5,6 @@ public interface IAttack
 {
     void Attack(int power, int attackRange, int attackDelay);
 }
-
 public interface ISkill
 {
     void Skill();

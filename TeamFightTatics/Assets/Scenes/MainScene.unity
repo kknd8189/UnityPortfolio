@@ -776,7 +776,6 @@ GameObject:
   - component: {fileID: 355609425}
   - component: {fileID: 355609424}
   - component: {fileID: 355609426}
-  - component: {fileID: 355609427}
   m_Layer: 0
   m_Name: PoolManager
   m_TagString: Untagged
@@ -830,19 +829,6 @@ MonoBehaviour:
   player: {fileID: 1849421011}
   OnPanelList: []
   cardPanel: {fileID: 629717111}
---- !u!114 &355609427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 355609423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2aa18b674c4bac4388d192ce5c42517, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StageDataList: []
 --- !u!1 &386656916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,8 +1922,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866813388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 120, y: 0, z: 100}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1955,6 +1941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e93285e42a862b4b919036cdf5782b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentHp: 0
   CurrentHpChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1967,10 +1954,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 866813388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49fd72908991923419d4c06316e05c56, type: 3}
+  m_Script: {fileID: 11500000, guid: a2aa18b674c4bac4388d192ce5c42517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 866813393}
+  StageDataList:
+  - {fileID: 11400000, guid: 6effbffc0fd76354490f4bfad8c2b073, type: 2}
+  - {fileID: 11400000, guid: 07f569b4f5b1f1b4b8f3d827930ff1db, type: 2}
 --- !u!1 &871035545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,6 +2863,7 @@ GameObject:
   - component: {fileID: 1849421011}
   - component: {fileID: 1849421016}
   - component: {fileID: 1849421017}
+  - component: {fileID: 1849421018}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2893,6 +2883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49dcad39359c706429a494b1556cd9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentHp: 0
   OnGoldChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2902,8 +2893,6 @@ MonoBehaviour:
   CurrentHpChanged:
     m_PersistentCalls:
       m_Calls: []
-  _maxExp: 2
-  _currentExp: 0
   _gold: 10
 --- !u!135 &1849421012
 SphereCollider:
@@ -2995,7 +2984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49fd72908991923419d4c06316e05c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 1849421011}
+  MaxSynergyNum: 8
 --- !u!114 &1849421017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3009,6 +2998,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 50
+--- !u!114 &1849421018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849421010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98608005f9157c040b0a5919126d9a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1931666193
 GameObject:
   m_ObjectHideFlags: 0
@@ -3497,9 +3498,6 @@ MonoBehaviour:
   OnTimeChanged:
     m_PersistentCalls:
       m_Calls: []
-  CurrentHpChanged:
-    m_PersistentCalls:
-      m_Calls: []
   rerollManager: {fileID: 355609426}
   Turn: 0
   IsOver: 0
@@ -3507,6 +3505,7 @@ MonoBehaviour:
   WaitingTime: 20
   GameState: 0
   TurnText: {fileID: 1346838737}
+  enemyGenerator: {fileID: 866813394}
 --- !u!114 &2062546925
 MonoBehaviour:
   m_ObjectHideFlags: 0

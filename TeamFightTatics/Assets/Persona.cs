@@ -62,5 +62,15 @@ public class Persona : Character
             transform.position = TileManager.Instance.BattleTileList[DiposedIndex].transform.position;
         }
     }
+
     public virtual void Skill() { }
+
+    protected void Die()
+    {
+        if (_currentHp <= 0)
+        {
+            if (gameObject.tag == "PlayerCharacter") player.LiveCharacterCount--;
+            else if (gameObject.tag == "EnemyCharacter") enemy.LiveEnemyCount--;
+        }
+    }
 }

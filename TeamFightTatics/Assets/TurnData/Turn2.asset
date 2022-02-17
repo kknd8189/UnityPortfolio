@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133fb4c982828e547b50145eaa7ec5ce, type: 3}
   m_Name: Turn2
   m_EditorClassIdentifier: 
-  Amount: 0100000001000000
+  Amount: 0000000001000000
+  Index: 46000000
