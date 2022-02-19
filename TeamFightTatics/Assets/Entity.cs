@@ -20,6 +20,13 @@ public class Entity : MonoBehaviour
             _currentHp = value;
         }
     }
+    [SerializeField]
+    protected float _speed;
+    public float Speed
+    {
+        get { return _speed; }
+        set { _speed = value; }
+    }
     public virtual void Damaged(int damage)
     {
         CurrentHp -= damage;

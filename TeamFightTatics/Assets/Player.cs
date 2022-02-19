@@ -95,6 +95,7 @@ public class Player : Entity
         for (int i = 0; i < PlayerCharacterList.Length; ++i) { PlayerCharacterList[i] = new List<GameObject>(); }
         _maxHp = 100;
         _currentHp = _maxHp;
+        _speed = 10.0f;
     }
     private void Update()
     {

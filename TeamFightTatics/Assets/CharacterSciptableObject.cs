@@ -15,5 +15,5 @@ public class CharacterSciptableObject : ScriptableObject
 
     //character status
     public int MaxHP, Power, MaxMP, DefaultMP, Cost;
-    public float AttackRange, AttackDelay;
+    public float AttackRange, AttackDelay,Speed;
 }

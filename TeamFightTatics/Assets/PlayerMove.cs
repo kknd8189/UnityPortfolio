@@ -6,8 +6,6 @@ public class PlayerMove : MonoBehaviour
 {
     private bool isMove;
     private Vector3 destination;
-    public float Speed = 10f;
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
@@ -32,7 +30,7 @@ public class PlayerMove : MonoBehaviour
                 return;
             }
             Vector3 dir = destination - transform.position;
-            transform.position += dir.normalized * Time.deltaTime * Speed;
+            transform.position += dir.normalized * Time.deltaTime * gameObject.GetComponent<Player>().Speed;
         }
     }
 }

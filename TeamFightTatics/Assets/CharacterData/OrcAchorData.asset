@@ -21,5 +21,6 @@ MonoBehaviour:
   MaxMP: 20
   DefaultMP: 10
   Cost: 1
-  AttackRange: 5
+  AttackRange: 30
   AttackDelay: 5
+  Speed: 10

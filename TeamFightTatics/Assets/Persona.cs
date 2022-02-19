@@ -52,16 +52,6 @@ public class Persona : Character
         get { return _diposedIndex; }
         set { _diposedIndex = value; }
     }
-    private void Update()
-    {
-        //return to initial state
-        if (GameManager.Instance.GameState == GAMESTATE.Battle && GameManager.Instance.IsOver && IsOnBattleField)
-        {
-            CurrentHp = MaxHp;
-            MaxMp = DefaultMp;
-            transform.position = TileManager.Instance.BattleTileList[DiposedIndex].transform.position;
-        }
-    }
     public virtual void Skill() { }
     protected void Die()
     {

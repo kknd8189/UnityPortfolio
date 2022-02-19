@@ -70,6 +70,7 @@ public class PoolManager : MonoBehaviour
         persona.AttackRange = CharacterDataList[CharacterListIndex].AttackRange;
         persona.AttackDelayTime = CharacterDataList[CharacterListIndex].AttackDelay;
         persona.Cost = CharacterDataList[CharacterListIndex].Cost;
+        persona.Speed = CharacterDataList[CharacterListIndex].Speed;
         personaObject.SetActive(false);
         CharacterQueue[CharacterListIndex].Enqueue(personaObject);
     }
