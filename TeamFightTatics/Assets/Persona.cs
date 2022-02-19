@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public enum CharacterState { Idle, Search, Attack, Chase, Skill, Die }
 public class Persona : Character
 {
+    [SerializeField]
     private bool _isOnBattleField;
     public bool IsOnBattleField
     {
@@ -21,6 +23,8 @@ public class Persona : Character
         get { return _defaultMp; }
         set { _defaultMp = value; }
     }
+
+    [SerializeField]
     private int _currentMp;
     public int CurrentMp
     {
@@ -52,6 +56,13 @@ public class Persona : Character
         get { return _diposedIndex; }
         set { _diposedIndex = value; }
     }
+    [SerializeField]
+    protected CharacterState _characterState;
+    public CharacterState CharacterState
+    {
+        get { return _characterState; } 
+        set { _characterState = value; }
+    }
     public virtual void Skill() { }
     protected void Die()
     {
@@ -61,4 +72,9 @@ public class Persona : Character
             else if (gameObject.tag == "EnemyCharacter") enemy.LiveEnemyCount--;
         }
     }
+    public override void Damaged(int damage)
+    {
+        CurrentHp -= damage;
+    }
+
 }
