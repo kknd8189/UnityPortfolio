@@ -72,9 +72,4 @@ public class Persona : Character
             else if (gameObject.tag == "EnemyCharacter") enemy.LiveEnemyCount--;
         }
     }
-    public override void Damaged(int damage)
-    {
-        CurrentHp -= damage;
-    }
-
 }
