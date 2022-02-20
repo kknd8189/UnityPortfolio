@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public int CurrentHp
+    {
+        get { return _currentHp; }
+        set { _currentHp = value; }
+    }
     protected int _maxHp;
     public int MaxHp
     {
@@ -12,11 +17,6 @@ public class Entity : MonoBehaviour
     }
     [SerializeField]
     protected int _currentHp;
-    public int CurrentHp
-    {
-        get { return _currentHp; }
-        set { _currentHp = value; }
-    }
     [SerializeField]
     protected float _speed;
     public float Speed

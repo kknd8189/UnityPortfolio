@@ -7,9 +7,7 @@ using UnityEngine.Events;
 public class Enemy : Entity
 {
     public UnityEvent<int> CurrentHpChanged = new UnityEvent<int>();
-
     public Player player;
-
     public new int CurrentHp
     {
         get { return _currentHp; }

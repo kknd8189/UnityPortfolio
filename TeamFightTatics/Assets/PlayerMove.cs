@@ -29,8 +29,9 @@ public class PlayerMove : MonoBehaviour
                 isMove = false;
                 return;
             }
-            Vector3 dir = destination - transform.position;
-            transform.position += dir.normalized * Time.deltaTime * gameObject.GetComponent<Player>().Speed;
+            Vector3 dir = (destination - transform.position).normalized;
+            transform.position += dir * Time.deltaTime * gameObject.GetComponent<Player>().Speed;
+            transform.forward = dir;
         }
     }
 }

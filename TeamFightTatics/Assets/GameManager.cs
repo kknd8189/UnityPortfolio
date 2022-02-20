@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     public UnityEvent<int> OnTimeChanged = new UnityEvent<int>();
+
     public RerollManager rerollManager;
 
     public int Turn;

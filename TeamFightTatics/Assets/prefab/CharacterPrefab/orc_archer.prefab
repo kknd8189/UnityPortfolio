@@ -2111,7 +2111,7 @@ Animator:
   m_GameObject: {fileID: 6885607503258514285}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7361a74076f591e4c92c19efb34fc912, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b781991800e77454e86d12075bec734e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2165,8 +2165,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemys: []
   enemy: {fileID: 0}
+  anim: {fileID: 0}
+  _characterState: 0
   isDelay: 0
   attackSequence: 0
+  enemyPersona: {fileID: 0}
   Persona: {fileID: -1216174184316893725}
 --- !u!114 &-1216174184316893725
 MonoBehaviour:
@@ -2182,10 +2185,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentHp: 0
   _speed: 0
+  _characterNum: 0
+  _cost: 0
+  _cardIndex: 0
+  player: {fileID: 0}
+  enemy: {fileID: 0}
   _isOnBattleField: 0
   _currentMp: 0
+  _attackRange: 0
+  _power: 0
+  _attackDelayTime: 0
   _diposedIndex: 0
-  _characterState: 0
 --- !u!1 &6885607503258514287
 GameObject:
   m_ObjectHideFlags: 0

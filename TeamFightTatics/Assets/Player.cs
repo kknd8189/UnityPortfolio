@@ -12,7 +12,13 @@ public class Player : Entity
     public Enemy enemy;
     public Synergy synergy;
     public List<GameObject>[] PlayerCharacterList;
-
+    [SerializeField]
+    private int _onSummonFieldCount = 0;
+    public int OnSummonFieldCount
+    {
+        get { return _onSummonFieldCount; }
+        set { _onSummonFieldCount = value; }
+    }
     [SerializeField]
     private int _liveCharacterCount = 0;
     public int LiveCharacterCount
@@ -33,6 +39,7 @@ public class Player : Entity
             _level = value;
         }
     }
+    [SerializeField]
     private int _level = 1;
     public int MaxExp
     {
@@ -134,10 +141,6 @@ public class Player : Entity
             CurrentExp = CurrentExp;
         }
     }
-    public override void Damaged(int damage)
-    {
-        CurrentHp -= damage;
-    }
     public void PromoteHelper(int characterNum)
     {
         if (PlayerCharacterList[characterNum].Count == 3)
@@ -159,7 +162,7 @@ public class Player : Entity
             else if (!persona1.IsOnBattleField)
             {
                 Tile SummonTile = TileManager.Instance.SummonTileList[persona1.DiposedIndex].GetComponent<Tile>();
-                PoolManager.Instance.OnSummonFieldCount--;
+                OnSummonFieldCount--;
                 SummonTile.IsUsed = false;
             }
             PoolManager.Instance.PushCharacterQueue(characterNum, PlayerCharacterList[characterNum][1]);
@@ -167,5 +170,11 @@ public class Player : Entity
 
             PlayerCharacterList[characterNum].Clear();
         }
+    }
+    private void Shoot()
+    {
+        int damage = LiveCharacterCount + Level;
+        Vector3 dest = enemy.transform.position;
+        PoolManager.Instance.PullArrowQueue(damage , dest);
     }
 }

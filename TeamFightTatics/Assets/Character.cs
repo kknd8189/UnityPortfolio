@@ -4,26 +4,30 @@ using UnityEngine;
 
 public class Character : Entity
 {
+    [SerializeField]
     private int _characterNum;
     public int CharacterNum
     {
         get { return _characterNum; }
         set { _characterNum = value; }
     }
+    [SerializeField]
     private int _cost;
     public int Cost
     {
         get { return _cost; }
         set { _cost = value; }
     }
+    [SerializeField]
     private int _cardIndex;
     public int CardIndex
     {
         get { return _cardIndex; }
         set { _cardIndex = value; }
     }
-    protected Player player;
-    protected Enemy enemy;
+
+    public Player player;
+    public Enemy enemy;
     private RerollManager RerollManager;
 
     private void Awake()
@@ -35,7 +39,7 @@ public class Character : Entity
     public void Summon()
     {
         if (player.Gold < PoolManager.Instance.CharacterDataList[CharacterNum].Cost) return;
-        if (PoolManager.Instance.OnSummonFieldCount > 9) return;
+        if (player.OnSummonFieldCount > 9) return;
         GameObject characterPrefab;
         characterPrefab = PoolManager.Instance.CharacterQueue[CharacterNum].Dequeue();
         Persona character = characterPrefab.GetComponent<Persona>();

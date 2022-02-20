@@ -7,14 +7,11 @@ public class PoolManager : MonoBehaviour
     public List<CharacterSciptableObject> CharacterDataList;
     public Queue<GameObject>[] CardQueue;
     public Queue<GameObject>[] CharacterQueue;
-    private int _onSummonFieldCount = 0;
-    public int OnSummonFieldCount
-    {
-        get { return _onSummonFieldCount; }
-        set { _onSummonFieldCount = value; }
-    }
-    [SerializeField]
-    private int amount = 20;
+
+    public Queue<GameObject> ArrowPool = new Queue<GameObject>();
+    public GameObject ArrowPrefab;
+
+    public int Amount = 20;
     #region Singleton
     public static PoolManager Instance = null;
     private void Awake()
@@ -36,7 +33,7 @@ public class PoolManager : MonoBehaviour
             CardQueue[i] = new Queue<GameObject>();
             CharacterQueue[i] = new Queue<GameObject>();
         }
-        init(amount);
+        init(Amount);
     }
     #endregion
     private void init(int amount)
@@ -48,6 +45,8 @@ public class PoolManager : MonoBehaviour
                 setCardStatus(j);
                 setPersonaStatus(j);
             }
+
+            //createArrow();
         }
     }
     private void setCardStatus(int CharacterListIndex)
@@ -64,6 +63,7 @@ public class PoolManager : MonoBehaviour
         Persona persona = personaObject.GetComponent<Persona>();
         persona.CharacterNum = CharacterDataList[CharacterListIndex].CharacterNum;
         persona.MaxHp = CharacterDataList[CharacterListIndex].MaxHP;
+        persona.Power = CharacterDataList[CharacterListIndex].Power;
         persona.CurrentHp = persona.MaxHp;
         persona.MaxMp = CharacterDataList[CharacterListIndex].MaxMP;
         persona.DefaultMp = CharacterDataList[CharacterListIndex].DefaultMP;
@@ -74,12 +74,35 @@ public class PoolManager : MonoBehaviour
         personaObject.SetActive(false);
         CharacterQueue[CharacterListIndex].Enqueue(personaObject);
     }
-
     public void PushCharacterQueue(int CharacterNum, GameObject personaPrefab)
     {
         personaPrefab.SetActive(false);
         personaPrefab.transform.SetParent(transform);
         CharacterQueue[CharacterNum].Enqueue(personaPrefab);
     }
+    private void createArrow()
+    {
+        GameObject arrowPrefab = Instantiate(ArrowPrefab, transform);
+        arrowPrefab.SetActive(false);
+        ArrowPool.Enqueue(arrowPrefab);
+    }
+    public void PushArrowQueue(GameObject arrowPrefab)
+    {
+        arrowPrefab.SetActive(false);
+        arrowPrefab.transform.SetParent(transform);
+        ArrowPool.Enqueue(arrowPrefab);
+    }
+    public GameObject PullArrowQueue(int power, Vector3 dest)
+    {
+        GameObject arrowPrefab;
+        arrowPrefab = ArrowPool.Dequeue();
+
+        Arrow arrow = arrowPrefab.GetComponent<Arrow>();
+        arrow.setPower(power);
+        arrow.setDest(dest);
+
+        return arrowPrefab;
+    }
+
 }
 
