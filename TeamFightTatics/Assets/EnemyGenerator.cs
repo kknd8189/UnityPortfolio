@@ -23,7 +23,7 @@ public class EnemyGenerator : MonoBehaviour
                 characterPrefab.SetActive(true);
                 characterPrefab.transform.SetParent(null);
                 characterPrefab.transform.position = TileManager.Instance.BattleTileList[StageDataList[turn - 1].Index[k]].transform.position;
-                characterPrefab.transform.rotation = new Quaternion(0, 180, 0, 0);
+                characterPrefab.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 characterPrefab.GetComponent<Persona>().DiposedIndex = StageDataList[turn - 1].Index[k];
                 enemy.LiveEnemyCount++;
                 k++;

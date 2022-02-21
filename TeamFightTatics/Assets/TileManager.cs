@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
-    public Transform field;
+    public Transform Field;
     public GameObject summonTileObject;
     public GameObject battleTileObject;
 
@@ -13,7 +13,7 @@ public class TileManager : MonoBehaviour
     public Material enemyTileMaterial;
     public Material playerTileMaterial;
 
-    private int SummonTileMax = 10;
+    private int summonTileMax = 10;
     private int verticalTileMax = 12;
     private int horizonalTileMax = 8;
 
@@ -39,10 +39,10 @@ public class TileManager : MonoBehaviour
     }
     private void setSummonTile()
     {
-        for (int i = 0; i < SummonTileMax; i++)
+        for (int i = 0; i < summonTileMax; i++)
         {
             GameObject gameObject;
-            gameObject = Instantiate(summonTileObject, field);
+            gameObject = Instantiate(summonTileObject, Field);
             gameObject.transform.position = new Vector3(10 + i * 10, 0, 0);
             gameObject.GetComponent<SummonField>().Index = i;
             if (i % 2 == 0) gameObject.GetComponent<MeshRenderer>().material = evenTileMaterial;
@@ -57,7 +57,7 @@ public class TileManager : MonoBehaviour
             for (int j = 0; j < verticalTileMax; j++)
             {
                 GameObject gameObject;
-                gameObject = Instantiate(battleTileObject, field);
+                gameObject = Instantiate(battleTileObject, Field);
                 gameObject.GetComponent<BattleFiled>().Index = (j + i * verticalTileMax);
                 gameObject.transform.position = new Vector3(j * 10, 0, 15 + i * 10);
                 if (j + i * verticalTileMax >= 48) gameObject.GetComponent<MeshRenderer>().material = enemyTileMaterial;

@@ -9,7 +9,7 @@ public class Player : Entity
     public UnityEvent<int> CurrentExpChanged = new UnityEvent<int>();
     public UnityEvent<int> CurrentHpChanged = new UnityEvent<int>();
 
-    public Enemy enemy;
+    public Enemy Enemy;
     public Synergy synergy;
     public List<GameObject>[] PlayerCharacterList;
     [SerializeField]
@@ -108,6 +108,17 @@ public class Player : Entity
     {
         earnGold();
         updateLevel();
+
+
+        if (_currentHp <= 0)
+        {
+            GameManager.Instance.GameOver();
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            PoolManager.Instance.PullArrowQueue(10,transform.position + Vector3.forward * 20, Enemy.gameObject);
+        }
     }
     private void earnGold()
     {
@@ -155,7 +166,7 @@ public class Player : Entity
             {
                 Tile Battletile = TileManager.Instance.BattleTileList[persona1.DiposedIndex].GetComponent<Tile>();
                 synergy.DecreaseSynergyCount(characterNum);
-                Capacity--;
+                Capacity++;
                 Battletile.IsUsed = false;
             }
 
@@ -174,7 +185,9 @@ public class Player : Entity
     private void Shoot()
     {
         int damage = LiveCharacterCount + Level;
-        Vector3 dest = enemy.transform.position;
-        PoolManager.Instance.PullArrowQueue(damage , dest);
+    }
+    public override void Damaged(int damage)
+    {
+        CurrentHp -= damage;
     }
 }

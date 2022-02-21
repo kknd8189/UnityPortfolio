@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
             {
                 isMove = true;
                 destination = hit.point;
+                destination.y = 5;
             }
         }
         move();

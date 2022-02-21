@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class RerollManager : MonoBehaviour
 {
-    public Player player;
+    public Player Player;
     public List<GameObject> OnPanelList = new List<GameObject>();
-    public Transform cardPanel;
+    public Transform CardPanel;
     public void Start()
     {
         freeReroll();
     }
     public void Reroll()
     {
-        if (player.Gold >= 2)
+        if (Player.Gold >= 2)
         {
             freeReroll();
-            player.Gold -= 2;
+            Player.Gold -= 2;
         }
     }
     public void freeReroll()
@@ -42,7 +42,7 @@ public class RerollManager : MonoBehaviour
     }
     private void setCard(GameObject card)
     {
-        card.transform.SetParent(cardPanel);
+        card.transform.SetParent(CardPanel);
         card.SetActive(true);
         OnPanelList.Add(card);
     }

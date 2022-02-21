@@ -40,7 +40,8 @@ public class DragAndDrop : MonoBehaviour
     private void OnMouseUp()
     {
         RaycastHit dectectedTile;
-        //비트 연산자 사용 레이어 6번째
+
+        //비트 연산자 사용 Tile 레이어
         int mask = (1 << 6);
 
         if (Physics.Raycast(transform.position, Vector3.down, out dectectedTile, 20, mask))

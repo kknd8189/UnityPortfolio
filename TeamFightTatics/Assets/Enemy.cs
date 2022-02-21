@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Enemy : Entity
 {
     public UnityEvent<int> CurrentHpChanged = new UnityEvent<int>();
-    public Player player;
+    public Player Player;
     public new int CurrentHp
     {
         get { return _currentHp; }
@@ -18,7 +18,6 @@ public class Enemy : Entity
             if (_currentHp <= 0) GameManager.Instance.Win();
         }
     }
-
     [SerializeField]
     private int _liveEnemyCount = 0;
     public int LiveEnemyCount
@@ -31,16 +30,19 @@ public class Enemy : Entity
         _maxHp = 100;
         _currentHp = _maxHp;
     }
-
     private void Update()
     {
-        if(_liveEnemyCount <= 0)
+        if(_currentHp <= 0)
         {
-            Damaged(player.Level);
+            GameManager.Instance.Win();
         }
     }
     public override void Damaged(int damage)
     {
         CurrentHp -= damage;
+    }
+    private void Shoot()
+    {
+        int damage = _liveEnemyCount + GameManager.Instance.Turn;
     }
 }

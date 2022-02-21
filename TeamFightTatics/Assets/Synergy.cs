@@ -12,7 +12,7 @@ public class Synergy : MonoBehaviour
     public int MaxSynergyNum;
     public Player player;
 
-    private void Awake()
+    private void Start()
     {
         isCounted = new bool[PoolManager.Instance.CharacterDataList.Count];
         SummonCount = new int[PoolManager.Instance.CharacterDataList.Count];

@@ -4,30 +4,33 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    
     private float _speed;
+    [SerializeField]
     private int _power;
-    private Vector3 _destination;
+    [SerializeField]
+    private GameObject Target;
     private void OnEnable()
     {
-        _speed = 200f;
+        _speed = 50f;
     }
     private void Update()
     {
-        Vector3 dir = (_destination - transform.position).normalized;
+        Vector3 dir = (Target.transform.position - transform.position).normalized;
         transform.position += dir * Time.deltaTime * _speed;
         transform.forward = dir;
     }
-    public void setDest(Vector3 dest)
+    public void SetDest(GameObject target)
     {
-        _destination = dest;
+        Target = target;
     }
-    public void setPower(int value)
+    public void SetPower(int value)
     {
         _power = value;
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.GetComponent<Entity>() != null)
+        if (collision.collider.GetComponent<Entity>() != null)
         {
             collision.collider.GetComponent<Entity>().Damaged(_power);
             PoolManager.Instance.PushArrowQueue(gameObject);

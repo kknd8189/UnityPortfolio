@@ -13,8 +13,10 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
     private GameObject enemy;
 
     public Animator anim;
+
     [SerializeField]
     private CharacterState _characterState;
+
     public CharacterState CharacterState
     {
         get { return _characterState; }
@@ -53,11 +55,16 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
     public Persona enemyPersona;
     public Persona Persona;
 
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     private void OnEnable()
     {
         CharacterState = CharacterState.Idle;
-       // anim = GetComponent<Animator>();
     }
+
     private void Update()
     {
         if (Persona.IsOnBattleField)
@@ -73,8 +80,15 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
                 CharacterState = CharacterState.Search;
             }
 
-            if (Persona.CurrentMp >= Persona.MaxMp) CharacterState = CharacterState.Skill;
-            if (Persona.CurrentHp <= 0) Die();
+            if (Persona.CurrentMp >= Persona.MaxMp)
+            {
+                CharacterState = CharacterState.Skill;
+            }
+
+            if (Persona.CurrentHp <= 0)
+            {
+                Die();
+            }
 
 
             //상태 업데이트 이벤트
@@ -90,6 +104,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
             }
         }
     }
+
     private void returnToInitialState()
     {
         CharacterState = CharacterState.Idle;
@@ -98,6 +113,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
         transform.position = TileManager.Instance.BattleTileList[Persona.DiposedIndex].transform.position;
         enemys.Clear();
     }
+
     private void chase()
     {
         float distance = Vector3.Distance(transform.position, enemy.transform.position);
@@ -113,19 +129,21 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
             CharacterState = CharacterState.Attack;
         }
     }
+
     private void checkEnemy()
     {
-        Debug.Log("감지!!!");
-
         enemys.Clear();
 
         if (gameObject.tag == "PlayerCharacter")
         {
             GameObject[] enemyObject = GameObject.FindGameObjectsWithTag("EnemyCharacter");
-            for (int i = 0; i < enemyObject.Length; i++) enemys.Add(enemyObject[i]);
+            for (int i = 0; i < enemyObject.Length; i++)
+            {
+                enemys.Add(enemyObject[i]);
+            }
         }
 
-        else if (gameObject.tag == "EnemyCharacter")
+        else if (gameObject.tag != "PlayerCharacter")
         {
             GameObject[] enemyObject = GameObject.FindGameObjectsWithTag("PlayerCharacter");
             for (int i = 0; i < enemyObject.Length; i++)
@@ -143,34 +161,42 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
 
             foreach (GameObject found in enemys)
             {
-                float Distance = Vector3.Distance(gameObject.transform.position, found.transform.position);
+                float distance = Vector3.Distance(gameObject.transform.position, found.transform.position);
 
-                if (Distance < shortDis)
+                if (distance < shortDis)
                 {
                     enemy = found;
-                    shortDis = Distance;
+                    shortDis = distance;
                 }
             }
 
             CharacterState = CharacterState.Chase;
         }
     }
+
     public void Skill()
     {
         Persona.CurrentMp = 0;
         Persona.Skill();
         CharacterState = CharacterState.Chase;
     }
+
     public void Attack(int power, float delayTime)
     {
         enemyPersona = enemy.GetComponent<Persona>();
         enemyPersona.Damaged(power);
+
         Persona.CurrentMp += 10;
+
+        if(enemyPersona.CurrentHp <= 0)
+        {
+            attackSequence++;
+            enemy = enemys[attackSequence];
+        }
     }
     public void Die()
     {
-        if (gameObject.tag == "PlayerCharacter") Persona.player.LiveCharacterCount--;
-        else if (gameObject.tag == "EnemyCharacter") Persona.enemy.LiveEnemyCount--;
-        CharacterState = CharacterState.Die;
+        if (gameObject.tag == "PlayerCharacter") Persona.Player.LiveCharacterCount--;
+        else if (gameObject.tag != "PlayerCharacter") Persona.Player.Enemy.LiveEnemyCount--;
     }
 }

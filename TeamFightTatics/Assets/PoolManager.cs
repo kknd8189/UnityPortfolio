@@ -46,7 +46,7 @@ public class PoolManager : MonoBehaviour
                 setPersonaStatus(j);
             }
 
-            //createArrow();
+           createArrow();
         }
     }
     private void setCardStatus(int CharacterListIndex)
@@ -86,23 +86,25 @@ public class PoolManager : MonoBehaviour
         arrowPrefab.SetActive(false);
         ArrowPool.Enqueue(arrowPrefab);
     }
+
     public void PushArrowQueue(GameObject arrowPrefab)
     {
         arrowPrefab.SetActive(false);
         arrowPrefab.transform.SetParent(transform);
         ArrowPool.Enqueue(arrowPrefab);
     }
-    public GameObject PullArrowQueue(int power, Vector3 dest)
+    public GameObject PullArrowQueue(int power, Vector3 StartPosition, GameObject target)
     {
         GameObject arrowPrefab;
         arrowPrefab = ArrowPool.Dequeue();
-
+        arrowPrefab.SetActive(true);
+        arrowPrefab.transform.SetParent(null);
+        arrowPrefab.transform.position = StartPosition;
         Arrow arrow = arrowPrefab.GetComponent<Arrow>();
-        arrow.setPower(power);
-        arrow.setDest(dest);
+        arrow.SetPower(power);
+        arrow.SetDest(target);
 
         return arrowPrefab;
     }
-
 }
 
