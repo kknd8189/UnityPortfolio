@@ -57,6 +57,13 @@ public class Persona : Character
         get { return _diposedIndex; }
         set { _diposedIndex = value; }
     }
+    [SerializeField]
+    protected float _speed;
+    public float Speed
+    {
+        get { return _speed; }
+        set { _speed = value; }
+    }
     public virtual void Skill() { }
     public override void Damaged(int damage)
     {

@@ -46,7 +46,8 @@ public class GameManager : MonoBehaviour
         NextTurnTime = 0f;
         WaitingTime = 20.0f;
         TurnText.text = "Turn " + Turn.ToString();
-        enemyGenerator.EnemyGenerate(Turn);
+
+       // enemyGenerator.EnemyGenerate(Turn);
     }
     private void Update()
     {

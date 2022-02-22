@@ -102,7 +102,6 @@ public class Player : Entity
         for (int i = 0; i < PlayerCharacterList.Length; i++) { PlayerCharacterList[i] = new List<GameObject>(); }
         _maxHp = 100;
         _currentHp = _maxHp;
-        _speed = 70;
     }
     private void Update()
     {
@@ -115,10 +114,6 @@ public class Player : Entity
             GameManager.Instance.GameOver();
         }
 
-        if(Input.GetMouseButtonDown(0))
-        {
-            PoolManager.Instance.PullArrowQueue(10,transform.position + Vector3.forward * 20, Enemy.gameObject);
-        }
     }
     private void earnGold()
     {
