@@ -36,6 +36,14 @@ public class Enemy : Entity
         {
             GameManager.Instance.Win();
         }
+
+        //상대에 데미지 조건 
+        if (GameManager.Instance.GameState == GAMESTATE.Battle)
+        {
+            if (Player.LiveCharacterCount <= 0) Shoot();
+            else if (GameManager.Instance.IsOver) Shoot();
+        }
+
     }
     public override void Damaged(int damage)
     {
@@ -44,6 +52,6 @@ public class Enemy : Entity
     public void Shoot()
     {
         int damage = _liveEnemyCount + GameManager.Instance.Turn;
-        PoolManager.Instance.PullArrowQueue(damage, transform.position + transform.forward * 10f, Player.gameObject);
+        PoolManager.Instance.PullArrowQueue(damage, transform.position + transform.up * 20f, Player.gameObject);
     }
 }

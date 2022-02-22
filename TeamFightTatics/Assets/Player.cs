@@ -114,8 +114,22 @@ public class Player : Entity
             GameManager.Instance.GameOver();
         }
 
-        if (Input.GetMouseButtonDown(0)) Enemy.Shoot();
 
+
+        //상대에 데미지 조건 
+        if (GameManager.Instance.GameState == GAMESTATE.Battle )
+        {
+            if (Enemy.LiveEnemyCount <= 0) Shoot();
+            else if (GameManager.Instance.IsOver) Shoot();
+        }
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+            Enemy.Shoot();
+                }
+       
     }
     private void earnGold()
     {
@@ -182,7 +196,7 @@ public class Player : Entity
     private void Shoot()
     {
         int damage = LiveCharacterCount + Level;
-        PoolManager.Instance.PullArrowQueue(damage, transform.position + transform.forward * 10f, Enemy.gameObject);
+        PoolManager.Instance.PullArrowQueue(damage, transform.position + transform.up * 20f, Enemy.gameObject);
     }
     public override void Damaged(int damage)
     {

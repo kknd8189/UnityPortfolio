@@ -5,19 +5,17 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     
-    public float Speed = 100f;
-    public float TurnSpeed = 0.25f;
-
+    public float Speed = 10f;
     private int _power;
 
     private GameObject Target;
     public new Rigidbody rigidbody;
 
-    private void FixedUpdate()
+    private void Update()
     {
-        transform.position += transform.up;
-        Vector3 dir = (Target.transform.position - transform.position).normalized;
-        transform.up = Vector3.Lerp(transform.up, dir, TurnSpeed);
+        transform.position += transform.up * Speed * Time.deltaTime;
+        Vector3 dir = (Target.transform.position - transform.position + Target.transform.up * 3).normalized;
+        transform.up = Vector3.Lerp(transform.up, dir, 0.25f);
     }
 
     private void OnCollisionEnter(Collision collision)
