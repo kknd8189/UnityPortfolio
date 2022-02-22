@@ -5,29 +5,21 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     
-    private float _speed;
-    [SerializeField]
+    public float Speed = 100f;
+    public float TurnSpeed = 0.25f;
+
     private int _power;
-    [SerializeField]
+
     private GameObject Target;
-    private void OnEnable()
+    public new Rigidbody rigidbody;
+
+    private void FixedUpdate()
     {
-        _speed = 50f;
-    }
-    private void Update()
-    {
+        transform.position += transform.up;
         Vector3 dir = (Target.transform.position - transform.position).normalized;
-        transform.position += dir * Time.deltaTime * _speed;
-        transform.forward = dir;
+        transform.up = Vector3.Lerp(transform.up, dir, TurnSpeed);
     }
-    public void SetDest(GameObject target)
-    {
-        Target = target;
-    }
-    public void SetPower(int value)
-    {
-        _power = value;
-    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.GetComponent<Entity>() != null)
@@ -35,5 +27,11 @@ public class Arrow : MonoBehaviour
             collision.collider.GetComponent<Entity>().Damaged(_power);
             PoolManager.Instance.PushArrowQueue(gameObject);
         }
+    }
+
+    public void SetArrowState(GameObject target, int power)
+    {
+        _power = power;
+        Target = target;
     }
 }

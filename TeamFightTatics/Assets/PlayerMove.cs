@@ -37,7 +37,7 @@ public class PlayerMove : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 300.0f, 1 << 6))
             {
                 destination = hit.point;
-                _playerState = PlayerState.Run;
+               _playerState = PlayerState.Run;
             }
         }
 
@@ -53,25 +53,22 @@ public class PlayerMove : MonoBehaviour
     }
     private void runUpdate()
     {
-        if (Vector3.Distance(destination, transform.position) <= 0.2f)
+        if (Vector3.Distance(destination, transform.position) <= 0.24f)
         {
             _playerState = PlayerState.Idle;
             return;
         }
 
-        Vector3 dir = (destination - transform.position).normalized;
-        transform.position += dir * Time.deltaTime * _speed;
-        transform.forward = dir;
+        Vector3 dir = destination - transform.position;
+        transform.position += dir.normalized * Time.deltaTime * _speed;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir.normalized), 20 * Time.deltaTime);
+
         anim.SetFloat("speed", _speed);
+
     }
 
     private void idleUpdate()
     {
         anim.SetFloat("speed", 0);
-    }
-
-    public void OnRunEvent()
-    {
-        Debug.Log("¶Ñ¹÷¶Ñ¹÷");
     }
 }

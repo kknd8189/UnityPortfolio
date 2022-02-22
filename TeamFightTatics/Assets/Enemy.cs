@@ -32,7 +32,7 @@ public class Enemy : Entity
     }
     private void Update()
     {
-        if(_currentHp <= 0)
+        if (_currentHp <= 0)
         {
             GameManager.Instance.Win();
         }
@@ -41,8 +41,9 @@ public class Enemy : Entity
     {
         CurrentHp -= damage;
     }
-    private void Shoot()
+    public void Shoot()
     {
         int damage = _liveEnemyCount + GameManager.Instance.Turn;
+        PoolManager.Instance.PullArrowQueue(damage, transform.position + transform.forward * 10f, Player.gameObject);
     }
 }

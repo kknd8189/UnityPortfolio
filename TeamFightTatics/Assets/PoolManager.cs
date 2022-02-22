@@ -101,9 +101,8 @@ public class PoolManager : MonoBehaviour
         arrowPrefab.transform.SetParent(null);
         arrowPrefab.transform.position = StartPosition;
         Arrow arrow = arrowPrefab.GetComponent<Arrow>();
-        arrow.SetPower(power);
-        arrow.SetDest(target);
-
+        arrow.SetArrowState(target, power);
+   
         return arrowPrefab;
     }
 }

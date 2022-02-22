@@ -114,6 +114,8 @@ public class Player : Entity
             GameManager.Instance.GameOver();
         }
 
+        if (Input.GetMouseButtonDown(0)) Enemy.Shoot();
+
     }
     private void earnGold()
     {
@@ -180,6 +182,7 @@ public class Player : Entity
     private void Shoot()
     {
         int damage = LiveCharacterCount + Level;
+        PoolManager.Instance.PullArrowQueue(damage, transform.position + transform.forward * 10f, Enemy.gameObject);
     }
     public override void Damaged(int damage)
     {
