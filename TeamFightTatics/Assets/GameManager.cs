@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
 
     public EnemyGenerator enemyGenerator;
 
+
+    public Material[] skybox;
+ 
     private void Start()
     {
         GameState = GAMESTATE.StandBy;
@@ -47,12 +50,14 @@ public class GameManager : MonoBehaviour
         WaitingTime = 20.0f;
         TurnText.text = "Turn " + Turn.ToString();
 
-       // enemyGenerator.EnemyGenerate(Turn);
+        int rand = Random.Range(0, 5);
+        RenderSettings.skybox = skybox[rand];
     }
     private void Update()
     {
         NextTurnTime += Time.deltaTime;
         OnTimeChanged?.Invoke((int)NextTurnTime);
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * 10.0f);
 
         //시간이 되면 게임의 상태를 변경하고 턴을 넘겨준다.
         if (IsOver)

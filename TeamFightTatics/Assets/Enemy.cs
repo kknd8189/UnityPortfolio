@@ -25,6 +25,8 @@ public class Enemy : Entity
         get { return _liveEnemyCount; }
         set { _liveEnemyCount = value; }
     }
+
+    private bool _isShoot;
     private void Start()
     {
         _maxHp = 100;
@@ -38,10 +40,17 @@ public class Enemy : Entity
         }
 
         //상대에 데미지 조건 
-        if (GameManager.Instance.GameState == GAMESTATE.Battle)
+        if (GameManager.Instance.GameState == GAMESTATE.Battle && !_isShoot)
         {
-            if (Player.LiveCharacterCount <= 0) Shoot();
-            else if (GameManager.Instance.IsOver) Shoot();
+            if (Player.LiveCharacterCount <= 0)
+            {
+                Shoot();
+            }
+            else if (GameManager.Instance.IsOver)
+            {
+                Shoot();
+                _isShoot = false;
+            }
         }
 
     }
@@ -53,5 +62,6 @@ public class Enemy : Entity
     {
         int damage = _liveEnemyCount + GameManager.Instance.Turn;
         PoolManager.Instance.PullArrowQueue(damage, transform.position + transform.up * 20f, Player.gameObject);
+        _isShoot = true;
     }
 }

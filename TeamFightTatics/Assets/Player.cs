@@ -96,6 +96,8 @@ public class Player : Entity
     //Lv.7  Lv.8	56 XP
     //Lv.8  Lv.9	80 XP
     private int[] maxExpContainer = { 0, 2, 6, 10, 20, 36, 56, 80, 999 };
+    private bool _isShoot = false;
+
     private void Start()
     {
         PlayerCharacterList = new List<GameObject>[PoolManager.Instance.CharacterDataList.Count];
@@ -108,28 +110,24 @@ public class Player : Entity
         earnGold();
         updateLevel();
 
-
         if (_currentHp <= 0)
         {
             GameManager.Instance.GameOver();
         }
 
-
-
         //상대에 데미지 조건 
-        if (GameManager.Instance.GameState == GAMESTATE.Battle )
+        if (GameManager.Instance.GameState == GAMESTATE.Battle && !_isShoot) 
         {
-            if (Enemy.LiveEnemyCount <= 0) Shoot();
-            else if (GameManager.Instance.IsOver) Shoot();
+            if (Enemy.LiveEnemyCount <= 0)
+            {
+                Shoot();
+            }
+            else if (GameManager.Instance.IsOver)
+            {
+                Shoot();
+                _isShoot = false;
+            }
         }
-
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Shoot();
-            Enemy.Shoot();
-                }
-       
     }
     private void earnGold()
     {
@@ -193,10 +191,12 @@ public class Player : Entity
             PlayerCharacterList[characterNum].Clear();
         }
     }
+
     private void Shoot()
     {
         int damage = LiveCharacterCount + Level;
         PoolManager.Instance.PullArrowQueue(damage, transform.position + transform.up * 20f, Enemy.gameObject);
+        _isShoot = true;
     }
     public override void Damaged(int damage)
     {
