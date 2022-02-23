@@ -67,7 +67,6 @@ public class Persona : Character
     public virtual void Skill() { }
     public override void Damaged(int damage)
     {
-        Debug.Log("¾ÆÆÌ");
         CurrentHp -= damage;
     }
 }

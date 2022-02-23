@@ -18,6 +18,7 @@ public class Synergy : MonoBehaviour
         SummonCount = new int[PoolManager.Instance.CharacterDataList.Count];
         SynergyCount = new int[MaxSynergyNum];
     }
+
     public void IncreaseSynergyCount(int characterNum)
     {
         SummonCount[characterNum]++;
@@ -30,6 +31,8 @@ public class Synergy : MonoBehaviour
                 isCounted[characterNum] = true;
             }
         }
+
+        Debug.Log($"{SynergyCount[0]},{SynergyCount[1]},{SynergyCount[2]},{SynergyCount[3]}, {SynergyCount[4]},{SynergyCount[5]},{SynergyCount[6]},{SynergyCount[7]}");
     }
     public void DecreaseSynergyCount(int characterNum)
     {
@@ -44,6 +47,8 @@ public class Synergy : MonoBehaviour
 
             isCounted[characterNum] = false;
         }
+
+        Debug.Log($"{SynergyCount[0]},{SynergyCount[1]},{SynergyCount[2]},{SynergyCount[3]}, {SynergyCount[4]},{SynergyCount[5]},{SynergyCount[6]},{SynergyCount[7]}");
     }
 
 }

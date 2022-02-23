@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public interface IAttack
 {
-    void Attack(int power, float attackDelay);
+    void Attack();
 }
 public interface ISkill
 {

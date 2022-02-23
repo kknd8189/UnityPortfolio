@@ -7,16 +7,16 @@ public enum CharacterState { Idle, Search, Attack, Chase, Skill, Die }
 
 public class AutoBattle : MonoBehaviour, IAttack, ISkill
 {
+    public Persona enemyPersona;
+    public Persona Persona;
+    public Player Player;
     [SerializeField]
     private List<GameObject> enemys = new List<GameObject>();
-    [SerializeField]
-    private GameObject enemy;
-
+    public GameObject Enemy;
     public Animator anim;
 
     [SerializeField]
     private CharacterState _characterState;
-
     public CharacterState CharacterState
     {
         get { return _characterState; }
@@ -25,103 +25,124 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
         {
             _characterState = value;
 
-            switch (CharacterState)
+            switch (_characterState)
             {
                 case CharacterState.Idle:
-                    //anim.Play("Idle");
                     break;
                 case CharacterState.Search:
                     checkEnemy();
                     break;
                 case CharacterState.Attack:
-                    //anim.Play("Attack");
                     break;
                 case CharacterState.Chase:
-                   // anim.Play("Chase");
                     break;
                 case CharacterState.Skill:
-                  //  anim.Play("Skill");
+                    anim.Play("Skill");
                     break;
                 case CharacterState.Die:
-                   // anim.Play("Die");
+                    anim.Play("Die");
                     break;
             }
         }
     }
-
     [SerializeField]
     private int attackSequence = 0;
-
-    public Persona enemyPersona;
-    public Persona Persona;
-
+    private float _attackSpeed;
+    public float AttackSpeed
+    {
+        get { return _attackSpeed; }
+        set
+        { 
+            _attackSpeed = value;
+            anim.speed = _attackSpeed;
+        }
+    }
+    private bool _isDie;
     private void Awake()
     {
         anim = GetComponent<Animator>();
-    }
-
-    private void OnEnable()
-    {
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         CharacterState = CharacterState.Idle;
     }
-
     private void Update()
     {
         if (Persona.IsOnBattleField)
         {
-            ///배틀 페이즈가 끝날때
-            if (GameManager.Instance.GameState == GAMESTATE.Battle && GameManager.Instance.IsOver)
+            if (GameManager.Instance.GameState == GAMESTATE.Battle)
             {
-                returnToInitialState();
+                if (GameManager.Instance.IsOver)
+                {
+                    returnToInitialState();
+                }
             }
-            //준비 페이즈가 끝날때
             else if (GameManager.Instance.GameState == GAMESTATE.StandBy && GameManager.Instance.IsOver)
             {
                 CharacterState = CharacterState.Search;
             }
 
-            if (Persona.CurrentMp >= Persona.MaxMp)
+            if (Persona.CurrentHp <= 0 && !_isDie)
             {
-                CharacterState = CharacterState.Skill;
-            }
+                CharacterState = CharacterState.Die;
+                
+                if (gameObject.tag == "PlayerCharacter")
+                {
+                   Player.LiveCharacterCount--;
+                }
+                else if (gameObject.tag != "PlayerCharacter")
+                {
+                   Player.Enemy.LiveEnemyCount--;
+                }
 
-            if (Persona.CurrentHp <= 0)
-            {
-                Die();
+                _isDie = true;
             }
-
 
             //상태 업데이트 이벤트
             switch (CharacterState)
             {
                 case CharacterState.Idle:
+                    updateIdle();
                     break;
                 case CharacterState.Attack:
+                    updateAttack();
                     break;
                 case CharacterState.Chase:
-                    chase();
+                    updateChase();
                     break;
             }
         }
     }
-
     private void returnToInitialState()
     {
         CharacterState = CharacterState.Idle;
         Persona.CurrentHp = Persona.MaxHp;
         Persona.CurrentMp = Persona.DefaultMp;
         transform.position = TileManager.Instance.BattleTileList[Persona.DiposedIndex].transform.position;
+        attackSequence = 0;
+        _isDie = false;
+        if (gameObject.tag == "PlayerCharacter" && _isDie)
+        {
+            Player.LiveCharacterCount++;
+        }
+        else if (gameObject.tag != "PlayerCharacter" && _isDie)
+        {
+            Player.Enemy.LiveEnemyCount++;
+        }
         enemys.Clear();
     }
-
-    private void chase()
+    private void updateIdle()
     {
-        float distance = Vector3.Distance(transform.position, enemy.transform.position);
+        anim.Play("Idle");
+    }
+    private void updateChase()
+    {
+        anim.Play("Chase");
+
+        float distance = Vector3.Distance(transform.position, Enemy.transform.position);
 
         if (distance > Persona.AttackRange)
         {
-            transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, Persona.Speed * Time.deltaTime);
-            transform.LookAt(enemy.transform);
+            transform.position = Vector3.MoveTowards(transform.position,Enemy.transform.position, Persona.Speed * Time.deltaTime);
+            transform.LookAt(Enemy.transform);
         }
 
         else if (distance <= Persona.AttackRange)
@@ -129,7 +150,22 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
             CharacterState = CharacterState.Attack;
         }
     }
+    private void updateAttack()
+    {
+        UpdateNextSequence();
 
+        anim.Play("Attack");
+
+        if (Persona.CurrentMp >= Persona.MaxMp)
+        {
+            CharacterState = CharacterState.Skill;                    
+        }
+    }
+    public void Skill()
+    {
+        Persona.CurrentMp = 0;
+        CharacterState = CharacterState.Chase;
+    }
     private void checkEnemy()
     {
         enemys.Clear();
@@ -155,7 +191,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
 
         if (enemys.Count > 0)
         {
-            enemy = enemys[attackSequence];
+            Enemy = enemys[attackSequence];
 
             float shortDis = Vector3.Distance(gameObject.transform.position, enemys[0].transform.position);
 
@@ -165,7 +201,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
 
                 if (distance < shortDis)
                 {
-                    enemy = found;
+                    Enemy = found;
                     shortDis = distance;
                 }
             }
@@ -173,30 +209,28 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
             CharacterState = CharacterState.Chase;
         }
     }
-
-    public void Skill()
+    private void UpdateNextSequence()
     {
-        Persona.CurrentMp = 0;
-        Persona.Skill();
-        CharacterState = CharacterState.Chase;
-    }
+        enemyPersona = Enemy.GetComponent<Persona>();
 
-    public void Attack(int power, float delayTime)
-    {
-        enemyPersona = enemy.GetComponent<Persona>();
-        enemyPersona.Damaged(power);
-
-        Persona.CurrentMp += 10;
-
-        if(enemyPersona.CurrentHp <= 0)
-        {
+        if (enemyPersona.CurrentHp <= 0)
+        { 
             attackSequence++;
-            enemy = enemys[attackSequence];
+
+            if (attackSequence >= enemys.Count)
+            {
+                _characterState = CharacterState.Idle;
+            }
+            else if (attackSequence < enemys.Count)
+            {
+                Enemy = enemys[attackSequence];
+                _characterState = CharacterState.Chase;
+            }
         }
     }
-    public void Die()
+    public void Attack()
     {
-        if (gameObject.tag == "PlayerCharacter") Persona.Player.LiveCharacterCount--;
-        else if (gameObject.tag != "PlayerCharacter") Persona.Player.Enemy.LiveEnemyCount--;
+        enemyPersona.Damaged(Persona.Power);
+        Persona.CurrentMp += 10;
     }
 }

@@ -25,14 +25,12 @@ public class Character : Entity
         get { return _cardIndex; }
         set { _cardIndex = value; }
     }
-
     public Player Player;
-
-    private RerollManager RerollManager;
+    public RerollManager RerollManager;
 
     private void Awake()
     {
-        Player = FindObjectOfType<Player>();
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         RerollManager = FindObjectOfType<RerollManager>();
     }
     public void Summon()

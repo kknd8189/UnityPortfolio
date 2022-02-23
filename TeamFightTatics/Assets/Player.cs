@@ -12,6 +12,7 @@ public class Player : Entity
     public Enemy Enemy;
     public Synergy synergy;
     public List<GameObject>[] PlayerCharacterList;
+
     [SerializeField]
     private int _onSummonFieldCount = 0;
     public int OnSummonFieldCount
@@ -116,17 +117,15 @@ public class Player : Entity
         }
 
         //상대에 데미지 조건 
-        if (GameManager.Instance.GameState == GAMESTATE.Battle && !_isShoot) 
+        if (GameManager.Instance.GameState == GAMESTATE.Battle)
         {
-            if (Enemy.LiveEnemyCount <= 0)
+            if (GameManager.Instance.IsOver)
             {
-                Shoot();
-            }
-            else if (GameManager.Instance.IsOver)
-            {
-                Shoot();
+                if(Enemy.LiveEnemyCount > 0 && LiveCharacterCount > 0) Shoot();
                 _isShoot = false;
             }
+
+            if (Enemy.LiveEnemyCount <= 0) Shoot();
         }
     }
     private void earnGold()
@@ -175,6 +174,7 @@ public class Player : Entity
             {
                 Tile Battletile = TileManager.Instance.BattleTileList[persona1.DiposedIndex].GetComponent<Tile>();
                 synergy.DecreaseSynergyCount(characterNum);
+                LiveCharacterCount--;
                 Capacity++;
                 Battletile.IsUsed = false;
             }
@@ -191,12 +191,15 @@ public class Player : Entity
             PlayerCharacterList[characterNum].Clear();
         }
     }
-
     private void Shoot()
     {
-        int damage = LiveCharacterCount + Level;
-        PoolManager.Instance.PullArrowQueue(damage, transform.position + transform.up * 20f, Enemy.gameObject);
-        _isShoot = true;
+        if (!_isShoot)
+        {
+            int damage = LiveCharacterCount + Level;
+            PoolManager.Instance.PullArrowQueue(damage, transform.position + transform.up * 20f, Enemy.gameObject);
+            _isShoot = true;
+        }
+
     }
     public override void Damaged(int damage)
     {

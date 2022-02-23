@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class RerollManager : MonoBehaviour
 {
-    public Player Player;
+    private Player Player;
     public List<GameObject> OnPanelList = new List<GameObject>();
     public Transform CardPanel;
     public void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         freeReroll();
     }
     public void Reroll()

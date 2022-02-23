@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     public UnityEvent<int> OnTimeChanged = new UnityEvent<int>();
-
     public RerollManager rerollManager;
 
     public int Turn;
@@ -36,28 +35,24 @@ public class GameManager : MonoBehaviour
     public GAMESTATE GameState;
     public TextMeshProUGUI TurnText;
 
-    public EnemyGenerator enemyGenerator;
-
-
     public Material[] skybox;
- 
     private void Start()
     {
+        int rand = Random.Range(0, 5);
+        RenderSettings.skybox = skybox[rand];
+
         GameState = GAMESTATE.StandBy;
         Turn = 1;
         IsOver = false;
         NextTurnTime = 0f;
         WaitingTime = 20.0f;
         TurnText.text = "Turn " + Turn.ToString();
-
-        int rand = Random.Range(0, 5);
-        RenderSettings.skybox = skybox[rand];
     }
     private void Update()
     {
         NextTurnTime += Time.deltaTime;
         OnTimeChanged?.Invoke((int)NextTurnTime);
-        RenderSettings.skybox.SetFloat("_Rotation", Time.time * 10.0f);
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * 7.0f);
 
         //시간이 되면 게임의 상태를 변경하고 턴을 넘겨준다.
         if (IsOver)
@@ -70,10 +65,8 @@ public class GameManager : MonoBehaviour
                 case GAMESTATE.Battle:
                     Turn += 1;
                     TurnText.text = $"Turn {Turn}";
-                    if (Turn > 20) GameOver();
                     GameState = GAMESTATE.StandBy;
                     rerollManager.freeReroll();
-                    enemyGenerator.EnemyGenerate(Turn);
                     break;
             }
             IsOver = false;
