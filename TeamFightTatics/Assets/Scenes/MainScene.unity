@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.2110919, g: 0.24913436, b: 0.32772264, a: 1}
+  m_IndirectSpecularColor: {r: 0.45204568, g: 0.49558568, b: 0.5676314, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4692,7 +4692,7 @@ MonoBehaviour:
   Turn: 0
   IsOver: 0
   NextTurnTime: 0
-  WaitingTime: 20
+  WaitingTime: 10
   GameState: 1
   TurnText: {fileID: 1346838737}
   skybox:

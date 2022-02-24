@@ -102,7 +102,12 @@ public class Player : Entity
     private void Start()
     {
         PlayerCharacterList = new List<GameObject>[PoolManager.Instance.CharacterDataList.Count];
-        for (int i = 0; i < PlayerCharacterList.Length; i++) { PlayerCharacterList[i] = new List<GameObject>(); }
+
+        for (int i = 0; i < PlayerCharacterList.Length; i++)
+        {
+            PlayerCharacterList[i] = new List<GameObject>(); 
+        }
+
         _maxHp = 100;
         _currentHp = _maxHp;
     }

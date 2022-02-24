@@ -64,6 +64,12 @@ public class Persona : Character
         get { return _speed; }
         set { _speed = value; }
     }
+    private bool _isSynergyOn;
+    public bool IsSynergyOn
+    {
+        get { return _isSynergyOn; }
+        set { _isSynergyOn = value; }
+    }
     public virtual void Skill() { }
     public override void Damaged(int damage)
     {

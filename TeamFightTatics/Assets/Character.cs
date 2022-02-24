@@ -25,12 +25,16 @@ public class Character : Entity
         get { return _cardIndex; }
         set { _cardIndex = value; }
     }
+    public GameObject player;
     public Player Player;
     public RerollManager RerollManager;
+    public Synergy Synergy;
 
     private void Awake()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        Player = player.GetComponent<Player>();
+        Synergy = player.GetComponent<Synergy>();
         RerollManager = FindObjectOfType<RerollManager>();
     }
     public void Summon()
@@ -56,6 +60,12 @@ public class Character : Entity
         characterPrefab.SetActive(true);
         characterPrefab.transform.SetParent(null);
         Player.PlayerCharacterList[character.CharacterNum].Add(characterPrefab);
+
+        for (int i = 0; i < PoolManager.Instance.CharacterDataList[character.CharacterNum].SynergyNum.Length; i++)
+        {
+            Synergy.SynergyCharacterList[PoolManager.Instance.CharacterDataList[character.CharacterNum].SynergyNum[i]].Add(characterPrefab);
+        }
+
         Player.Gold -= character.Cost;
         RerollManager.eraseCard(_cardIndex);
         Player.PromoteHelper(CharacterNum);
