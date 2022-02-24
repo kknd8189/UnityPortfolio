@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkeletonArchorData
   m_EditorClassIdentifier: 
   CharacterNum: 0
-  SynergyNum: 0000000004000000
+  SynergyNum: 0000000005000000
   CharacterPrefab: {fileID: 3869442567412336123, guid: 5065df4a7fe8a61419e55e24a8b1a37a, type: 3}
   CardPrefab: {fileID: 3116885294589100871, guid: f496bd72cb6462248a62cc6da4271255, type: 3}
   MaxHP: 40

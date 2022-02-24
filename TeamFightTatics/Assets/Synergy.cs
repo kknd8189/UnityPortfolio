@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Synergy : MonoBehaviour
 {
-    //0 Archor, 1 Warrior, 2 Magician, 3 Orc, 4 Undead, 5 Beast, 6 Human, 7 Elf
+    //0 Archor, 1 Warrior, 2 Magician,3 Beast, /////////// 4 orc, 5 Undead , 6 Human, 7 Elf
     public int[] _synergyCount;
 
     private int[] SummonCount;
@@ -64,41 +64,148 @@ public class Synergy : MonoBehaviour
 
     private void updateSynergy(int synergyNum)
     {
-        for (int i = 0; i < SynergyCharacterList[synergyNum].Count; i++)
+        switch (synergyNum)
         {
-            Persona persona = SynergyCharacterList[synergyNum][i].GetComponent<Persona>();
+            case 0:
+                Synergy0();
+                break;
+            case 1:
+                Synergy1();
+                break;
+            case 2:
+                Synergy2();
+                break;
+            case 3:
+                Synergy3();
+                break;
+            case 4:
+                Synergy4();
+                break;
+            case 5:
+                Synergy5();
+                break;
+            case 6:
+                Synergy6();
+                break;
+            case 7:
+                Synergy7();
+                break;
+        }
+    }
+    //archor 시너지 사거리 5 증가
+    void Synergy0()
+    {
+        if (_synergyCount[0] >= 1)
+        {
+            for (int i = 0; i < SynergyCharacterList[0].Count; i++)
+            {
+                Persona persona = SynergyCharacterList[0][i].GetComponent<Persona>();
+                if (persona.IsSynergyOn[0]) break;
+                persona.AttackRange += 10;
+                persona.IsSynergyOn[0] = true;
+            }
+        }
 
-            switch (synergyNum)
-            {                    
-                case 0:
-                    if (_synergyCount[0] >= 1 && !persona.IsSynergyOn)
-                    {
-                        SynergyCharacterList[0][i].GetComponent<Persona>().AttackRange += 5;
-                        SynergyCharacterList[0][i].GetComponent<Persona>().IsSynergyOn = true;
-                    }
-
-                    else if(_synergyCount[0] < 1 && persona.IsSynergyOn)
-                    {
-                        SynergyCharacterList[0][i].GetComponent<Persona>().AttackRange -= 5;
-                        SynergyCharacterList[0][i].GetComponent<Persona>().IsSynergyOn = false;
-                    }
-                    break;
-
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
-                case 7:
-                    break;
+        else if (_synergyCount[0] < 1)
+        {
+            for (int i = 0; i < SynergyCharacterList[0].Count; i++)
+            {
+                Persona persona = SynergyCharacterList[0][i].GetComponent<Persona>();
+                if (!persona.IsSynergyOn[0]) break;
+                persona.AttackRange -= 10;
+                persona.IsSynergyOn[0] = false;
             }
         }
     }
+    //warrior 시너지 공격력이 10증가
+    void Synergy1()
+    {
+        if (_synergyCount[1] >= 1)
+        {
+            for (int i = 0; i < SynergyCharacterList[1].Count; i++)
+            {
+                Persona persona = SynergyCharacterList[1][i].GetComponent<Persona>();
+                if (persona.IsSynergyOn[0]) break;
+                persona.Power += 10;
+                persona.IsSynergyOn[0] = true;
+            }
+        }
+
+        else if (_synergyCount[1] < 1)
+        {
+            for (int i = 0; i < SynergyCharacterList[1].Count; i++)
+            {
+                Persona persona = SynergyCharacterList[1][i].GetComponent<Persona>();
+                if (!persona.IsSynergyOn[0]) break;
+                persona.Power -= 10;
+                persona.IsSynergyOn[0] = false;
+            }
+        }
+    }
+    //magician 시너지 필요 마나량 10 감소
+    void Synergy2()
+    {
+        if (_synergyCount[2] >= 1)
+        {
+            for (int i = 0; i < SynergyCharacterList[2].Count; i++)
+            {
+                Persona persona = SynergyCharacterList[2][i].GetComponent<Persona>();
+                if (persona.IsSynergyOn[0]) break;
+                persona.MaxMp -= 10;
+                persona.IsSynergyOn[0] = true;
+            }
+        }
+        else if (_synergyCount[1] < 1)
+        {
+            for (int i = 0; i < SynergyCharacterList[2].Count; i++)
+            {
+                Persona persona = SynergyCharacterList[2][i].GetComponent<Persona>();
+                if (!persona.IsSynergyOn[0]) break;
+                persona.MaxMp += 10;
+                persona.IsSynergyOn[0] = false;
+            }
+        }
+    }
+    //beast 시너지 최대 체력 50증가
+    void Synergy3()
+    {
+        if (_synergyCount[3] >= 1)
+        {
+            for (int i = 0; i < SynergyCharacterList[3].Count; i++)
+            {
+                Persona persona = SynergyCharacterList[3][i].GetComponent<Persona>();
+                if (persona.IsSynergyOn[0]) break;
+                persona.MaxHp += 50;
+                persona.IsSynergyOn[0] = true;
+            }
+        }
+        else if (_synergyCount[1] < 1)
+        {
+            for (int i = 0; i < SynergyCharacterList[3].Count; i++)
+            {
+                Persona persona = SynergyCharacterList[3][i].GetComponent<Persona>();
+                if (!persona.IsSynergyOn[0]) break;
+                persona.MaxHp -=50;
+                persona.IsSynergyOn[0] = false;
+            }
+        }
+    }
+    //orc 시너지
+    void Synergy4()
+    {
+
+    }
+    //undead 시너지
+    void Synergy5()
+    {
+    }
+    //human 시너지
+    void Synergy6()
+    {
+    }
+    //elf 시너지
+    void Synergy7()
+    {
+    }
 }
+

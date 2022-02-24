@@ -193,6 +193,7 @@ public class Player : Entity
             PoolManager.Instance.PushCharacterQueue(characterNum, PlayerCharacterList[characterNum][1]);
             PoolManager.Instance.PushCharacterQueue(characterNum, PlayerCharacterList[characterNum][2]);
 
+          
             PlayerCharacterList[characterNum].Clear();
         }
     }
