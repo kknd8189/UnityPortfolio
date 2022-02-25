@@ -66,7 +66,12 @@ public class Persona : Character
         get { return _speed; }
         set { _speed = value; }
     }
-
+    protected int _recoverMp;
+    public int RecoverMp
+    {
+        get { return _recoverMp; }
+        set { _recoverMp = value; }
+    }
     private bool[] _isSynergyOn = {false , false};
     public bool[] IsSynergyOn
     {

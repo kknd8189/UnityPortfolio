@@ -25,5 +25,5 @@ MonoBehaviour:
   DefaultMP: 10
   Cost: 1
   AttackRange: 30
-  AttackDelay: 5
+  AttackDelay: 0.8
   Speed: 10

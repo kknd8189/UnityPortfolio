@@ -47,16 +47,6 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
     }
     [SerializeField]
     private int attackSequence = 0;
-    private float _attackSpeed;
-    public float AttackSpeed
-    {
-        get { return _attackSpeed; }
-        set
-        { 
-            _attackSpeed = value;
-            anim.speed = _attackSpeed;
-        }
-    }
     private bool _isDie;
     private void Awake()
     {
@@ -154,6 +144,8 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
     {
         UpdateNextSequence();
 
+        anim.speed = Persona.AttackDelayTime;
+
         anim.Play("Attack");
 
         if (Persona.CurrentMp >= Persona.MaxMp)
@@ -231,6 +223,6 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
     public void Attack()
     {
         enemyPersona.Damaged(Persona.Power);
-        Persona.CurrentMp += 10;
+        Persona.CurrentMp += Persona.RecoverMp;
     }
 }

@@ -117,9 +117,9 @@ public class UIManager : MonoBehaviour
         synergyExplain[2] = "필요 마나량 10 감소";
         synergyExplain[3] = "최대 체력 50 증가";
         synergyExplain[4] = "공격속도 증가";
-        synergyExplain[5] = "10초 후에 죽지 않았다면 체력 회복";
+        synergyExplain[5] = "턴이 끝날때마다 영구적으로 체력 5획득";
         synergyExplain[6] = "턴이 끝나면 골드 2와 경험치 2 추가 획득";
-        synergyExplain[7] = "초당 마나 회복 2";
+        synergyExplain[7] = "공격시 회복 마나 두배";
     }
     public void ExplainSynergy(int synergyNum)
     {
