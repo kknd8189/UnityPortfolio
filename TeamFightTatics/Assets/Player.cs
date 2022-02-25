@@ -205,7 +205,6 @@ public class Player : Entity
             PoolManager.Instance.PullArrowQueue(damage, transform.position + transform.up * 20f, Enemy.gameObject);
             _isShoot = true;
         }
-
     }
     public override void Damaged(int damage)
     {

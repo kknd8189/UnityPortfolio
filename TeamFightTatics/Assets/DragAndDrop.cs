@@ -74,7 +74,9 @@ public class DragAndDrop : MonoBehaviour
                         transform.position = initialPosition;
                         return;
                     }
+
                     synergy.IncreaseSynergyCount(persona.CharacterNum);
+
                     player.Capacity--;
                     player.LiveCharacterCount++;
                 }
