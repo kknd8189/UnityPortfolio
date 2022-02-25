@@ -58,7 +58,6 @@ public class Synergy : MonoBehaviour
             isCounted[characterNum] = false;
         }
 
-
         Debug.Log($"{_synergyCount[0]},{_synergyCount[1]},{_synergyCount[2]},{_synergyCount[3]}, {_synergyCount[4]},{_synergyCount[5]},{_synergyCount[6]},{_synergyCount[7]}");
     }
 
@@ -105,7 +104,6 @@ public class Synergy : MonoBehaviour
                 persona.IsSynergyOn[0] = true;
             }
         }
-
         else if (_synergyCount[0] < 1)
         {
             for (int i = 0; i < SynergyCharacterList[0].Count; i++)

@@ -6,8 +6,9 @@ using UnityEngine;
 
 public class CharacterSciptableObject : ScriptableObject
 {
+    public string CharacterName;
+    public string SkillExplain;
     public int CharacterNum;
-
     public int[] SynergyNum;
 
     public GameObject CharacterPrefab;

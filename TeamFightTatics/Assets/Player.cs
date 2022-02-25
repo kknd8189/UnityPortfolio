@@ -126,9 +126,9 @@ public class Player : Entity
         {
             if (GameManager.Instance.IsOver)
             {
-                if(Enemy.LiveEnemyCount > 0 && LiveCharacterCount > 0) Shoot();
                 _isShoot = false;
             }
+            if (Enemy.LiveEnemyCount > 0 && LiveCharacterCount > 0 && GameManager.Instance.NextTurnTime >= 19.5f) Shoot();
 
             if (Enemy.LiveEnemyCount <= 0) Shoot();
         }

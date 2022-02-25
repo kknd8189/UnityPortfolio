@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -45,6 +43,8 @@ public class Enemy : Entity
             {
                 _isShoot = false;
             }
+            if (LiveEnemyCount > 0 && Player.LiveCharacterCount > 0 && GameManager.Instance.NextTurnTime >= 19.5f) Shoot();
+
             if (Player.LiveCharacterCount <= 0)
             {
                 Shoot();

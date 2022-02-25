@@ -67,10 +67,15 @@ public class PoolManager : MonoBehaviour
         persona.CurrentHp = persona.MaxHp;
         persona.MaxMp = CharacterDataList[CharacterListIndex].MaxMP;
         persona.DefaultMp = CharacterDataList[CharacterListIndex].DefaultMP;
+        persona.CurrentMp = persona.DefaultMp;
         persona.AttackRange = CharacterDataList[CharacterListIndex].AttackRange;
         persona.AttackDelayTime = CharacterDataList[CharacterListIndex].AttackDelay;
         persona.Cost = CharacterDataList[CharacterListIndex].Cost;
         persona.Speed = CharacterDataList[CharacterListIndex].Speed;
+        persona.CharacterName = CharacterDataList[CharacterListIndex].CharacterName;
+        persona.SkillExplain = CharacterDataList[CharacterListIndex].SkillExplain;
+        persona.SynergyNumber[0] = CharacterDataList[CharacterListIndex].SynergyNum[0];
+        persona.SynergyNumber[1] = CharacterDataList[CharacterListIndex].SynergyNum[1];
         personaObject.SetActive(false);
         CharacterQueue[CharacterListIndex].Enqueue(personaObject);
     }

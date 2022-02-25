@@ -118,7 +118,6 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
         Persona.CurrentMp = Persona.DefaultMp;
         transform.position = TileManager.Instance.BattleTileList[Persona.DiposedIndex].transform.position;
         attackSequence = 0;
-        _isDie = false;
         if (gameObject.tag == "PlayerCharacter" && _isDie)
         {
             Player.LiveCharacterCount++;
@@ -127,6 +126,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
         {
             Player.Enemy.LiveEnemyCount++;
         }
+        _isDie = false;
         enemys.Clear();
     }
     private void updateIdle()

@@ -16,7 +16,28 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI Enemytm;
     public TextMeshProUGUI RestTimeText;
 
-    void Start()
+    public GameObject ExplainUI;
+    public TextMeshProUGUI CharacterName;
+    public TextMeshProUGUI CharacterStat;
+    public TextMeshProUGUI SkillExplain;
+
+    private bool _isExplainActive = false;
+    private string[] synergyName = { "Archor", "Warrior", "Magician", "Beast", "Orc", "Undead", "Human", "Elf" };
+    #region Singleton
+    public static UIManager Instance = null;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(this);
+        }
+    }
+    #endregion
+    private void Start()
     {
         Player.OnGoldChanged.AddListener(UpdateGoldText);
         Player.CurrentExpChanged.AddListener(UpdateExpText);
@@ -53,5 +74,22 @@ public class UIManager : MonoBehaviour
     {
         RestTimeText.text = ((int)(GameManager.Instance.WaitingTime - GameManager.Instance.NextTurnTime)).ToString();
     }
-}
+    public void ExplainCharacter(string name, int[] synergyNum, int cost, string skillExplain, int hp, int power, float attackRange, int maxMP, int currentMp)
+    {
+        if (!_isExplainActive)
+        {
+            CharacterName.text = $"Name : {name}";
+            CharacterStat.text = $"Cost {cost} Synergy {synergyName[synergyNum[0]]} / {synergyName[synergyNum[1]]}\nHP:{hp} ATK:{power}\nMP:{currentMp}/{maxMP} AttackRange:{attackRange}";
+            SkillExplain.text = $"Skill : {skillExplain}";
+            ExplainUI.SetActive(true);
+            ExplainUI.transform.position = Input.mousePosition;
+            _isExplainActive = true;
+        }
+        else
+        {
+            ExplainUI.SetActive(false);
+            _isExplainActive = false;
+        }
 
+    }
+}

@@ -25,6 +25,7 @@ public class Character : Entity
         get { return _cardIndex; }
         set { _cardIndex = value; }
     }
+
     public GameObject player;
     public Player Player;
     public RerollManager RerollManager;
@@ -37,6 +38,7 @@ public class Character : Entity
         Synergy = player.GetComponent<Synergy>();
         RerollManager = FindObjectOfType<RerollManager>();
     }
+
     public void Summon()
     {
         if (Player.Gold < PoolManager.Instance.CharacterDataList[CharacterNum].Cost) return;

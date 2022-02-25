@@ -10,12 +10,14 @@ public class Persona : Character
         get { return _isOnBattleField; }
         set { _isOnBattleField = value; }
     }
+    [SerializeField]
     private int _maxMp;
     public int MaxMp
     {
         get { return _maxMp; }
         set { _maxMp = value; }
     }
+    [SerializeField]
     private int _defaultMp;
     public int DefaultMp
     {
@@ -71,7 +73,35 @@ public class Persona : Character
         get { return _isSynergyOn; }
         set { _isSynergyOn = value; }
     }
+    [SerializeField]
+    private int[] _synergyNumber = { 0, 0 };
+    public int[] SynergyNumber
+    {
+        get { return _synergyNumber; }
+        set { _synergyNumber = value; }
+    }
 
+    protected string _characterName;
+
+    protected string _skillExplain;
+    public string CharacterName
+    {
+        get { return _characterName; }
+        set { _characterName = value; }
+    }
+    public string SkillExplain
+    {
+        get { return _skillExplain; }
+        set { _skillExplain = value; }
+    }
+
+    protected void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            UIManager.Instance.ExplainCharacter(CharacterName, _synergyNumber, Cost, SkillExplain, CurrentHp, Power, AttackRange,MaxMp,CurrentMp);
+        }
+    }
     public virtual void Skill() { }
     public override void Damaged(int damage)
     {
