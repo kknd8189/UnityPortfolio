@@ -84,7 +84,11 @@ public class Player : Entity
         {
             _currentHp = value;
             CurrentHpChanged?.Invoke(_currentHp);
-            if (_currentHp <= 0) GameManager.Instance.GameOver();
+            if (_currentHp <= 0)
+            {
+                GameManager.Instance.GameOver();
+                Destroy(gameObject);
+            }
         }
     }
     //    레벨 필요 경험치
@@ -123,11 +127,6 @@ public class Player : Entity
     {
         earnGold();
         updateLevel();
-
-        if (_currentHp <= 0)
-        {
-            GameManager.Instance.GameOver();
-        }
 
         //상대에 데미지 조건 
         if (GameManager.Instance.GameState == GAMESTATE.Battle)

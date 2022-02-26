@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum GAMESTATE
 {
@@ -36,6 +38,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI TurnText;
 
     public Material[] skybox;
+
+    public GameObject VictoryImage;
+    public GameObject DefeatImage;
+
     private void Start()
     {
         int rand = Random.Range(0, 5);
@@ -50,14 +56,18 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * 7.0f);
+
         if (GameState != GAMESTATE.GameSet)
         {
             NextTurnTime += Time.deltaTime;
+            OnTimeChanged?.Invoke((int)NextTurnTime);
         }
 
-        OnTimeChanged?.Invoke((int)NextTurnTime);
-        RenderSettings.skybox.SetFloat("_Rotation", Time.time * 7.0f);
-
+        else if(GameState == GAMESTATE.GameSet && Input.GetMouseButtonDown(0))
+        {
+            SceneManager.LoadScene("LoadingScene");
+        }
         //시간이 되면 게임의 상태를 변경하고 턴을 넘겨준다.
         if (IsOver)
         {
@@ -85,11 +95,30 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         GameState = GAMESTATE.GameSet;
-        // Debug.Log("GameOver");
+        DefeatImage.SetActive(true);
+        StartCoroutine(FadeOut(DefeatImage));
+        //Debug.Log("GameOver");
     }
     public void Win()
     {
         GameState = GAMESTATE.GameSet;
-        Debug.Log("YouWin");
+        VictoryImage.SetActive(true);
+        StartCoroutine(FadeOut(VictoryImage));
+        //Debug.Log("YouWin");
+    }
+
+    IEnumerator FadeOut(GameObject imageObejct)
+    {
+        float fadeCount = 0;
+        Image image = imageObejct.GetComponent<Image>();
+
+        while (fadeCount < 1.0f)
+        {
+            fadeCount += 0.1f;
+
+            yield return new WaitForSeconds(0.1f);
+
+            image.color = new Color(255, 255, 255, fadeCount);
+        }
     }
 }

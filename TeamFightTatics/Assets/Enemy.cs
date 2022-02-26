@@ -14,6 +14,7 @@ public class Enemy : Entity
             _currentHp = value;
             CurrentHpChanged?.Invoke(_currentHp);
             if (_currentHp <= 0) GameManager.Instance.Win();
+            Destroy(Player.gameObject);
         }
     }
     [SerializeField]
@@ -34,12 +35,7 @@ public class Enemy : Entity
         _currentHp = _maxHp;
     }
     private void Update()
-    {
-        if (_currentHp <= 0)
-        {
-            GameManager.Instance.Win();
-        }
-
+    { 
         if (GameManager.Instance.GameState == GAMESTATE.Battle)
         {
             if (GameManager.Instance.IsOver)
