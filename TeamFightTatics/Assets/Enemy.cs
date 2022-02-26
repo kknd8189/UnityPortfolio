@@ -13,8 +13,11 @@ public class Enemy : Entity
         {
             _currentHp = value;
             CurrentHpChanged?.Invoke(_currentHp);
-            if (_currentHp <= 0) GameManager.Instance.Win();
-            Destroy(Player.gameObject);
+            if (_currentHp <= 0)
+            {
+                GameManager.Instance.Win();
+                Destroy(Player.gameObject);
+            }
         }
     }
     [SerializeField]

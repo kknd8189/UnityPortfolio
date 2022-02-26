@@ -10,7 +10,7 @@ public class EnemyGenerator : MonoBehaviour
 
     private void Start()
     {
-        EnemyGenerate(1);
+        EnemyGenerate(0);
     }
     private void Update()
     {
@@ -23,18 +23,18 @@ public class EnemyGenerator : MonoBehaviour
     {
         //j 캐릭터넘버, i 캐릭터 소환숫자, k 소환된 순서
         int k = 0;
-        for (int j = 0; j < StageDataList[turn - 1].Amount.Length; j++)
+        for (int j = 0; j < StageDataList[turn].Amount.Length; j++)
         {
-            for (int i = 0; i < StageDataList[turn - 1].Amount[j]; i++)
+            for (int i = 0; i < StageDataList[turn].Amount[j]; i++)
             {
                 GameObject characterPrefab;
                 characterPrefab = PoolManager.Instance.CharacterQueue[j].Dequeue();
                 characterPrefab.tag = "EnemyCharacter";
                 characterPrefab.SetActive(true);
                 characterPrefab.transform.SetParent(null);
-                characterPrefab.transform.position = TileManager.Instance.BattleTileList[StageDataList[turn - 1].Index[k]].transform.position;
+                characterPrefab.transform.position = TileManager.Instance.BattleTileList[StageDataList[turn].Index[k]].transform.position;
                 characterPrefab.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                characterPrefab.GetComponent<Persona>().DiposedIndex = StageDataList[turn - 1].Index[k];
+                characterPrefab.GetComponent<Persona>().DiposedIndex = StageDataList[turn].Index[k];
                 Enemy.LiveEnemyCount++;
                 k++;
             }

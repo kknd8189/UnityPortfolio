@@ -36,8 +36,10 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
                     checkEnemy();
                     break;
                 case CharacterState.Attack:
+                    anim.speed = Persona.AttackDelayTime;
                     break;
                 case CharacterState.Chase:
+                    updateNextSequence();
                     break;
                 case CharacterState.Skill:
                     anim.Play("Skill");
@@ -48,9 +50,9 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
             }
         }
     }
-    [SerializeField]
-    private int attackSequence = 0;
+
     private bool _isDie;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -101,6 +103,9 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
                 case CharacterState.Chase:
                     updateChase();
                     break;
+                case CharacterState.Die:
+                    break;
+
             }
         }
     }
@@ -110,7 +115,6 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
         Persona.CurrentHp = Persona.MaxHp;
         Persona.CurrentMp = Persona.DefaultMp;
         transform.position = TileManager.Instance.BattleTileList[Persona.DiposedIndex].transform.position;
-        attackSequence = 0;
         if (gameObject.tag == "PlayerCharacter" && _isDie)
         {
             Player.LiveCharacterCount++;
@@ -121,6 +125,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
         }
         _isDie = false;
         enemys.Clear();
+        Enemy = null;
     }
     private void updateIdle()
     {
@@ -145,9 +150,10 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
     }
     private void updateAttack()
     {
-        UpdateNextSequence();
-
-        anim.speed = Persona.AttackDelayTime;
+        if (enemyPersona.CurrentHp <= 0)
+        {
+            CharacterState = CharacterState.Chase;
+        }
 
         anim.Play("Attack");
 
@@ -184,9 +190,21 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
             }
         }
 
+        CharacterState = CharacterState.Chase;
+    }
+    private void updateNextSequence()
+    {
+        for (int i = 0; i < enemys.Count; i++)
+        {
+            if (enemys[i].GetComponent<Persona>().CurrentHp <= 0)
+            {
+                enemys.RemoveAt(i);
+            }
+        }
+
         if (enemys.Count > 0)
         {
-            Enemy = enemys[attackSequence];
+            Enemy = enemys[0];
 
             float shortDis = Vector3.Distance(gameObject.transform.position, enemys[0].transform.position);
 
@@ -201,27 +219,12 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
                 }
             }
 
-            CharacterState = CharacterState.Chase;
+            enemyPersona = Enemy.GetComponent<Persona>();
         }
-    }
-    private void UpdateNextSequence()
-    {
-        enemyPersona = Enemy.GetComponent<Persona>();
 
-        if (enemyPersona.CurrentHp <= 0)
-        { 
-            attackSequence++;
-
-            if (attackSequence >= enemys.Count)
-            {
-                _characterState = CharacterState.Idle;
-            }
-            else if (attackSequence < enemys.Count)
-            {
-                Enemy = enemys[attackSequence];
-                _characterState = CharacterState.Chase;
-            }
-            return;
+        else if (enemys.Count <= 0)
+        {
+            CharacterState = CharacterState.Idle;
         }
     }
     public void Attack()
