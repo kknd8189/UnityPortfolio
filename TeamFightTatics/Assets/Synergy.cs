@@ -14,11 +14,13 @@ public class Synergy : MonoBehaviour
     //시너지 받을 캐릭터를 담는 리스트
     public List<GameObject>[] SynergyCharacterList;
 
-    public int MaxSynergyNum;
+    public int MaxSynergyNum = 8;
     public Player player;
 
-    private void Start()
+    private void OnLevelWasLoaded()
     {
+        player = gameObject.GetComponent<Player>();
+
         _isCounted = new bool[PoolManager.Instance.CharacterDataList.Count];
         _summonCount = new int[PoolManager.Instance.CharacterDataList.Count];
         _synergyCount = new int[MaxSynergyNum];
@@ -57,6 +59,9 @@ public class Synergy : MonoBehaviour
     }
     public void IncreaseSynergyCount(int characterNum)
     {
+
+        AudioManager.Instance.AudioSource.clip = AudioManager.Instance.AudioClips[1];
+        AudioManager.Instance.AudioSource.Play();
         _summonCount[characterNum]++;
 
         if (!_isCounted[characterNum])
@@ -74,6 +79,9 @@ public class Synergy : MonoBehaviour
     public void DecreaseSynergyCount(int characterNum)
     {
         _summonCount[characterNum]--;
+
+        AudioManager.Instance.AudioSource.clip = AudioManager.Instance.AudioClips[2];
+        AudioManager.Instance.AudioSource.Play();
 
         if (_summonCount[characterNum] <= 0)
         {
@@ -228,7 +236,7 @@ public class Synergy : MonoBehaviour
             {
                 Persona persona = SynergyCharacterList[3][i].GetComponent<Persona>();
                 if (!persona.IsSynergyOn[0]) break;
-                persona.MaxHp -=50;
+                persona.MaxHp -= 50;
                 persona.IsSynergyOn[0] = false;
             }
 

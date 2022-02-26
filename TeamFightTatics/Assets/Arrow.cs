@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    
+
     public float Speed = 10f;
     private int _power;
 

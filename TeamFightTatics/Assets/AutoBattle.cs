@@ -10,6 +10,9 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
     public Persona enemyPersona;
     public Persona Persona;
     public Player Player;
+
+    public ParticleSystem BloodParticle;
+
     [SerializeField]
     private List<GameObject> enemys = new List<GameObject>();
     public GameObject Enemy;
@@ -218,6 +221,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
                 Enemy = enemys[attackSequence];
                 _characterState = CharacterState.Chase;
             }
+            return;
         }
     }
     public void Attack()

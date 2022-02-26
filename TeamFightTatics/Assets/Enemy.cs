@@ -27,6 +27,9 @@ public class Enemy : Entity
     private bool _isShoot;
     private void Start()
     {
+
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
         _maxHp = 100;
         _currentHp = _maxHp;
     }

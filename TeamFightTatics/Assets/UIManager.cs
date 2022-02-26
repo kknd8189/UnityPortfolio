@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI CharacterStat;
     public TextMeshProUGUI SkillText;
     public TextMeshProUGUI SynergyText;
+
+    public Image PlayerImage;
+    public Sprite[] PlayerSprites;
 
     public List<GameObject> SynergyUI = new List<GameObject>();
     private Vector3[] _synergyUIPosition = new Vector3[8];
@@ -51,6 +55,8 @@ public class UIManager : MonoBehaviour
     #endregion
     private void Start()
     {
+        Player = FindObjectOfType<Player>();
+
         Player.OnGoldChanged.AddListener(UpdateGoldText);
         Player.CurrentExpChanged.AddListener(UpdateExpText);
         Player.CurrentHpChanged.AddListener(UpdateHpText);
@@ -62,6 +68,8 @@ public class UIManager : MonoBehaviour
         {
             _synergyUIPosition[i] = new Vector3(-370f, 140f - 50 * i, 0);
         }
+
+        PlayerImage.sprite = PlayerSprites[Player.PlayerNumber];
     }
     private void OnDestroy()
     {

@@ -18,6 +18,7 @@ public class SummonField : Tile
             collision.collider.GetComponent<Persona>().IsOnBattleField = false;
             player.OnSummonFieldCount++;
             _isUsed = true;
+ 
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -26,6 +27,7 @@ public class SummonField : Tile
         {
             player.OnSummonFieldCount--;
             _isUsed = false;
+
         }
     }
 }

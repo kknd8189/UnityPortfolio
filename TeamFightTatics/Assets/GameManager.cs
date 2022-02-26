@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public enum GAMESTATE
 {
-    StandBy, Battle
+    StandBy, Battle, GameSet
 }
 public class GameManager : MonoBehaviour
 {
@@ -50,14 +50,18 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        NextTurnTime += Time.deltaTime;
+        if (GameState != GAMESTATE.GameSet)
+        {
+            NextTurnTime += Time.deltaTime;
+        }
+
         OnTimeChanged?.Invoke((int)NextTurnTime);
         RenderSettings.skybox.SetFloat("_Rotation", Time.time * 7.0f);
 
         //시간이 되면 게임의 상태를 변경하고 턴을 넘겨준다.
         if (IsOver)
         {
-            switch (GameState)  
+            switch (GameState)
             {
                 case GAMESTATE.StandBy:
                     GameState = GAMESTATE.Battle;
@@ -80,10 +84,12 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
-        Debug.Log("GameOver");
+        GameState = GAMESTATE.GameSet;
+        // Debug.Log("GameOver");
     }
     public void Win()
     {
+        GameState = GAMESTATE.GameSet;
         Debug.Log("YouWin");
     }
 }

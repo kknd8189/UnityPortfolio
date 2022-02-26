@@ -9,10 +9,6 @@ public class HpBar : MonoBehaviour
     public Persona persona;
     public Slider slider;
 
-    private void Start()
-    {
-        slider = GetComponent<Slider>();
-    }
     private void Update()
     {
         transform.rotation = Camera.main.transform.rotation;

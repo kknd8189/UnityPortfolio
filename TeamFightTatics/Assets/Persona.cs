@@ -66,7 +66,7 @@ public class Persona : Character
         get { return _speed; }
         set { _speed = value; }
     }
-    protected int _recoverMp;
+    protected int _recoverMp = 10;
     public int RecoverMp
     {
         get { return _recoverMp; }

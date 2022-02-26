@@ -7,9 +7,9 @@ public class DragAndDrop : MonoBehaviour
     private Vector3 screenSpace;
     private Vector3 offset;
     private Vector3 initialPosition;
-    private GameObject Player;
-    private Player player;
-    private Synergy synergy;
+    public GameObject Player;
+    public Player player;
+    public Synergy synergy;
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");

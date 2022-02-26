@@ -14,7 +14,7 @@ public class EnemyGenerator : MonoBehaviour
     }
     private void Update()
     {
-        if(GameManager.Instance.GameState ==GAMESTATE.Battle && GameManager.Instance.IsOver)
+        if (GameManager.Instance.GameState == GAMESTATE.Battle && GameManager.Instance.IsOver)
         {
             EnemyGenerate(GameManager.Instance.Turn);
         }
@@ -24,7 +24,7 @@ public class EnemyGenerator : MonoBehaviour
         //j 캐릭터넘버, i 캐릭터 소환숫자, k 소환된 순서
         int k = 0;
         for (int j = 0; j < StageDataList[turn - 1].Amount.Length; j++)
-        {        
+        {
             for (int i = 0; i < StageDataList[turn - 1].Amount[j]; i++)
             {
                 GameObject characterPrefab;

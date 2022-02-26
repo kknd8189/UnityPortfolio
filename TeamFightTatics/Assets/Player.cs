@@ -10,7 +10,7 @@ public class Player : Entity
     public UnityEvent<int> CurrentHpChanged = new UnityEvent<int>();
 
     public Enemy Enemy;
-    public Synergy synergy;
+    private Synergy synergy;
     public List<GameObject>[] PlayerCharacterList;
 
     [SerializeField]
@@ -99,18 +99,26 @@ public class Player : Entity
     private int[] maxExpContainer = { 0, 2, 6, 10, 20, 36, 56, 80, 999 };
     private bool _isShoot = false;
 
-    private void Start()
+    public int PlayerNumber = 0;
+
+    private void OnLevelWasLoaded()
     {
+        synergy = gameObject.GetComponent<Synergy>();
+
+        _maxHp = 100;
+        _currentHp = _maxHp;
+
+        Enemy = FindObjectOfType<Enemy>();
+
         PlayerCharacterList = new List<GameObject>[PoolManager.Instance.CharacterDataList.Count];
 
         for (int i = 0; i < PlayerCharacterList.Length; i++)
         {
-            PlayerCharacterList[i] = new List<GameObject>(); 
+            PlayerCharacterList[i] = new List<GameObject>();
         }
 
-        _maxHp = 100;
-        _currentHp = _maxHp;
     }
+
     private void Update()
     {
         earnGold();
@@ -133,6 +141,7 @@ public class Player : Entity
             if (Enemy.LiveEnemyCount <= 0) Shoot();
         }
     }
+
     private void earnGold()
     {
         if (GameManager.Instance.IsOver && GameManager.Instance.GameState == GAMESTATE.Battle)
@@ -195,6 +204,9 @@ public class Player : Entity
 
           
             PlayerCharacterList[characterNum].Clear();
+
+            AudioManager.Instance.AudioSource.clip = AudioManager.Instance.AudioClips[0];
+            AudioManager.Instance.AudioSource.Play();
         }
     }
     private void Shoot()
