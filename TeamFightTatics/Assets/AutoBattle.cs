@@ -11,8 +11,6 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
     public Persona Persona;
     public Player Player;
 
-    public ParticleSystem BloodParticle;
-
     [SerializeField]
     private List<GameObject> enemys = new List<GameObject>();
     public GameObject Enemy;
@@ -115,14 +113,22 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
         Persona.CurrentHp = Persona.MaxHp;
         Persona.CurrentMp = Persona.DefaultMp;
         transform.position = TileManager.Instance.BattleTileList[Persona.DiposedIndex].transform.position;
+
+        float dir = 0;
+
         if (gameObject.tag == "PlayerCharacter" && _isDie)
         {
-            Player.LiveCharacterCount++;
+            dir = 0f;
+            if (_isDie) Player.LiveCharacterCount++;
         }
-        else if (gameObject.tag != "PlayerCharacter" && _isDie)
+        else if (gameObject.tag != "PlayerCharacter" )
         {
-            Player.Enemy.LiveEnemyCount++;
+            dir = 180f;
+
+            if(_isDie) Player.Enemy.LiveEnemyCount++;
         }
+
+        transform.rotation = Quaternion.Euler(0f, dir, 0f);
         _isDie = false;
         enemys.Clear();
         Enemy = null;

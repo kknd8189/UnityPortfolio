@@ -1715,6 +1715,10 @@ GameObject:
   m_Component:
   - component: {fileID: 400088}
   - component: {fileID: 9593882}
+  - component: {fileID: 6481465793186361868}
+  - component: {fileID: -3328659600333774631}
+  - component: {fileID: -2775204418668595622}
+  - component: {fileID: 1908951418586025342}
   m_Layer: 0
   m_Name: skeleton_01
   m_TagString: Untagged
@@ -1731,7 +1735,7 @@ Transform:
   m_GameObject: {fileID: 100088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 400086}
@@ -1750,7 +1754,7 @@ Animator:
   m_GameObject: {fileID: 100088}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 6a79d47ca7f140840b84f52d2f6c24dc, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6a944175ed4c40439f05606b00eeda3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1760,3 +1764,83 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6481465793186361868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf4c2363e217c74f835bdf4f473e1b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPersona: {fileID: 0}
+  Persona: {fileID: 1908951418586025342}
+  Player: {fileID: 0}
+  BloodParticle: {fileID: 0}
+  enemys: []
+  Enemy: {fileID: 0}
+  anim: {fileID: 0}
+  _characterState: 0
+--- !u!136 &-3328659600333774631
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2584253
+  m_Height: 1.7646528
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8267929, z: 0.02570194}
+--- !u!54 &-2775204418668595622
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100088}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1908951418586025342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae96e4489e05a845953103fa50afa30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHp: 0
+  _characterNum: 0
+  _cost: 0
+  _cardIndex: 0
+  player: {fileID: 0}
+  Player: {fileID: 0}
+  RerollManager: {fileID: 0}
+  Synergy: {fileID: 0}
+  _isOnBattleField: 0
+  _maxMp: 0
+  _defaultMp: 0
+  _currentMp: 0
+  _attackRange: 0
+  _power: 0
+  _attackDelayTime: 0
+  _diposedIndex: 0
+  _speed: 0
+  _synergyNumber: 0000000000000000
