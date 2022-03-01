@@ -26,7 +26,6 @@ public class Arrow : MonoBehaviour
             PoolManager.Instance.PushArrowQueue(gameObject);
         }
     }
-
     public void SetArrowState(GameObject target, int power)
     {
         _power = power;

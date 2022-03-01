@@ -18,6 +18,9 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        if (GameManager.Instance.GameState == GAMESTATE.Battle && gameObject.GetComponent<Persona>().IsOnBattleField)
+            return;
+       
         initialPosition = transform.position;
         screenSpace = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z));
@@ -26,11 +29,12 @@ public class DragAndDrop : MonoBehaviour
     {
         if (GameManager.Instance.GameState == GAMESTATE.Battle && gameObject.GetComponent<Persona>().IsOnBattleField)
         {
-            transform.position = initialPosition;
+
+            if (GameManager.Instance.IsOver) transform.position = initialPosition;
             return;
         }
 
-        Vector3 curScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z);
+        Vector3 curScreenSpace = new(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z);
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenSpace) + offset;
 
         curPosition.y = 5;
@@ -39,6 +43,9 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        if (GameManager.Instance.GameState == GAMESTATE.Battle && gameObject.GetComponent<Persona>().IsOnBattleField)
+            return;
+
         RaycastHit dectectedTile;
 
         //비트 연산자 사용 Tile 레이어

@@ -8,19 +8,19 @@ using UnityEngine.SceneManagement;
 public class Login : MonoBehaviour
 {
     public TMP_InputField idText;
-    public TMP_InputField pwdText;
 
     public Button LoginButton;
+    public Button LogOutButton;
     public Button SceneChangeButton;
 
     public TextMeshProUGUI progressText;
 
     public PlayerSelect PlayerSelect;
-
     private void Start()
     {
         LoginButton.onClick.AddListener(LoginEvent);
         SceneChangeButton.onClick.AddListener(LoadEvent);
+        LogOutButton.onClick.AddListener(LogOutEvent);
     }
 
     private void LoginEvent()
@@ -31,6 +31,10 @@ public class Login : MonoBehaviour
     private void LoadEvent()
     {
         StartCoroutine(LoadScene());
+    }
+    private void LogOutEvent()
+    {
+        Application.Quit();
     }
     IEnumerator LoadScene()
     {
@@ -62,11 +66,9 @@ public class Login : MonoBehaviour
     {
         yield return null;
 
-        Debug.Log($"LOGIN SUCCESSED {idText.text} pwd : {pwdText.text}");
-
         idText.gameObject.SetActive(false);
-        pwdText.gameObject.SetActive(false);
         LoginButton.gameObject.SetActive(false);
+        LogOutButton.gameObject.SetActive(false);
 
         progressText.text = $"{idText.text}님 환영합니다";
 
