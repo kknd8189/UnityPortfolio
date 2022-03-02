@@ -103,6 +103,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
                     updateChase();
                     break;
                 case CharacterState.Die:
+                    updateDie();
                     break;
 
             }
@@ -168,6 +169,10 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
         {
             CharacterState = CharacterState.Skill;                    
         }
+    }
+    private void updateDie()
+    {
+        //죽으면 아무것도 하지 않는다.
     }
     public void Skill()
     {
