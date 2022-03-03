@@ -2,6 +2,7 @@ fileFormatVersion: 2
 guid: bca7f710957da454b90a6199e56685bb
 ModelImporter:
 <<<<<<< HEAD
+<<<<<<< HEAD
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
@@ -11,6 +12,8 @@ ModelImporter:
   materials:
     materialImportMode: 2
 =======
+=======
+>>>>>>> parent of 56ac1eb (좀비 추가)
   serializedVersion: 23
   fileIDToRecycleName:
     100000: Base HumanHead
@@ -125,6 +128,9 @@ ModelImporter:
     second: {fileID: 2100000, guid: 79b0613ba869dc24a922cf91d4046a1f, type: 2}
   materials:
     importMaterials: 1
+<<<<<<< HEAD
+>>>>>>> parent of 56ac1eb (좀비 추가)
+=======
 >>>>>>> parent of 56ac1eb (좀비 추가)
     materialName: 0
     materialSearch: 1
@@ -135,6 +141,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
@@ -142,6 +149,8 @@ ModelImporter:
     animationImportErrors: 
     animationImportWarnings: 
 =======
+=======
+>>>>>>> parent of 56ac1eb (좀비 추가)
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
@@ -412,6 +421,7 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
@@ -420,10 +430,15 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
 =======
+=======
+>>>>>>> parent of 56ac1eb (좀비 추가)
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
+<<<<<<< HEAD
+>>>>>>> parent of 56ac1eb (좀비 추가)
+=======
 >>>>>>> parent of 56ac1eb (좀비 추가)
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -432,6 +447,7 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
     skinWeightsMode: 0
     maxBonesPerVertex: 4
@@ -445,6 +461,12 @@ ModelImporter:
     secondaryUVMarginMethod: 1
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
+=======
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+>>>>>>> parent of 56ac1eb (좀비 추가)
     secondaryUVPackMargin: 4
     useFileScale: 1
 =======
@@ -456,6 +478,9 @@ ModelImporter:
     useFileScale: 0
     previousCalculatedGlobalScale: 0.01
     hasPreviousCalculatedGlobalScale: 1
+<<<<<<< HEAD
+>>>>>>> parent of 56ac1eb (좀비 추가)
+=======
 >>>>>>> parent of 56ac1eb (좀비 추가)
   tangentSpace:
     normalSmoothAngle: 60
@@ -469,10 +494,13 @@ ModelImporter:
   copyAvatar: 0
   humanDescription:
 <<<<<<< HEAD
+<<<<<<< HEAD
     serializedVersion: 3
     human: []
     skeleton: []
 =======
+=======
+>>>>>>> parent of 56ac1eb (좀비 추가)
     serializedVersion: 2
     human:
     - boneName: Base HumanPelvis
@@ -1025,7 +1053,10 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     globalScale: 1
+=======
+>>>>>>> parent of 56ac1eb (좀비 추가)
 =======
 >>>>>>> parent of 56ac1eb (좀비 추가)
     rootMotionBoneName: 
@@ -1034,6 +1065,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
@@ -1041,6 +1073,8 @@ ModelImporter:
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
 =======
+=======
+>>>>>>> parent of 56ac1eb (좀비 추가)
   animationType: 3
   humanoidOversampling: 1
   additionalBone: 1
