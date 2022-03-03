@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrcWarrior : MonoBehaviour
+public class OrcWarrior : Persona
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Skill()
     {
-        
+        Persona enemyPersona = GetComponent<AutoBattle>().enemyPersona;
+        enemyPersona.CurrentHp -= CurrentHp / 2;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 }

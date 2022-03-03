@@ -298,11 +298,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'OrcShamon
+  m_text: 'OrcArchor
 
     Cost : 1
 
-    Magician/ Orc'
+    Archor/ Orc'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50eafb07b90d1a44eb828dceaa984ebf, type: 2}
   m_sharedMaterial: {fileID: -4699767027564305555, guid: 50eafb07b90d1a44eb828dceaa984ebf, type: 2}

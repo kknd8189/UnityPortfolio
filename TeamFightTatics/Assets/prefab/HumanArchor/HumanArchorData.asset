@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc6da0982609f4883dbfccc2d5282f, type: 3}
   m_Name: HumanArchorData
   m_EditorClassIdentifier: 
-  CharacterName: 
-  SkillExplain: 
-  CharacterNum: 0
-  SynergyNum: 
-  CharacterPrefab: {fileID: 0}
-  CardPrefab: {fileID: 0}
-  MaxHP: 0
-  Power: 0
-  MaxMP: 0
-  DefaultMP: 0
-  Cost: 0
-  AttackRange: 0
-  AttackDelay: 0
-  Speed: 0
+  CharacterName: HumanArchor
+  SkillExplain: "\uACF5\uACA9\uB825 10\uC99D\uAC00"
+  CharacterNum: 3
+  SynergyNum: 0000000006000000
+  CharacterPrefab: {fileID: 8407199942777405254, guid: a55a3b9e92b6d924786ea599ea612683, type: 3}
+  CardPrefab: {fileID: 3116885294589100871, guid: 59cb401a774f3704eb2e48482fb6916a, type: 3}
+  MaxHP: 40
+  Power: 15
+  MaxMP: 80
+  DefaultMP: 40
+  Cost: 1
+  AttackRange: 30
+  AttackDelay: 0.8
+  Speed: 20

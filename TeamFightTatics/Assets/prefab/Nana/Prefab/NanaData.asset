@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc6da0982609f4883dbfccc2d5282f, type: 3}
   m_Name: NanaData
   m_EditorClassIdentifier: 
-  CharacterName: 
-  SkillExplain: 
-  CharacterNum: 0
-  SynergyNum: 
-  CharacterPrefab: {fileID: 0}
-  CardPrefab: {fileID: 0}
-  MaxHP: 0
-  Power: 0
-  MaxMP: 0
-  DefaultMP: 0
-  Cost: 0
-  AttackRange: 0
-  AttackDelay: 0
-  Speed: 0
+  CharacterName: Nana
+  SkillExplain: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uACF5\uACA9\uB825\uB9CC\uD07C\uC758
+    \uB370\uBBF8\uC9C0"
+  CharacterNum: 6
+  SynergyNum: 0100000006000000
+  CharacterPrefab: {fileID: 1194394832456452, guid: 0276fd68d2eb8e64aa562b0c13ae1bf9, type: 3}
+  CardPrefab: {fileID: 3116885294589100871, guid: 309ee96616e11a145ba95dd6954fafbf, type: 3}
+  MaxHP: 200
+  Power: 30
+  MaxMP: 50
+  DefaultMP: 40
+  Cost: 3
+  AttackRange: 15
+  AttackDelay: 0.8
+  Speed: 20

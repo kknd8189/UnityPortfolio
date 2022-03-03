@@ -12,9 +12,17 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
     public Player Player;
 
     [SerializeField]
-    private List<GameObject> enemys = new List<GameObject>();
+    public List<GameObject> enemys = new List<GameObject>();
     public GameObject Enemy;
     public Animator anim;
+
+    private int _bonusPower;
+    public int BonusPower
+    {
+        get { return _bonusPower; }
+        set { _bonusPower = value; }
+    }
+
 
     [SerializeField]
     private CharacterState _characterState;
@@ -242,7 +250,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
     }
     public void Attack()
     {
-        enemyPersona.Damaged(Persona.Power);
+        enemyPersona.Damaged(Persona.Power + BonusPower);
         Persona.CurrentMp += Persona.RecoverMp;
     }
 }

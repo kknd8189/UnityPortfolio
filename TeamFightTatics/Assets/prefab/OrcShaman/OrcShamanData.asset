@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc6da0982609f4883dbfccc2d5282f, type: 3}
   m_Name: OrcShamanData
   m_EditorClassIdentifier: 
-  CharacterName: 
-  SkillExplain: 
-  CharacterNum: 0
-  SynergyNum: 
-  CharacterPrefab: {fileID: 0}
-  CardPrefab: {fileID: 0}
-  MaxHP: 0
-  Power: 0
-  MaxMP: 0
-  DefaultMP: 0
-  Cost: 0
-  AttackRange: 0
-  AttackDelay: 0
-  Speed: 0
+  CharacterName: OrcShaman
+  SkillExplain: "\uC801\uC5D0\uAC8C \uB9E4\uC6B0 \uAC15\uD55C \uB9C8\uBC95\uC744
+    \uB0A0\uB9B0\uB2E4"
+  CharacterNum: 5
+  SynergyNum: 0200000004000000
+  CharacterPrefab: {fileID: 4947980330370212523, guid: 4e9c790d539465d45861942eea60e41b, type: 3}
+  CardPrefab: {fileID: 3116885294589100871, guid: 1715a24ff4ad82f4f97971bf906a900e, type: 3}
+  MaxHP: 20
+  Power: 5
+  MaxMP: 60
+  DefaultMP: 30
+  Cost: 3
+  AttackRange: 20
+  AttackDelay: 0.8
+  Speed: 10

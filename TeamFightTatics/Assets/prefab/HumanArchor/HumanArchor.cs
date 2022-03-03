@@ -6,5 +6,6 @@ public class HumanArchor : Persona
 {
     public override void Skill()
     {
+        GetComponent<AutoBattle>().BonusPower += 10;
     }
 }

@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class skeletonArchor : Persona
 {
-    AutoBattle AutoBattle;
-    private void Awake()
+ public override void Skill()
     {
-        AutoBattle = GetComponent<AutoBattle>();
-    }
-    public override void Skill()
-    {
-        AutoBattle.Enemy.GetComponent<Persona>().CurrentHp -= Power * 2;
+        Persona enemyPersona = GetComponent<AutoBattle>().enemyPersona;
+        enemyPersona.CurrentHp -= Power * 2;
     }
 }
