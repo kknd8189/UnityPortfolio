@@ -41,30 +41,29 @@ public class TileManager : MonoBehaviour
     {
         for (int i = 0; i < summonTileMax; i++)
         {
-            GameObject gameObject;
-            gameObject = Instantiate(summonTileObject, Field);
-            gameObject.transform.position = new Vector3(10 + i * 10, -0.25f, 0);
-            gameObject.GetComponent<SummonField>().Index = i;
-            if (i % 2 == 0) gameObject.GetComponent<MeshRenderer>().material = evenTileMaterial;
-            else if (i % 2 == 1) gameObject.GetComponent<MeshRenderer>().material = oddTileMaterial;
-            SummonTileList.Add(gameObject);
+            SummonTileList[i].GetComponent<SummonField>().Index = i;
+            if (i % 2 == 0) SummonTileList[i].GetComponent<MeshRenderer>().material = evenTileMaterial;
+            else if (i % 2 == 1) SummonTileList[i].GetComponent<MeshRenderer>().material = oddTileMaterial;
         }
     }
     private void setBattleTile()
     {
+
         for (int i = 0; i < horizonalTileMax; i++)
         {
             for (int j = 0; j < verticalTileMax; j++)
             {
-                GameObject gameObject;
-                gameObject = Instantiate(battleTileObject, Field);
-                gameObject.GetComponent<BattleFiled>().Index = (j + i * verticalTileMax);
-                gameObject.transform.position = new Vector3(j * 10, -0.25f, 15 + i * 10);
-                if (j + i * verticalTileMax >= 48) gameObject.GetComponent<MeshRenderer>().material = enemyTileMaterial;
-                else gameObject.GetComponent<MeshRenderer>().material = playerTileMaterial;
-                BattleTileList.Add(gameObject);
+                if (j + i * verticalTileMax >= 48)
+                {
+                    BattleTileList[j + i * verticalTileMax].GetComponent<MeshRenderer>().material = enemyTileMaterial;
+                }
+
+                else BattleTileList[j + i * verticalTileMax].GetComponent<MeshRenderer>().material = playerTileMaterial;
+
+                BattleTileList[j + i * verticalTileMax].GetComponent<BattleFiled>().Index = (j + i * verticalTileMax);
             }
         }
+
     }
 }
 

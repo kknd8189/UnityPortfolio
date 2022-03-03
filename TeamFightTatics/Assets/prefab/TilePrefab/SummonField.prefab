@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4455116343322597211
 Transform:
@@ -112,10 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _index: 9
-  AudioClips:
-  - {fileID: 8300000, guid: b99bf517044b548da8c270b62b28a92c, type: 3}
-  - {fileID: 8300000, guid: 934ab2c1efe3b4f6eab86d1afd9841aa, type: 3}
-  AudioSource: {fileID: 991860908275672207}
 --- !u!82 &991860908275672207
 AudioSource:
   m_ObjectHideFlags: 0

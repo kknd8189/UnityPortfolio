@@ -10,29 +10,35 @@ public class DragAndDrop : MonoBehaviour
     public GameObject Player;
     public Player player;
     public Synergy synergy;
+    private AutoBattle _autoBattle;
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         player = Player.GetComponent<Player>();
         synergy = Player.GetComponent<Synergy>();
+        _autoBattle = GetComponent<AutoBattle>();
     }
     private void OnMouseDown()
     {
         if (GameManager.Instance.GameState == GAMESTATE.Battle && gameObject.GetComponent<Persona>().IsOnBattleField)
             return;
-       
+
+        _autoBattle.Agent.enabled = false;
+
         initialPosition = transform.position;
         screenSpace = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z));
     }
     private void OnMouseDrag()
     {
-        if (GameManager.Instance.GameState == GAMESTATE.Battle && gameObject.GetComponent<Persona>().IsOnBattleField)
+        if (GameManager.Instance.GameState == GAMESTATE.StandBy && GameManager.Instance.IsOver)
         {
-            if (GameManager.Instance.IsOver) transform.position = initialPosition;
+            transform.position = initialPosition;
+            _autoBattle.Agent.enabled = true;
             return;
         }
-
+        else if (GameManager.Instance.GameState == GAMESTATE.Battle)
+                        return;
         Vector3 curScreenSpace = new(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z);
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenSpace) + offset;
 
@@ -42,6 +48,7 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnMouseUp()
     {
+
         if (GameManager.Instance.GameState == GAMESTATE.Battle && gameObject.GetComponent<Persona>().IsOnBattleField)
             return;
 
@@ -65,7 +72,6 @@ public class DragAndDrop : MonoBehaviour
             //BattleField위에 올릴때
             else if (dectectedTile.collider.GetComponent<BattleFiled>() != null)
             {
-
                 if (GameManager.Instance.GameState == GAMESTATE.Battle || tile.Index >= 48)
                 {
                     transform.position = initialPosition;
@@ -88,6 +94,7 @@ public class DragAndDrop : MonoBehaviour
                 }
                 persona.DiposedIndex = dectectedTile.collider.GetComponent<BattleFiled>().Index;
                 transform.position = dectectedTile.transform.position;
+                _autoBattle.Agent.enabled = true;
                 return;
             }
 

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public enum CharacterState { Idle, Search, Attack, Chase, Skill, Die }
 
@@ -59,12 +61,15 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
 
     private bool _isDie;
 
+    public NavMeshAgent Agent;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         Persona = GetComponent<Persona>();
         CharacterState = CharacterState.Idle;
+        Agent = GetComponent<NavMeshAgent>();
     }
     private void Update()
     {
@@ -142,6 +147,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
         _isDie = false;
         enemys.Clear();
         Enemy = null;
+        Agent.SetDestination(transform.position);
     }
     private void updateIdle()
     {
@@ -150,32 +156,34 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
     private void updateChase()
     {
         anim.Play("Chase");
+        Agent.SetDestination(Enemy.transform.position);
 
         float distance = Vector3.Distance(transform.position, Enemy.transform.position);
 
-        if (distance > Persona.AttackRange)
+        if (distance <= Persona.AttackRange)
         {
-            transform.position = Vector3.MoveTowards(transform.position,Enemy.transform.position, Persona.Speed * Time.deltaTime);
-            transform.LookAt(Enemy.transform);
-        }
-
-        else if (distance <= Persona.AttackRange)
-        {
+            Agent.speed = 0;
             CharacterState = CharacterState.Attack;
         }
-    }
-    private void updateAttack()
-    {
+
+        //적이 죽을 경우 다시 찾으러가자
         if (enemyPersona.CurrentHp <= 0)
         {
             CharacterState = CharacterState.Chase;
         }
-
+    }
+    private void updateAttack()
+    {
         anim.Play("Attack");
 
         if (Persona.CurrentMp >= Persona.MaxMp)
         {
-            CharacterState = CharacterState.Skill;                    
+            CharacterState = CharacterState.Skill;
+        }
+
+        if (enemyPersona.CurrentHp <= 0)
+        {
+            CharacterState = CharacterState.Chase;
         }
     }
 
@@ -211,6 +219,8 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
             }
         }
 
+        Agent.speed = Persona.Speed;
+        Agent.stoppingDistance = Persona.AttackRange;
         CharacterState = CharacterState.Chase;
     }
     private void updateNextSequence()
@@ -241,12 +251,15 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
             }
 
             enemyPersona = Enemy.GetComponent<Persona>();
+            Agent.speed = Persona.Speed;
+
         }
 
         else if (enemys.Count <= 0)
         {
             CharacterState = CharacterState.Idle;
-        }
+            Agent.SetDestination(transform.position);
+        }       
     }
     public void Attack()
     {
