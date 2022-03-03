@@ -29,7 +29,6 @@ public class DragAndDrop : MonoBehaviour
     {
         if (GameManager.Instance.GameState == GAMESTATE.Battle && gameObject.GetComponent<Persona>().IsOnBattleField)
         {
-
             if (GameManager.Instance.IsOver) transform.position = initialPosition;
             return;
         }
