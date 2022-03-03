@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.43863854, g: 0.48161137, b: 0.5533778, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.5344114, g: 0.5835727, b: 0.6612728, a: 1}
+>>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:

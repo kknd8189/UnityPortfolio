@@ -93,7 +93,11 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+<<<<<<< HEAD
     - _Rotation: 4.917762
+=======
+    - _Rotation: 239.0223
+>>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
