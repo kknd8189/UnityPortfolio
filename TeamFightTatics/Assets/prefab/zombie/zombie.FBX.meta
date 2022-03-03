@@ -5,6 +5,7 @@ ModelImporter:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
@@ -14,6 +15,8 @@ ModelImporter:
   materials:
     materialImportMode: 2
 =======
+=======
+>>>>>>> parent of 56ac1eb (좀비 추가)
 =======
 >>>>>>> parent of 56ac1eb (좀비 추가)
 =======
@@ -137,6 +140,9 @@ ModelImporter:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 56ac1eb (좀비 추가)
+=======
 >>>>>>> parent of 56ac1eb (좀비 추가)
 =======
 >>>>>>> parent of 56ac1eb (좀비 추가)
@@ -156,6 +162,7 @@ ModelImporter:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
@@ -163,6 +170,8 @@ ModelImporter:
     animationImportErrors: 
     animationImportWarnings: 
 =======
+=======
+>>>>>>> parent of 56ac1eb (좀비 추가)
 =======
 >>>>>>> parent of 56ac1eb (좀비 추가)
 =======
@@ -442,6 +451,7 @@ ModelImporter:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
@@ -456,6 +466,8 @@ ModelImporter:
 >>>>>>> parent of 56ac1eb (좀비 추가)
 =======
 >>>>>>> parent of 56ac1eb (좀비 추가)
+=======
+>>>>>>> parent of 56ac1eb (좀비 추가)
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
@@ -463,6 +475,9 @@ ModelImporter:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 56ac1eb (좀비 추가)
+=======
 >>>>>>> parent of 56ac1eb (좀비 추가)
 =======
 >>>>>>> parent of 56ac1eb (좀비 추가)
@@ -477,6 +492,7 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -518,6 +534,12 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
 >>>>>>> parent of 56ac1eb (좀비 추가)
+=======
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+>>>>>>> parent of 56ac1eb (좀비 추가)
     secondaryUVPackMargin: 4
     useFileScale: 0
     previousCalculatedGlobalScale: 0.01
@@ -525,6 +547,9 @@ ModelImporter:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 56ac1eb (좀비 추가)
+=======
 >>>>>>> parent of 56ac1eb (좀비 추가)
 =======
 >>>>>>> parent of 56ac1eb (좀비 추가)
@@ -547,10 +572,13 @@ ModelImporter:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     serializedVersion: 3
     human: []
     skeleton: []
 =======
+=======
+>>>>>>> parent of 56ac1eb (좀비 추가)
 =======
 >>>>>>> parent of 56ac1eb (좀비 추가)
 =======
@@ -1112,7 +1140,10 @@ ModelImporter:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     globalScale: 1
+=======
+>>>>>>> parent of 56ac1eb (좀비 추가)
 =======
 >>>>>>> parent of 56ac1eb (좀비 추가)
 =======
@@ -1130,6 +1161,7 @@ ModelImporter:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
@@ -1137,6 +1169,8 @@ ModelImporter:
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
 =======
+=======
+>>>>>>> parent of 56ac1eb (좀비 추가)
 =======
 >>>>>>> parent of 56ac1eb (좀비 추가)
 =======
