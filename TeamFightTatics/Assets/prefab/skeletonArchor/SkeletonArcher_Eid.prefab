@@ -1811,10 +1811,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 26.377687
+  m_Radius: 32.383984
   m_Height: 171.47139
   m_Direction: 1
-  m_Center: {x: -5.305891, y: 87.01432, z: -5.5634546}
+  m_Center: {x: 0, y: 87.01432, z: -4.8630476}
 --- !u!54 &1573977756974447486
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1826,10 +1826,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &2804553781915263578
 MonoBehaviour:
@@ -1846,10 +1846,12 @@ MonoBehaviour:
   enemyPersona: {fileID: 0}
   Persona: {fileID: 2807715276826752043}
   Player: {fileID: 0}
+  BloodParticle: {fileID: 0}
   enemys: []
   Enemy: {fileID: 0}
   anim: {fileID: 3869442567421703781}
   _characterState: 0
+  attackSequence: 0
 --- !u!1 &3869442567412336125
 GameObject:
   m_ObjectHideFlags: 0

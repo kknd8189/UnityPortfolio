@@ -213,7 +213,7 @@ public class Player : Entity
         if (!_isShoot)
         {
             int damage = LiveCharacterCount + Level;
-            PoolManager.Instance.PullArrowQueue(damage, transform.position + transform.up * 30f, Enemy.gameObject);
+            PoolManager.Instance.PullArrowQueue(damage, transform.position + transform.up * 20f, Enemy.gameObject);
             _isShoot = true;
         }
     }

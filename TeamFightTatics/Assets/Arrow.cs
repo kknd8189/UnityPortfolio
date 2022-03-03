@@ -15,8 +15,7 @@ public class Arrow : MonoBehaviour
     {
         transform.position += transform.up * Speed * Time.deltaTime;
         Vector3 dir = (Target.transform.position - transform.position + Target.transform.up * 3).normalized;
-        transform.up = Vector3.Lerp(transform.up, dir, 0.01f);
-
+        transform.up = Vector3.Lerp(transform.up, dir, 0.25f);
     }
 
     private void OnCollisionEnter(Collision collision)

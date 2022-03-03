@@ -6,6 +6,5 @@ public class SkeletonWarrior : Persona
 {
     public override void Skill()
     {
-        CurrentHp += 30;
     }
 }

@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: SkeletonWarriorData
   m_EditorClassIdentifier: 
   CharacterName: SkeletonWarrior
-  SkillExplain: "\uCCB4\uB825 30\uD68C\uBCF5"
+  SkillExplain: "\uD604\uC7AC \uC801\uC5D0\uAC8C \uACF5\uACA9\uB825 \uB450\uBC30\uC758
+    \uD53C\uD574"
   CharacterNum: 1
   SynergyNum: 0100000005000000
   CharacterPrefab: {fileID: 100088, guid: 68bb4981571196540b2abaa6e23df82c, type: 3}
   CardPrefab: {fileID: 3116885294589100871, guid: 1f95e13835f322c46ba29c96db527ef8, type: 3}
   MaxHP: 80
   Power: 8
-  MaxMP: 60
-  DefaultMP: 30
+  MaxMP: 80
+  DefaultMP: 20
   Cost: 1
   AttackRange: 10
   AttackDelay: 0.8
