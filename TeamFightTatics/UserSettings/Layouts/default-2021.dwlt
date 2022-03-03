@@ -8,7 +8,7 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_EditorHideFlags: 1
   m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -19,67 +19,12 @@ MonoBehaviour:
     width: 1706.6667
     height: 877.3334
   m_ShowMode: 4
-<<<<<<< HEAD
-  m_Title: Project
-  m_RootView: {fileID: 6}
-=======
   m_Title: Game
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_RootView: {fileID: 2}
->>>>>>> parent of 1d93e47 (5655)
-=======
-  m_RootView: {fileID: 3}
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-  m_RootView: {fileID: 3}
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-  m_RootView: {fileID: 3}
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-  m_RootView: {fileID: 3}
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-  m_RootView: {fileID: 3}
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-  m_RootView: {fileID: 3}
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-  m_RootView: {fileID: 3}
->>>>>>> parent of 56ac1eb (좀비 추가)
+  m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12060, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 30
-    width: 1706.6667
-    height: 827.3334
-  m_MinSize: {x: 200, y: 223}
-  m_MaxSize: {x: 4000, y: 4023}
-  m_ActualView: {fileID: 6}
---- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,101 +37,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   - {fileID: 9}
   - {fileID: 3}
-=======
-  - {fileID: 4}
-  - {fileID: 2}
-  - {fileID: 5}
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-  - {fileID: 4}
-  - {fileID: 2}
-  - {fileID: 5}
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-  - {fileID: 4}
-  - {fileID: 2}
-  - {fileID: 5}
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-  - {fileID: 4}
-  - {fileID: 2}
-  - {fileID: 5}
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-  - {fileID: 4}
-  - {fileID: 2}
-  - {fileID: 5}
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-  - {fileID: 4}
-  - {fileID: 2}
-  - {fileID: 5}
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-  - {fileID: 4}
-  - {fileID: 2}
-  - {fileID: 5}
->>>>>>> parent of 56ac1eb (좀비 추가)
   m_Position:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
     y: 30
-    width: 1706.6666
-    height: 827.3333
+    width: 1706.6667
+    height: 827.3334
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 16
-=======
-    y: 0
-    width: 1706.6667
-    height: 877.3334
-  m_MinSize: {x: 875, y: 300}
-  m_MaxSize: {x: 10000, y: 10000}
-  m_UseTopView: 1
-  m_TopViewHeight: 30
-  m_UseBottomView: 1
-  m_BottomViewHeight: 20
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
+  controlID: 80
 --- !u!114 &3
-=======
---- !u!114 &4
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
---- !u!114 &4
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
---- !u!114 &4
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
---- !u!114 &4
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
---- !u!114 &4
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
---- !u!114 &4
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
---- !u!114 &4
->>>>>>> parent of 56ac1eb (좀비 추가)
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,52 +66,16 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1304
     y: 0
-<<<<<<< HEAD
-    width: 402.66663
-    height: 827.3333
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+    width: 402.66675
+    height: 827.3334
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
   m_Selected: 0
   m_LastSelected: 0
-=======
-    width: 1706.6667
-    height: 30
-  m_MinSize: {x: 0, y: 0}
-  m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
 --- !u!114 &4
-=======
---- !u!114 &5
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
---- !u!114 &5
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
---- !u!114 &5
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
---- !u!114 &5
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
---- !u!114 &5
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
---- !u!114 &5
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
---- !u!114 &5
->>>>>>> parent of 56ac1eb (좀비 추가)
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,7 +91,6 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
     y: 0
     width: 322.66666
     height: 490
@@ -275,20 +101,6 @@ MonoBehaviour:
   - {fileID: 14}
   m_Selected: 0
   m_LastSelected: 0
-=======
-    y: 857.3334
-    width: 1706.6667
-    height: 20
-  m_MinSize: {x: 0, y: 0}
-  m_MaxSize: {x: 0, y: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -305,10 +117,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
     y: 490
     width: 1304
-    height: 337.3333
+    height: 337.33337
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 12}
@@ -317,33 +128,6 @@ MonoBehaviour:
   - {fileID: 17}
   m_Selected: 0
   m_LastSelected: 1
-=======
-    y: 30
-    width: 1706.6667
-    height: 827.3334
-  m_MinSize: {x: 300, y: 200}
-  m_MaxSize: {x: 24288, y: 16192}
-  vertical: 0
-<<<<<<< HEAD
-  controlID: 28
->>>>>>> parent of 1d93e47 (5655)
-=======
-  controlID: 43282
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -353,13 +137,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   m_Script: {fileID: 12008, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -371,32 +148,14 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-    width: 1706.6666
-    height: 877.3333
+    width: 1706.6667
+    height: 877.3334
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
-=======
-    width: 953.3333
-    height: 827
-  m_MinSize: {x: 100, y: 200}
-  m_MaxSize: {x: 8096, y: 16192}
-  vertical: 1
-  controlID: 29
->>>>>>> parent of 1d93e47 (5655)
-=======
-    width: 966
-    height: 827.3334
-  m_MinSize: {x: 100, y: 200}
-  m_MaxSize: {x: 8096, y: 16192}
-  vertical: 1
-  controlID: 43283
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -406,48 +165,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-<<<<<<< HEAD
   m_Script: {fileID: 12011, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
-=======
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: AnimatorControllerTool
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-    width: 1706.6666
+    width: 1706.6667
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
-=======
-    width: 953.3333
-    height: 304.66666
-  m_MinSize: {x: 201, y: 221}
-=======
-    width: 966
-    height: 514
-  m_MinSize: {x: 101, y: 121}
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 17}
-  m_Panes:
-  - {fileID: 16}
-  - {fileID: 17}
-<<<<<<< HEAD
-  m_Selected: 0
-  m_LastSelected: 1
->>>>>>> parent of 1d93e47 (5655)
-=======
-  m_Selected: 1
-  m_LastSelected: 0
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -464,30 +194,11 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-    y: 857.3333
-    width: 1706.6666
+    y: 857.3334
+    width: 1706.6667
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-=======
-    y: 304.66666
-    width: 953.3333
-    height: 522.3334
-=======
-    y: 514
-    width: 966
-    height: 313.33337
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 15}
-  m_Panes:
-  - {fileID: 15}
-  m_Selected: 0
-  m_LastSelected: 0
->>>>>>> parent of 1d93e47 (5655)
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -505,33 +216,14 @@ MonoBehaviour:
   - {fileID: 5}
   m_Position:
     serializedVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
     x: 0
     y: 0
     width: 1304
-    height: 827.3333
+    height: 827.3334
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 17
-=======
-    x: 953.3333
-=======
-    x: 966
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
-    y: 0
-    width: 333.33337
-    height: 827.3334
-  m_MinSize: {x: 100, y: 200}
-  m_MaxSize: {x: 8096, y: 16192}
-  vertical: 1
-<<<<<<< HEAD
-  controlID: 51
->>>>>>> parent of 1d93e47 (5655)
-=======
-  controlID: 43234
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
+  controlID: 81
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -551,29 +243,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
     width: 1304
     height: 490
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 18
-=======
-    width: 292.00006
-    height: 374.66666
-=======
-    width: 333.33337
-    height: 375.33334
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 18}
-  m_Panes:
-  - {fileID: 18}
-  m_Selected: 0
-  m_LastSelected: 0
->>>>>>> parent of 1d93e47 (5655)
+  controlID: 82
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -589,7 +264,6 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-<<<<<<< HEAD
     x: 322.66666
     y: 0
     width: 981.3334
@@ -600,17 +274,6 @@ MonoBehaviour:
   m_Panes:
   - {fileID: 15}
   - {fileID: 16}
-=======
-    x: 0
-    y: 375.33334
-    width: 333.33337
-    height: 452.00003
-  m_MinSize: {x: 232, y: 271}
-  m_MaxSize: {x: 10002, y: 10021}
-  m_ActualView: {fileID: 19}
-  m_Panes:
-  - {fileID: 19}
->>>>>>> parent of 1d93e47 (5655)
   m_Selected: 0
   m_LastSelected: 1
 --- !u!114 &12
@@ -621,53 +284,22 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 13}
-  - {fileID: 14}
-  m_Position:
-    serializedVersion: 2
-    x: 1299.3334
-    y: 0
-    width: 407.33337
-    height: 827.3334
-  m_MinSize: {x: 100, y: 200}
-  m_MaxSize: {x: 8096, y: 16192}
-  vertical: 1
-  controlID: 43215
---- !u!114 &13
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
   m_EditorHideFlags: 1
-<<<<<<< HEAD
   m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
-=======
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InspectorWindow
->>>>>>> parent of 1d93e47 (5655)
   m_EditorClassIdentifier: 
   m_MinSize: {x: 230, y: 250}
   m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
     m_Text: Project
-    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
     y: 562.6667
     width: 1303
-    height: 316.3333
+    height: 316.33337
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -685,22 +317,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\user\Desktop\programming\GitHubLocalRepository\UnityPortfolio\TeamFightTatics
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 28670000
-    m_LastClickedID: 26408
-    m_ExpandedIDs: 00000000286700002a6700002c6700002e67000030670000326700003467000036670000386700003a6700003c6700003e67000040670000426700004467000046670000486700004a6700004c6700004e67000050670000526700005467000056670000586700005a6700005c6700005e67000060670000626700006467000066670000686700006a6700006c6700006e67000070670000726700007467000076670000786700007a6700007c6700007e67000080670000826700008467000086670000886700008a6700008c670000
+    scrollPos: {x: 0, y: 43.666626}
+    m_SelectedIDs: 86670000
+    m_LastClickedID: 26502
+    m_ExpandedIDs: 000000007467000084670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -728,7 +360,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000286700002a6700002c6700002e67000030670000326700003467000036670000386700003a6700003c6700003e67000040670000426700004467000046670000486700004a6700004c6700004e67000050670000526700005467000056670000586700005a6700005c6700005e67000060670000626700006467000066670000686700006a6700006c6700006e67000070670000726700007467000076670000786700007a6700007c6700007e67000080670000826700008467000086670000886700008a6700008c670000
+    m_ExpandedIDs: 0000000074670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -780,52 +412,11 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 123.66669}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
 --- !u!114 &13
-=======
-    y: 0
-    width: 407.33337
-    height: 601.3333
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 20}
-  m_Panes:
-  - {fileID: 20}
-  - {fileID: 21}
-  - {fileID: 22}
-  m_Selected: 0
-  m_LastSelected: 1
---- !u!114 &14
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 601.3333
-    width: 407.33337
-    height: 226.00006
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 23}
-  m_Panes:
-  - {fileID: 23}
-  m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &15
->>>>>>> parent of 1d93e47 (5655)
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -847,8 +438,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1304
     y: 72.66667
-    width: 401.66663
-    height: 806.3333
+    width: 401.66675
+    height: 806.3334
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -876,105 +467,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12061, guid: 0000000000000000e000000000000000, type: 0}
-=======
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
->>>>>>> parent of 56ac1eb (좀비 추가)
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-<<<<<<< HEAD
     m_Text: Hierarchy
-    m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
-=======
-    m_Text: Game
-    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
->>>>>>> parent of 1d93e47 (5655)
+    m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     y: 72.66667
     width: 321.66666
     height: 469
-=======
-    y: 377.33334
-    width: 952.3333
-    height: 501.33337
->>>>>>> parent of 1d93e47 (5655)
-=======
-    y: 586.6667
-    width: 965
-    height: 292.33337
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
-=======
-    y: 72.66667
-    width: 1706.6667
-    height: 808.3334
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-    y: 72.66667
-    width: 1706.6667
-    height: 808.3334
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-    y: 72.66667
-    width: 1706.6667
-    height: 808.3334
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-    y: 72.66667
-    width: 1706.6667
-    height: 808.3334
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-    y: 72.66667
-    width: 1706.6667
-    height: 808.3334
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-    y: 72.66667
-    width: 1706.6667
-    height: 808.3334
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
-    y: 72.66667
-    width: 1706.6667
-    height: 808.3334
->>>>>>> parent of 56ac1eb (좀비 추가)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-<<<<<<< HEAD
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a8180000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 9af4ffffd6f5ffff
+      m_ExpandedIDs: 58c6ffffd4f9ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -999,80 +515,6 @@ MonoBehaviour:
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
 --- !u!114 &15
-=======
-  m_SerializedViewNames: []
-  m_SerializedViewValues: []
-  m_PlayModeViewName: GameView
-  m_ShowGizmos: 0
-  m_TargetDisplay: 0
-  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1920, y: 1080}
-  m_TextureFilterMode: 0
-  m_TextureHideFlags: 61
-  m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 0
-  m_UseMipMap: 0
-  m_VSyncEnabled: 0
-  m_Gizmos: 0
-  m_Stats: 0
-  m_SelectedSizes: 03000000000000000000000000000000000000000000000000000000000000000000000000000000
-  m_ZoomArea:
-    m_HRangeLocked: 0
-    m_VRangeLocked: 0
-    hZoomLockedByDefault: 0
-    vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -640
-    m_HBaseRangeMax: 640
-    m_VBaseRangeMin: -360
-    m_VBaseRangeMax: 360
-    m_HAllowExceedBaseRangeMin: 1
-    m_HAllowExceedBaseRangeMax: 1
-    m_VAllowExceedBaseRangeMin: 1
-    m_VAllowExceedBaseRangeMax: 1
-    m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
-    m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
-    m_EnableSliderZoomHorizontal: 0
-    m_EnableSliderZoomVertical: 0
-    m_UniformScale: 1
-    m_UpDirection: 1
-    m_DrawArea:
-      serializedVersion: 2
-      x: 0
-      y: 21
-      width: 1706.6667
-      height: 787.3334
-    m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 853.3334, y: 393.6667}
-    m_MarginLeft: 0
-    m_MarginRight: 0
-    m_MarginTop: 0
-    m_MarginBottom: 0
-    m_LastShownAreaInsideMargins:
-      serializedVersion: 2
-      x: -853.3334
-      y: -393.6667
-      width: 1706.6667
-      height: 787.3334
-    m_MinimalGUI: 1
-  m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 2560, y: 1212.5}
-  m_ClearInEditMode: 1
-  m_NoCameraWarning: 1
-  m_LowResolutionForAspectRatios: 01000000000000000000
-  m_XRRenderMode: 0
-  m_RenderTexture: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
---- !u!114 &16
->>>>>>> parent of 1d93e47 (5655)
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1094,18 +536,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 322.6667
     y: 72.66667
-<<<<<<< HEAD
-<<<<<<< HEAD
     width: 979.3334
     height: 469
-=======
-    width: 952.3333
-    height: 283.66666
->>>>>>> parent of 1d93e47 (5655)
-=======
-    width: 965
-    height: 493
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1115,13 +547,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-<<<<<<< HEAD
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: -98.66669, y: -26}
-=======
-      snapOffset: {x: -101, y: -26}
-      snapOffsetDelta: {x: 0, y: 0}
->>>>>>> parent of 1d93e47 (5655)
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -1131,9 +558,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -141, y: -146.33337}
+      snapOffset: {x: -141, y: 149}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 3
+      snapCorner: 1
       id: unity-grid-and-snap-toolbar
       index: 1
       layout: 1
@@ -1164,13 +591,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-<<<<<<< HEAD
-      snapOffset: {x: 0, y: 0}
-=======
-      snapOffset: {x: -99.333374, y: -172}
->>>>>>> parent of 1d93e47 (5655)
+      snapOffset: {x: 0, y: 25.333334}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 3
+      snapCorner: 0
       id: unity-transform-toolbar
       index: 0
       layout: 2
@@ -1179,9 +602,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -112.00012, y: 35.333298}
+      snapOffset: {x: 67.5, y: 86}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 1
+      snapCorner: 0
       id: Orientation
       index: 0
       layout: 4
@@ -1267,9 +690,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 0
-      snapOffset: {x: -212, y: -53.333344}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 3
+      snapCorner: 0
       id: Scene View/Occlusion Culling
       index: 7
       layout: 4
@@ -1300,7 +723,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 0
-      snapOffset: {x: 0, y: 25.333334}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Particles
@@ -1316,21 +739,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-<<<<<<< HEAD
-<<<<<<< HEAD
-    m_Target: {x: 4.601635, y: 5.0965433, z: -4.32321}
+    m_Target: {x: 0, y: 0, z: 0}
     speed: 2
-    m_Value: {x: 4.601635, y: 5.0965433, z: -4.32321}
-=======
-    m_Target: {x: 78.79538, y: 0.50524074, z: 53.223003}
-    speed: 2
-    m_Value: {x: 78.79538, y: 0.50524074, z: 53.223003}
->>>>>>> parent of 1d93e47 (5655)
-=======
-    m_Target: {x: 20.053381, y: 7.4823685, z: 0.4834292}
-    speed: 2
-    m_Value: {x: 61.662117, y: 0.6825943, z: 57.349854}
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
+    m_Value: {x: 0, y: 0, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1356,12 +767,12 @@ MonoBehaviour:
         m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 1, y: 1}
+      m_Size: {x: 0, y: 0}
     yGrid:
       m_Fade:
-        m_Target: 0
+        m_Target: 1
         speed: 2
-        m_Value: 0
+        m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -1372,44 +783,25 @@ MonoBehaviour:
         m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-      m_Size: {x: 0, y: 0}
+      m_Size: {x: 1, y: 1}
     m_ShowGrid: 1
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.03780984, y: 0.96099573, z: -0.16774248, w: -0.21661241}
+    m_Target: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
     speed: 2
-    m_Value: {x: -0.0381347, y: 0.9607427, z: -0.16918372, w: -0.21655539}
+    m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_Size:
-    m_Target: 10
+    m_Target: 14.221005
     speed: 2
-    m_Value: 10
-=======
-      m_Size: {x: 1, y: 1}
-    m_ShowGrid: 0
-    m_GridAxis: 1
-    m_gridOpacity: 0.5
-  m_Rotation:
-    m_Target: {x: -0.05807052, y: 0.15420948, z: -0.0090795215, w: -0.98629224}
-    speed: 2
-    m_Value: {x: -0.058070306, y: 0.15420891, z: -0.009079488, w: -0.9862886}
-  m_Size:
-    m_Target: 9.612387
-    speed: 2
-<<<<<<< HEAD
-    m_Value: 1.7073588
->>>>>>> parent of 1d93e47 (5655)
-=======
-    m_Value: 42.626
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
+    m_Value: 14.221005
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 0.88056
-    m_SpeedNormalized: 0.44
+    m_Speed: 1
+    m_SpeedNormalized: 0.5
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -1420,256 +812,14 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-<<<<<<< HEAD
   m_LastSceneViewRotation: {x: 0, y: 0, z: 0, w: 0}
-=======
-  m_LastSceneViewRotation: {x: -0.110863335, y: 0.81541264, z: -0.16640438, w: -0.54325104}
->>>>>>> parent of 1d93e47 (5655)
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
-  m_SceneVisActive: 0
+  m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
-<<<<<<< HEAD
 --- !u!114 &16
-=======
---- !u!114 &17
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12914, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Animator
-    m_Image: {fileID: 1711060831702674872, guid: 0000000000000000d000000000000000, type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 0
-    y: 72.66667
-    width: 965
-    height: 493
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-  m_ViewTransforms:
-    m_KeySerializationHelper:
-    - {fileID: -2919879011660432425, guid: b781991800e77454e86d12075bec734e, type: 2}
-    - {fileID: 1107317380721703508, guid: 6339a3c790f9755458483d7c75214f69, type: 2}
-    - {fileID: 8849298900215118349, guid: e8cea038023f8844c83d4b9eecbb3f41, type: 2}
-    - {fileID: -8268129551005902731, guid: 596156c5b324a7e48a8c3ffe83b0bdbf, type: 2}
-    - {fileID: -1003946417063813902, guid: 0d64c286960145a458c1bb7e7e5e028a, type: 2}
-    - {fileID: 1107020723527620750, guid: 96c523f54ae065745bbf21326a651696, type: 2}
-    - {fileID: 1107880076324989244, guid: 2ccf38554e38148419fe51c48dbf4393, type: 2}
-    - {fileID: 1107743904666425524, guid: 627e7c101ce784a4587d62fd6a98170a, type: 2}
-    - {fileID: 1107347688596576882, guid: 32c17e73c71fd5f4ca27052157b2d6d4, type: 2}
-    - {fileID: 6720842793417899226, guid: e6a944175ed4c40439f05606b00eeda3, type: 2}
-    - {fileID: 5138521512990545923, guid: 2e80d3bbecb26604e90c6040cff92e11, type: 2}
-    m_ValueSerializationHelper:
-    - e00: 0.7245283
-      e01: 0
-      e02: 0
-      e03: 58.47168
-      e10: 0
-      e11: 0.7245283
-      e12: 0
-      e13: 111.07547
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.2842804
-      e01: 0
-      e02: 0
-      e03: 14.960297
-      e10: 0
-      e11: 0.2842804
-      e12: 0
-      e13: -39.281235
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.8216216
-      e01: 0
-      e02: 0
-      e03: 315.41443
-      e10: 0
-      e11: 0.8216216
-      e12: 0
-      e13: 392.94592
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.72982454
-      e01: 0
-      e02: 0
-      e03: -21.491241
-      e10: 0
-      e11: 0.72982454
-      e12: 0
-      e13: 40.84211
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 1
-      e01: 0
-      e02: 0
-      e03: 14.3333435
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 77
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.37163815
-      e01: 0
-      e02: 0
-      e03: 215.88997
-      e10: 0
-      e11: 0.37163815
-      e12: 0
-      e13: 10.540344
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.25297427
-      e01: 0
-      e02: 0
-      e03: 109.78144
-      e10: 0
-      e11: 0.25297427
-      e12: 0
-      e13: 43.788475
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.531511
-      e01: 0
-      e02: 0
-      e03: 119.956726
-      e10: 0
-      e11: 0.531511
-      e12: 0
-      e13: 244.61276
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.8084211
-      e01: 0
-      e02: 0
-      e03: -25.421051
-      e10: 0
-      e11: 0.8084211
-      e12: 0
-      e13: 37.02104
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.8084211
-      e01: 0
-      e02: 0
-      e03: -25.421051
-      e10: 0
-      e11: 0.8084211
-      e12: 0
-      e13: 49.14737
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-  m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 2e80d3bbecb26604e90c6040cff92e11, type: 2}
-  m_BreadCrumbs:
-  - m_Target: {fileID: 5138521512990545923, guid: 2e80d3bbecb26604e90c6040cff92e11, type: 2}
-    m_ScrollPosition: {x: 0, y: 0}
-  stateMachineGraph: {fileID: 0}
-  stateMachineGraphGUI: {fileID: 0}
-  blendTreeGraph: {fileID: 0}
-  blendTreeGraphGUI: {fileID: 0}
-  m_AutoLiveLink: 0
-  m_MiniTool: 0
-  m_LockTracker:
-    m_IsLocked: 0
-  m_CurrentEditor: 1
-  m_LayerEditor:
-    m_SelectedLayerIndex: 0
---- !u!114 &18
->>>>>>> parent of 1d93e47 (5655)
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1684,44 +834,26 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-<<<<<<< HEAD
     m_Text: Game
-    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 600
-    y: 80
-    width: 777.3334
-    height: 425
-=======
-    m_Text: Hierarchy
-    m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000, type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 966
+    x: 322.6667
     y: 72.66667
-<<<<<<< HEAD
-    width: 290.00006
-    height: 353.66666
->>>>>>> parent of 1d93e47 (5655)
-=======
-    width: 331.33337
-    height: 354.33334
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
+    width: 979.3334
+    height: 469
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-<<<<<<< HEAD
   m_SerializedViewNames: []
   m_SerializedViewValues: []
   m_PlayModeViewName: GameView
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 777.3334, y: 404}
+  m_TargetSize: {x: 979.3334, y: 448}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -1736,10 +868,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -388.6667
-    m_HBaseRangeMax: 388.6667
-    m_VBaseRangeMin: -212.5
-    m_VBaseRangeMax: 212.5
+    m_HBaseRangeMin: -326.44446
+    m_HBaseRangeMax: 326.44446
+    m_VBaseRangeMin: -149.33334
+    m_VBaseRangeMax: 149.33334
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -1756,319 +888,30 @@ MonoBehaviour:
     m_DrawArea:
       serializedVersion: 2
       x: 0
-      y: 0
-      width: 777.3334
-      height: 425
+      y: 21
+      width: 979.3334
+      height: 448
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 388.6667, y: 212.5}
+    m_Translation: {x: 489.6667, y: 224}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -388.6667
-      y: -212.5
-      width: 777.3334
-      height: 425
+      x: -489.6667
+      y: -224
+      width: 979.3334
+      height: 448
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 777.3334, y: 425}
+  m_LastWindowPixelSize: {x: 1469, y: 703.5}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
 --- !u!114 &17
-=======
-  m_SceneHierarchy:
-    m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: f2bbf9ff
-      m_LastClickedID: 0
-      m_ExpandedIDs: 8eacf7ffba97faff76a4faffdcaffaff06b3faff3ce3faff1093fcffe893fcffe496fcff82a3fcff7028fdff98a7fdff08d7fdffd681fefff819ffff6625ffff22fbffff045b0000565b000014d30000aed30000a40a0100861e0100201f01001e7c0100207c0100247c0100267c0100287c01002a7c01002e7c0100307c0100327c0100347c0100367c0100387c01003a7c0100407c01004a7c01004e7c0100507c0100547c0100567c0100587c01005a7c01005c7c01005e7c0100607c0100627c0100687c01006a7c01006c7c01006e7c0100707c0100727c0100767c0100
-      m_RenameOverlay:
-        m_UserAcceptedRename: 0
-        m_Name: zombie_01(Clone)
-        m_OriginalName: zombie_01(Clone)
-        m_EditFieldRect:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        m_UserData: -547000
-        m_IsWaitingForDelay: 0
-        m_IsRenaming: 0
-        m_OriginalEventType: 0
-        m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 10}
-      m_SearchString: 
-    m_ExpandedScenes: []
-    m_CurrenRootInstanceID: 0
-    m_LockTracker:
-      m_IsLocked: 0
-    m_CurrentSortingName: TransformSorting
-  m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &19
->>>>>>> parent of 1d93e47 (5655)
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-<<<<<<< HEAD
-  m_Script: {fileID: 12003, guid: 0000000000000000e000000000000000, type: 0}
-=======
-  m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
-  m_TitleContent:
-    m_Text: Project
-    m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000, type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 966
-    y: 448
-    width: 331.33337
-    height: 431.00003
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-  m_SearchFilter:
-    m_NameFilter: 
-    m_ClassNames: []
-    m_AssetLabels: []
-    m_AssetBundleNames: []
-    m_VersionControlStates: []
-    m_SoftLockControlStates: []
-    m_ReferencingInstanceIDs: 
-    m_SceneHandles: 
-    m_ShowAllHits: 0
-    m_SkipHidden: 0
-    m_SearchArea: 1
-    m_Folders:
-    - Assets/prefab/skeletonArchor
-    m_Globs: []
-    m_OriginalText: 
-  m_ViewMode: 1
-  m_StartGridSize: 60
-  m_LastFolders:
-  - Assets/prefab/skeletonArchor
-  m_LastFoldersGridSize: 60
-  m_LastProjectPath: C:\Users\user\Desktop\programming\GitHubLocalRepository\UnityPortfolio\TeamFightTatics
-  m_LockTracker:
-    m_IsLocked: 0
-  m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4a930000
-    m_LastClickedID: 37706
-    m_ExpandedIDs: 00000000966c0000986c00009a6c00009c6c00009e6c0000a06c0000a26c0000a46c0000a66c0000a86c0000aa6c0000ac6c0000ae6c0000b06c0000b26c0000b46c0000b66c0000b86c0000ba6c0000bc6c0000be6c0000c06c0000c26c0000c46c0000c66c0000c86c0000ca6c0000cc6c0000ce6c0000d06c0000d26c0000d46c0000d66c0000d86c0000da6c0000dc6c0000de6c0000e06c0000e26c0000e46c0000e66c0000e86c0000ea6c0000ec6c0000f26c0000f46c0000f66c0000f86c0000086d00000291000000ca9a3b
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 11}
-    m_SearchString: 
-    m_CreateAssetUtility:
-      m_EndAction: {fileID: 0}
-      m_InstanceID: 0
-      m_Path: 
-      m_Icon: {fileID: 0}
-      m_ResourceFile: 
-  m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 00000000966c0000986c00009a6c00009c6c00009e6c0000a06c0000a26c0000a46c0000a66c0000a86c0000aa6c0000ac6c0000ae6c0000b06c0000b26c0000b46c0000b66c0000b86c0000ba6c0000bc6c0000be6c0000c06c0000c26c0000c46c0000c66c0000c86c0000ca6c0000cc6c0000ce6c0000d06c0000d26c0000d46c0000d66c0000d86c0000da6c0000dc6c0000de6c0000e06c0000e26c0000e46c0000e66c0000e86c0000ea6c0000ec6c0000f26c0000f46c0000f66c0000f86c00000291000000ca9a3b
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
-    m_SearchString: 
-    m_CreateAssetUtility:
-      m_EndAction: {fileID: 0}
-      m_InstanceID: 0
-      m_Path: 
-      m_Icon: {fileID: 0}
-      m_ResourceFile: 
-  m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c6230000e27500000276000004760000c4840000c620000000000000fe6004001472040046b9030058f104008c1d01008e2b0100
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 11}
-    m_CreateAssetUtility:
-      m_EndAction: {fileID: 0}
-      m_InstanceID: 0
-      m_Path: 
-      m_Icon: {fileID: 0}
-      m_ResourceFile: 
-    m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 81.99997}
-    m_GridSize: 60
-  m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 132
---- !u!114 &20
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12019, guid: 0000000000000000e000000000000000, type: 0}
->>>>>>> parent of 1d93e47 (5655)
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Console
-    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000, type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
-    x: 2249
-    y: 726.5
-    width: 920
-    height: 250
-=======
-    x: 1245.3334
-    y: 72.66667
-    width: 459.66663
-    height: 579
->>>>>>> parent of 1d93e47 (5655)
-=======
-    x: 1299.3334
-    y: 72.66667
-    width: 406.33337
-    height: 580.3333
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-<<<<<<< HEAD
-=======
-  m_ObjectsLockedBeforeSerialization: []
-  m_InstanceIDsLockedBeforeSerialization: 
-  m_PreviewResizer:
-    m_CachedPref: 151
-    m_ControlHash: -371814159
-    m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
-  m_GlobalObjectId: 
-  m_InspectorMode: 0
-  m_LockTracker:
-    m_IsLocked: 0
-  m_PreviewWindow: {fileID: 0}
---- !u!114 &21
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12090, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 300, y: 250}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Occlusion
-    m_Image: {fileID: -6304520642066340446, guid: 0000000000000000d000000000000000, type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 1272.6667
-    y: 72.66667
-    width: 433.00012
-    height: 569.6667
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
---- !u!114 &22
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12141, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 300, y: 360}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Navigation
-    m_Image: {fileID: 1087843850482249999, guid: 0000000000000000d000000000000000, type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 1318
-    y: 72.66667
-    width: 387
-    height: 569
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
---- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2088,26 +931,11 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1299.3334
-    y: 674
-    width: 406.33337
-    height: 205.00006
+    x: 2249
+    y: 726.5
+    width: 920
+    height: 250
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
->>>>>>> parent of 1d93e47 (5655)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
-=======
->>>>>>> parent of 56ac1eb (좀비 추가)
