@@ -1,0 +1,23 @@
+              ▶ >>JJ Studio <<◀
+
+
+Monster Pack optimized for Mobile RPG implementations!
+
+Dark Fantasy Monster Pack B-4 【Endarasa】
+
+   Verts: 1836
+   Tris: 2689
+   Texture: 512 X 512 X 1 (4 types of texture)
+
+Animations (x15) :
+idle, run, attack01, attack02, hit, skill01, skill01cycle, skill02, skill03, skill04, skill05, skill06, pskill02, stun, down
+
+
+
+
+Thank you for your purchase!
+If you have any questions mail me at 2018studiojj@gmail.com
+
+
+▼Check out our other Assets▼
+https://assetstore.unity.com/publishers/38479

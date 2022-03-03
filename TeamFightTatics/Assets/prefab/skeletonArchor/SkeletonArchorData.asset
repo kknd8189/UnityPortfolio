@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dc6da0982609f4883dbfccc2d5282f, type: 3}
+  m_Name: SkeletonArchorData
+  m_EditorClassIdentifier: 
+  CharacterName: SkeletonArchor
+  SkillExplain: "\uD604\uC7AC \uC801\uC5D0\uAC8C \uACF5\uACA9\uB825 \uB450\uBC30\uC758
+    \uD53C\uD574"
+  CharacterNum: 0
+  SynergyNum: 0000000005000000
+  CharacterPrefab: {fileID: 3869442567412336123, guid: 5065df4a7fe8a61419e55e24a8b1a37a, type: 3}
+  CardPrefab: {fileID: 3116885294589100871, guid: f496bd72cb6462248a62cc6da4271255, type: 3}
+  MaxHP: 40
+  Power: 10
+  MaxMP: 40
+  DefaultMP: 10
+  Cost: 1
+  AttackRange: 30
+  AttackDelay: 0.8
+  Speed: 10

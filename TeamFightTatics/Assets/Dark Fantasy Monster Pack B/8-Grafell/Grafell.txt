@@ -1,0 +1,23 @@
+              ▶ >>JJ Studio <<◀
+
+
+Monster Pack optimized for Mobile RPG implementations!
+
+Dark Fantasy Monster Pack B-8 【Grafell】
+
+   Verts: 1052
+   Tris: 1234
+   Texture: 512 X 512 X 1 (4 types of texture)
+
+Animations (x11) :
+idle, walk, attack01, skill01, skill02, skill03, pskill02, pskill03, hit01, stun, die
+
+
+
+
+Thank you for your purchase!
+If you have any questions mail me at 2018studiojj@gmail.com
+
+
+▼Check out our other Assets▼
+https://assetstore.unity.com/publishers/38479
