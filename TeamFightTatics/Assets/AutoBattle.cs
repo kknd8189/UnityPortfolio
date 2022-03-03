@@ -24,6 +24,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
         get { return _bonusPower; }
         set { _bonusPower = value; }
     }
+    private Enemy enemy;
 
 
     [SerializeField]
@@ -70,6 +71,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
         Persona = GetComponent<Persona>();
         CharacterState = CharacterState.Idle;
         Agent = GetComponent<NavMeshAgent>();
+        enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
     }
     private void Update()
     {
@@ -128,6 +130,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
         Persona.CurrentHp = Persona.MaxHp;
         Persona.CurrentMp = Persona.DefaultMp;
         transform.position = TileManager.Instance.BattleTileList[Persona.DiposedIndex].transform.position;
+        BonusPower = 0;
 
         float dir = 0;
 
@@ -202,20 +205,17 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
 
         if (gameObject.tag == "PlayerCharacter")
         {
-            GameObject[] enemyObject = GameObject.FindGameObjectsWithTag("EnemyCharacter");
-            for (int i = 0; i < enemyObject.Length; i++)
+            for (int i = 0; i < enemy.EnemyPersonaList.Count; i++)
             {
-                enemys.Add(enemyObject[i]);
+                enemys.Add(enemy.EnemyPersonaList[i]);
             }
         }
 
         else if (gameObject.tag != "PlayerCharacter")
         {
-            GameObject[] enemyObject = GameObject.FindGameObjectsWithTag("PlayerCharacter");
-            for (int i = 0; i < enemyObject.Length; i++)
+            for (int i = 0; i < Player.OnBattleCharacterList.Count; i++)
             {
-                if (!enemyObject[i].GetComponent<Persona>().IsOnBattleField) break;
-                enemys.Add(enemyObject[i]);
+                enemys.Add(Player.OnBattleCharacterList[i]);
             }
         }
 

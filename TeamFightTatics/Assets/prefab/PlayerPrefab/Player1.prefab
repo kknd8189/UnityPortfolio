@@ -794,16 +794,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Enemy: {fileID: 0}
-  AudioSource: {fileID: 0}
-  AudioClips:
-  - {fileID: 8300000, guid: ca8f9195dbdea4f4facec8b6c1646d45, type: 3}
-  - {fileID: 8300000, guid: b99bf517044b548da8c270b62b28a92c, type: 3}
-  - {fileID: 8300000, guid: 934ab2c1efe3b4f6eab86d1afd9841aa, type: 3}
+  OnBattleCharacterList: []
   _onSummonFieldCount: 0
   _liveCharacterCount: 0
   _level: 1
   _gold: 10
   _capacity: 1
+  PlayerNumber: 0
 --- !u!114 &2337317468725939504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,7 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f38859b301e7741a2e1efbd195f892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerState: 0
+  _playerState: 1
 --- !u!136 &2760459887647231540
 CapsuleCollider:
   m_ObjectHideFlags: 0

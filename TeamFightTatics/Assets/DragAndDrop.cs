@@ -91,7 +91,10 @@ public class DragAndDrop : MonoBehaviour
 
                     player.Capacity--;
                     player.LiveCharacterCount++;
+                    player.OnBattleCharacterList.Add(gameObject);
                 }
+
+
                 persona.DiposedIndex = dectectedTile.collider.GetComponent<BattleFiled>().Index;
                 transform.position = dectectedTile.transform.position;
                 _autoBattle.Agent.enabled = true;
@@ -109,6 +112,7 @@ public class DragAndDrop : MonoBehaviour
                     synergy.DecreaseSynergyCount(persona.CharacterNum);
                     player.Capacity++;
                     player.LiveCharacterCount--;
+                    player.OnBattleCharacterList.Remove(gameObject);
                     return;
                 }
             }

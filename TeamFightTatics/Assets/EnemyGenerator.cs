@@ -37,6 +37,7 @@ public class EnemyGenerator : MonoBehaviour
                 Enemy.LiveEnemyCount++;
                 characterPrefab.SetActive(true);
                 characterPrefab.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
+                Enemy.EnemyPersonaList.Add(characterPrefab);
                 k++;
             }
         }

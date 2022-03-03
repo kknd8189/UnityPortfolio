@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections.Generic;
 
 
 public class Enemy : Entity
 {
     public UnityEvent<int> CurrentHpChanged = new UnityEvent<int>();
     public Player Player;
+    public List<GameObject> EnemyPersonaList = new List<GameObject>();
+
     public new int CurrentHp
     {
         get { return _currentHp; }

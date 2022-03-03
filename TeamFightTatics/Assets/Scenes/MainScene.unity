@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.55842066, g: 0.6096278, b: 0.6899031, a: 1}
+  m_IndirectSpecularColor: {r: 0.22250071, g: 0.26246572, b: 0.34378698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1679,6 +1679,10 @@ PrefabInstance:
     - target: {fileID: 1231873419245186938, guid: fdf678a7193c58346a367114b3da57ac, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231873419245186938, guid: fdf678a7193c58346a367114b3da57ac, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 1238898212176575418, guid: fdf678a7193c58346a367114b3da57ac, type: 3}
       propertyPath: m_Layer
@@ -3889,6 +3893,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Player: {fileID: 0}
+  EnemyPersonaList: []
   _liveEnemyCount: 0
 --- !u!1 &412074918 stripped
 GameObject:

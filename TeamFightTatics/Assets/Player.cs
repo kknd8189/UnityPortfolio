@@ -12,6 +12,7 @@ public class Player : Entity
     public Enemy Enemy;
     private Synergy synergy;
     public List<GameObject>[] PlayerCharacterList;
+    public List<GameObject> OnBattleCharacterList = new List<GameObject>();
 
     [SerializeField]
     private int _onSummonFieldCount = 0;
@@ -100,6 +101,7 @@ public class Player : Entity
     //Lv.6  Lv.7	36 XP
     //Lv.7  Lv.8	56 XP
     //Lv.8  Lv.9	80 XP
+
     private int[] maxExpContainer = { 0, 2, 6, 10, 20, 36, 56, 80, 999 };
     private bool _isShoot = false;
 
