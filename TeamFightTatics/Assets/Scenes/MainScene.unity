@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.21123913, g: 0.24927497, b: 0.32783407, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.22296274, g: 0.26293814, b: 0.34423125, a: 1}
+>>>>>>> d3d3a95386b981fd3fa8bdbfead5eecbbaa5a498
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1995,7 +1999,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 039f86d77b8595040b5c019a11ab01d8, type: 2}
   - {fileID: 11400000, guid: f697a389d7ef16e4c9b632c45eebf8fa, type: 2}
   - {fileID: 11400000, guid: 5673308ff22c53848b6744c0c282c864, type: 2}
-  ArrowPrefab: {fileID: 888011140261115440, guid: 33e8a9f6574dccf4ea783d5e3803a5ba, type: 3}
+  ArrowPrefab: {fileID: 7007710386359201572, guid: 5830f845de91f48449e573695d2e1094, type: 3}
   Amount: 20
 --- !u!4 &355609425
 Transform:
