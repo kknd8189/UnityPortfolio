@@ -55,6 +55,7 @@ public class AutoBattle : MonoBehaviour, IAttack, ISkill
     {
         anim = GetComponent<Animator>();
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        Persona = GetComponent<Persona>();
         CharacterState = CharacterState.Idle;
     }
     private void Update()

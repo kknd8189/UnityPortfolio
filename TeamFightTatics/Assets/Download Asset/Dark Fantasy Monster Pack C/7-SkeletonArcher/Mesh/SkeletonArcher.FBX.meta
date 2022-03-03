@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 7205588290d3308459b35246b2bba54f
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 21202
   internalIDToNameTable:
   - first:
       1: 100000
@@ -357,6 +357,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -386,6 +387,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
+    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -397,6 +399,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
@@ -416,13 +419,8 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips:
-  - 9795e0cea4c22324485783ad2ae5c9f3
   - 327bcef77e4563742a993a816ab31871
-  - ea4e717c2578d3f41b7f6e45b231e7d4
   - ec9ed34feac5b474598846500b8f2379
-  - 3edf220c824f0604993108954a546467
-  - 1f0a094aa842a344aa29f38333dd861a
-  - 8a040bc95437aa74db559a119d4ddcad
   - cc7d057ba5cd84047a418ef1ae7b300a
   - 5caa1d2c07204454a9679b4f697106f0
   importAnimation: 0

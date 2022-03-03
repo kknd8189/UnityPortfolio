@@ -38,11 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-<<<<<<< HEAD
-  m_IndirectSpecularColor: {r: 0.43863854, g: 0.48161137, b: 0.5533778, a: 1}
-=======
   m_IndirectSpecularColor: {r: 0.5344114, g: 0.5835727, b: 0.6612728, a: 1}
->>>>>>> parent of 6262e98 (에셋 추가 화살 모델링 추가)
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1998,6 +1994,7 @@ MonoBehaviour:
   CharacterDataList:
   - {fileID: 11400000, guid: 039f86d77b8595040b5c019a11ab01d8, type: 2}
   - {fileID: 11400000, guid: f697a389d7ef16e4c9b632c45eebf8fa, type: 2}
+  - {fileID: 11400000, guid: 5673308ff22c53848b6744c0c282c864, type: 2}
   ArrowPrefab: {fileID: 888011140261115440, guid: 33e8a9f6574dccf4ea783d5e3803a5ba, type: 3}
   Amount: 20
 --- !u!4 &355609425
