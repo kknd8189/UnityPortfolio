@@ -31,9 +31,14 @@ public class EnemyGenerator : MonoBehaviour
                 characterPrefab = PoolManager.Instance.CharacterQueue[j].Dequeue();
                 characterPrefab.tag = "EnemyCharacter";
                 characterPrefab.transform.SetParent(null);
+                Persona persona = characterPrefab.GetComponent<Persona>();
                 characterPrefab.transform.position = TileManager.Instance.BattleTileList[StageDataList[turn].Index[k]].transform.position;
                 characterPrefab.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                characterPrefab.GetComponent<Persona>().DiposedIndex = StageDataList[turn].Index[k];
+                characterPrefab.transform.localScale = characterPrefab.transform.localScale * 1.3f;
+                persona.DiposedIndex = StageDataList[turn].Index[k];
+                persona.MaxHp = persona.MaxHp * 2;
+                persona.CurrentHp = persona.MaxHp;
+                persona.Power = persona.Power * 2;
                 Enemy.LiveEnemyCount++;
                 characterPrefab.SetActive(true);
                 characterPrefab.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;

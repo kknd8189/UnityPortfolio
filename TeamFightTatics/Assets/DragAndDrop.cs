@@ -37,7 +37,8 @@ public class DragAndDrop : MonoBehaviour
             _autoBattle.Agent.enabled = true;
             return;
         }
-        else if (GameManager.Instance.GameState == GAMESTATE.Battle)
+
+        else if (GameManager.Instance.GameState == GAMESTATE.Battle && GetComponent<Persona>().IsOnBattleField)
                         return;
         Vector3 curScreenSpace = new(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z);
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenSpace) + offset;

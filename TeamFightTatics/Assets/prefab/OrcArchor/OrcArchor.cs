@@ -9,6 +9,8 @@ public class OrcArchor : Persona
         Persona enemyPersona = GetComponent<AutoBattle>().enemyPersona;
         enemyPersona.CurrentHp -= Power;
         enemyPersona.gameObject.transform.position -= enemyPersona.gameObject.transform.forward * 20;
-        enemyPersona.GetComponent<AutoBattle>().CharacterState = CharacterState.Chase;
+        AutoBattle ab = enemyPersona.GetComponent<AutoBattle>();
+        if(ab.CharacterState != CharacterState.Die)
+            ab.CharacterState = CharacterState.Chase;
     }
 }

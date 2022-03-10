@@ -136,7 +136,13 @@ public class Player : Entity
             if (GameManager.Instance.IsOver)
             {
                 _isShoot = false;
+
+                for(int i = 0; i < 8; i++)
+                {
+                    PromoteHelper(i);
+                }
             }
+
             if (Enemy.LiveEnemyCount > 0 && LiveCharacterCount > 0 && GameManager.Instance.NextTurnTime >= 19.5f) Shoot();
 
             if (Enemy.LiveEnemyCount <= 0) Shoot();
@@ -175,34 +181,40 @@ public class Player : Entity
             CurrentExp = CurrentExp;
         }
     }
+
     public void PromoteHelper(int characterNum)
     {
-        if (PlayerCharacterList[characterNum].Count == 3)
+        if (PlayerCharacterList[characterNum].Count >= 3)
         {
             Persona persona0 = PlayerCharacterList[characterNum][0].GetComponent<Persona>();
             PlayerCharacterList[characterNum][0].transform.localScale = PlayerCharacterList[characterNum][0].transform.localScale * 1.3f;
             persona0.Power = persona0.Power * 2;
             persona0.MaxHp = persona0.CurrentHp = persona0.MaxHp * 2;
 
-            Persona persona1 = PlayerCharacterList[characterNum][1].GetComponent<Persona>();
-            if (persona1.IsOnBattleField)
-            {
-                Tile Battletile = TileManager.Instance.BattleTileList[persona1.DiposedIndex].GetComponent<Tile>();
-                synergy.DecreaseSynergyCount(characterNum);
-                LiveCharacterCount--;
-                Capacity++;
-                Battletile.IsUsed = false;
-            }
 
-            else if (!persona1.IsOnBattleField)
+            for(int i = 1; i < 3; i++)
             {
-                Tile SummonTile = TileManager.Instance.SummonTileList[persona1.DiposedIndex].GetComponent<Tile>();
-                OnSummonFieldCount--;
-                SummonTile.IsUsed = false;
-            }
-            PoolManager.Instance.PushCharacterQueue(characterNum, PlayerCharacterList[characterNum][1]);
-            PoolManager.Instance.PushCharacterQueue(characterNum, PlayerCharacterList[characterNum][2]);
+                Persona persona1 = PlayerCharacterList[characterNum][i].GetComponent<Persona>();
 
+                if (persona1.IsOnBattleField)
+                {
+                    Tile Battletile = TileManager.Instance.BattleTileList[persona1.DiposedIndex].GetComponent<Tile>();
+                    synergy.DecreaseSynergyCount(characterNum);
+                    LiveCharacterCount--;
+                    Capacity++;
+                    Battletile.IsUsed = false;
+                }
+
+                else if (!persona1.IsOnBattleField)
+                {
+                    Tile SummonTile = TileManager.Instance.SummonTileList[persona1.DiposedIndex].GetComponent<Tile>();
+                    OnSummonFieldCount--;
+                    SummonTile.IsUsed = false;
+                }
+
+                PoolManager.Instance.PushCharacterQueue(characterNum, PlayerCharacterList[characterNum][i]);
+            }
+           
           
             PlayerCharacterList[characterNum].Clear();
 

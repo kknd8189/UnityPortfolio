@@ -91,6 +91,9 @@ public class GameManager : MonoBehaviour
             IsOver = true;
             NextTurnTime = 0;
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
     public void GameOver()
     {

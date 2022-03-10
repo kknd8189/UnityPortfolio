@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.22250071, g: 0.26246572, b: 0.34378698, a: 1}
+  m_IndirectSpecularColor: {r: 0.21140602, g: 0.24972838, b: 0.32856628, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3875,6 +3875,8 @@ MonoBehaviour:
   StageDataList:
   - {fileID: 11400000, guid: 6effbffc0fd76354490f4bfad8c2b073, type: 2}
   - {fileID: 11400000, guid: 07f569b4f5b1f1b4b8f3d827930ff1db, type: 2}
+  - {fileID: 11400000, guid: 4dc92f0d8d6d88944a76dc7c0a9af18f, type: 2}
+  - {fileID: 11400000, guid: 40fa77198e017ce42a5327623f8b58f6, type: 2}
   Enemy: {fileID: 407590002}
 --- !u!114 &407590002
 MonoBehaviour:
@@ -12724,6 +12726,7 @@ GameObject:
   - component: {fileID: 2062546921}
   - component: {fileID: 2062546923}
   - component: {fileID: 2062546925}
+  - component: {fileID: 2062546926}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -12944,6 +12947,19 @@ MonoBehaviour:
   - {fileID: 549608109}
   - {fileID: 1089306547}
   - {fileID: 1373177952}
+--- !u!114 &2062546926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062546920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d4f54d4ef925748a72f0274ad7efa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SettingUI: {fileID: 0}
 --- !u!1001 &2066465340
 PrefabInstance:
   m_ObjectHideFlags: 0

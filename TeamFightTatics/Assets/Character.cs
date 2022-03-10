@@ -70,6 +70,8 @@ public class Character : Entity
 
         Player.Gold -= character.Cost;
         RerollManager.eraseCard(_cardIndex);
-        Player.PromoteHelper(CharacterNum);
+
+        if(GameManager.Instance.GameState == GAMESTATE.StandBy) 
+            Player.PromoteHelper(CharacterNum);
     }
 }

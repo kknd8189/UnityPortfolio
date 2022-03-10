@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 133fb4c982828e547b50145eaa7ec5ce, type: 3}
-  m_Name: Turn1
+  m_Name: Turn4
   m_EditorClassIdentifier: 
-  Amount: 0000000001000000
-  Index: 32000000
+  Amount: 0300000004000000
+  Index: 4600000050000000
