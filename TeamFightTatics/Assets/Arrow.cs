@@ -5,17 +5,20 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
 
-    public float Speed = 10f;
+    public float Speed = 15f;
     private int _power;
 
     private GameObject Target;
-    public new Rigidbody rigidbody;
-
-    private void Update()
+    public Rigidbody ArrowRigidbody;
+    private void Awake()
     {
-        transform.position += transform.up * Speed * Time.deltaTime;
-        Vector3 dir = (Target.transform.position - transform.position + Target.transform.up * 3).normalized;
-        transform.up = Vector3.Lerp(transform.up, dir, 0.25f);
+        ArrowRigidbody = GetComponent<Rigidbody>();
+    }
+    private void FixedUpdate()
+    {
+        ArrowRigidbody.velocity = transform.forward * Speed;
+        Quaternion ballTargetRotation = Quaternion.LookRotation(Target.transform.position + new Vector3(0, 0.8f) - transform.position);
+        ArrowRigidbody.MoveRotation(Quaternion.RotateTowards(transform.rotation, ballTargetRotation, 10));
     }
 
     private void OnCollisionEnter(Collision collision)

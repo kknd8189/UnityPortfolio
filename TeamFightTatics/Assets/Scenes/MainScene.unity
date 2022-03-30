@@ -3877,6 +3877,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 07f569b4f5b1f1b4b8f3d827930ff1db, type: 2}
   - {fileID: 11400000, guid: 4dc92f0d8d6d88944a76dc7c0a9af18f, type: 2}
   - {fileID: 11400000, guid: 40fa77198e017ce42a5327623f8b58f6, type: 2}
+  - {fileID: 11400000, guid: 7504c13c42bd5524291448d232a5211b, type: 2}
+  - {fileID: 11400000, guid: afc14684f2b789a459cb5899370dca2f, type: 2}
+  - {fileID: 11400000, guid: 40fa77198e017ce42a5327623f8b58f6, type: 2}
+  - {fileID: 11400000, guid: a1a295d9309fd5841bfb503949b2d227, type: 2}
+  - {fileID: 11400000, guid: 74d3e316af02a7841adf27079d40e922, type: 2}
   Enemy: {fileID: 407590002}
 --- !u!114 &407590002
 MonoBehaviour:
